@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the stanford_news feature.
+ * Code for the Stanford News feature.
  */
 
 include_once 'stanford_news.features.inc';

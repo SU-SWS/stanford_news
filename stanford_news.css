@@ -1,0 +1,16 @@
+div.node-news-item legend {
+display:none;
+}
+div.node-news-item div.fieldset-wrapper {
+margin-top:10px;
+}
+fieldset.group-s-news-imagemeta {
+width: 260px;
+float:left;
+margin: 0 10px 10px 0;
+}
+div.field-name-field-s-news-imagecredit {
+font-size:.9em;
+font-family:sans-serif;
+color:#666;
+}
