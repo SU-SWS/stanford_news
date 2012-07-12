@@ -50,7 +50,7 @@ function stanford_news_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -78,7 +78,7 @@ function stanford_news_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '5',
+        'weight' => '4',
       ),
     ),
   );
@@ -184,7 +184,7 @@ function stanford_news_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_generic',
-        'weight' => '7',
+        'weight' => '6',
       ),
     ),
   );
@@ -270,7 +270,7 @@ function stanford_news_field_default_fields() {
         ),
         'max_filesize' => '',
         'max_resolution' => '',
-        'min_resolution' => '720x720',
+        'min_resolution' => '720x480',
         'title_field' => 0,
         'user_register_form' => FALSE,
       ),
@@ -284,6 +284,11 @@ function stanford_news_field_default_fields() {
           'insert_styles' => array(
             'auto' => 'auto',
             'image' => 0,
+            'image_150x200_profile_photo' => 0,
+            'image_240x320_lead_image' => 0,
+            'image_270x110_horizontal_medium' => 0,
+            'image_480x480_crop' => 0,
+            'image_90x90_square' => 0,
             'image_large' => 0,
             'image_medium' => 0,
             'image_thumbnail' => 0,
@@ -420,12 +425,12 @@ function stanford_news_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_s_news_link',
-      'label' => 'Link',
+      'label' => 'External Link',
       'required' => 0,
       'settings' => array(
         'attributes' => array(
           'class' => '',
-          'configurable_title' => 0,
+          'configurable_title' => 1,
           'rel' => '',
           'target' => 'default',
           'title' => '',
@@ -434,7 +439,7 @@ function stanford_news_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
-        'title' => 'none',
+        'title' => 'optional',
         'title_maxlength' => '128',
         'title_value' => '',
         'url' => 0,
@@ -446,7 +451,7 @@ function stanford_news_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '6',
+        'weight' => '5',
       ),
     ),
   );
@@ -488,10 +493,11 @@ function stanford_news_field_default_fields() {
 <strong>Be brief, you only have 50 characters!</strong>',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'inline',
+          'module' => 'text',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '1',
+          'type' => 'text_default',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -525,10 +531,10 @@ function stanford_news_field_default_fields() {
   t('Ancilary materials related to this item, PDF or TXT');
   t('Attachment');
   t('Body');
+  t('External Link');
   t('Image');
   t('Image Credits');
   t('Indicate the source of an image, and copyright and other rights info, if necessary');
-  t('Link');
   t('Short Title');
   t('This is a terse headline that can optionally be used in slideshows, sidebars, etc. 
 <strong>Be brief, you only have 50 characters!</strong>');
