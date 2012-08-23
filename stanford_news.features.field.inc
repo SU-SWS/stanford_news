@@ -50,7 +50,7 @@ function stanford_news_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -124,7 +124,7 @@ function stanford_news_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -340,11 +340,11 @@ function stanford_news_field_default_fields() {
       'description' => 'Indicate the source of an image, and copyright and other rights info, if necessary',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '5',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -410,7 +410,7 @@ function stanford_news_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'inline',
+          'label' => 'hidden',
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
@@ -494,10 +494,9 @@ function stanford_news_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'hidden',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
