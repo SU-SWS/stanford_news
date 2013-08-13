@@ -28,7 +28,6 @@ features[field][] = node-stanford_news_item-field_s_news_attachment
 features[field][] = node-stanford_news_item-field_s_news_categories
 features[field][] = node-stanford_news_item-field_s_news_date
 features[field][] = node-stanford_news_item-field_s_news_link
-features[field][] = node-stanford_news_item-field_s_news_person
 features[field][] = node-stanford_news_item-field_s_news_source
 features[field][] = node-stanford_news_item-field_s_slide_featured
 features[field_group][] = group_descriptor_info|node|stanford_news_item|default
