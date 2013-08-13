@@ -1,5 +1,5 @@
 name = Stanford News
-description = List of news item views with an image and taxonomy terms
+description = News Item content type, and list Views with an image and taxonomy terms
 core = 7.x
 package = Stanford
 php = 5.2.4
@@ -20,6 +20,7 @@ dependencies[] = taxonomy
 dependencies[] = views
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
+features[ctools][] = field_group:field_group:1
 features[features_api][] = api:1
 features[field][] = node-stanford_news_item-body
 features[field][] = node-stanford_news_item-field_s_image_info
