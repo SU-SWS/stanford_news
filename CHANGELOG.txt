@@ -1,2 +1,6 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
+
+Stanford News 7.x-2.0-alpha1, xxxx-xx-xx
+----------------------------------------
+Initial release
