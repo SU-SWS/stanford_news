@@ -549,19 +549,19 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div>[term_node_tid]</div>
-  <div class="postcard-left">
+      <div class="postcard-left">
 
-  <div class="postcard-image">
-       <div class="news-image">[field_s_image_image]</div>
-  </div>
-  <div class="postcard-content">
-       <div><h3>[title]</h3></div>
-       <div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
-       <div>[body]</div>
-  </div>
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_image]</div>
+      </div>
+      <div class="postcard-content">
+           <div><h3>[title]</h3></div>
+           <div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
+           <div>[body]</div>
+      </div>
 
-  </div>
-  <div class="edit-link">[edit_node]</div>';
+      </div>
+      <div class="edit-link">[edit_node]</div>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
@@ -709,7 +709,7 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_info']['alter']['html'] = 0;
   $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_image_info']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_s_image_info']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_s_image_info']['hide_empty'] = 1;
   $handler->display->display_options['fields']['field_s_image_info']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_s_image_info']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
@@ -782,18 +782,36 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
-  <div class="postcard-left">
+      <div class="postcard-left">
 
-  <div class="postcard-image">
-       <div class="news-image">[field_s_image_info]</div>
-  </div>
-  <div class="postcard-content">
-       <div class="normal-link"><h3>[title]</h3></div>
-  </div>
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_info]</div>
+      </div>
+      <div class="postcard-content">
+           <div class="normal-link"><h3>[title]</h3></div>
+      </div>
 
-  </div>
-  <div class="edit-link">[edit_node]</div>';
+      </div>
+      <div class="edit-link">[edit_node]</div>';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['nothing']['empty'] = 'There are no news items to display.';
+  $handler->display->display_options['fields']['nothing']['hide_empty'] = 1;
+  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 1;
   $handler->display->display_options['block_description'] = 'Recent News';
 
   /* Display: News Page Block */
@@ -917,18 +935,36 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="postcard-left">
-  <div class="postcard-image">
-       <div class="news-image">[field_s_image_info]</div>
-  </div>
-  <div class="postcard-content">
-        <div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
-       <div><h3>[title]</h3></div>
-       <div>[body]</div>
-       <div class="descriptor descriptor-btn">[term_node_tid]</div>
-       <div class="edit-link">[edit_node]</div>
-  </div>
-  </div>';
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_info]</div>
+      </div>
+      <div class="postcard-content">
+            <div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
+           <div><h3>[title]</h3></div>
+           <div>[body]</div>
+           <div class="descriptor descriptor-btn">[term_node_tid]</div>
+           <div class="edit-link">[edit_node]</div>
+      </div>
+      </div>';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['nothing']['empty'] = 'There are no news items to display';
+  $handler->display->display_options['fields']['nothing']['hide_empty'] = 1;
+  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 1;
   $handler->display->display_options['block_description'] = 'Recent News Page Block';
 
   /* Display: Undergrad */
@@ -1049,17 +1085,17 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
-  <div class="postcard-left">
+      <div class="postcard-left">
 
-  <div class="postcard-image">
-       <div class="news-image">[field_s_image_info]</div>
-  </div>
-  <div class="postcard-content">
-       <div class="normal-link"><h3>[title]</h3></div>
-  </div>
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_info]</div>
+      </div>
+      <div class="postcard-content">
+           <div class="normal-link"><h3>[title]</h3></div>
+      </div>
 
-  </div>
-  <div class="edit-link">[edit_node]</div>';
+      </div>
+      <div class="edit-link">[edit_node]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -1207,17 +1243,17 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
-  <div class="postcard-left">
+      <div class="postcard-left">
 
-  <div class="postcard-image">
-       <div class="news-image">[field_s_image_info]</div>
-  </div>
-  <div class="postcard-content">
-       <div class="normal-link"><h3>[title]</h3></div>
-  </div>
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_info]</div>
+      </div>
+      <div class="postcard-content">
+           <div class="normal-link"><h3>[title]</h3></div>
+      </div>
 
-  </div>
-  <div class="edit-link">[edit_node]</div>';
+      </div>
+      <div class="edit-link">[edit_node]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -1365,17 +1401,17 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
-  <div class="postcard-left">
+      <div class="postcard-left">
 
-  <div class="postcard-image">
-       <div class="news-image">[field_s_image_info]</div>
-  </div>
-  <div class="postcard-content">
-       <div class="normal-link"><h3>[title]</h3></div>
-  </div>
+      <div class="postcard-image">
+           <div class="news-image">[field_s_image_info]</div>
+      </div>
+      <div class="postcard-content">
+           <div class="normal-link"><h3>[title]</h3></div>
+      </div>
 
-  </div>
-  <div class="edit-link">[edit_node]</div>';
+      </div>
+      <div class="edit-link">[edit_node]</div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
