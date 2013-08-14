@@ -721,7 +721,7 @@ function stanford_news_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_s_slide_featured',
+      'field_name' => 'field_s_news_featured',
       'label' => 'Featured',
       'required' => 0,
       'settings' => array(
@@ -752,7 +752,7 @@ function stanford_news_field_default_fields() {
   t('News Image');
   t('Optional external link associated with this news item.');
   t('Source');
-  t('This is a setting used to feature a Stanford event in the carousel slideshow (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
+  t('This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
   t('Upload file attachments associated with this news item.');
 
   return $fields;
