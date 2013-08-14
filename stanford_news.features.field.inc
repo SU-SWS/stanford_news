@@ -169,7 +169,7 @@ function stanford_news_field_default_fields() {
         'module' => 'field_collection',
         'settings' => array(),
         'type' => 'field_collection_embed',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -310,7 +310,8 @@ function stanford_news_field_default_fields() {
       'bundle' => 'stanford_news_item',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac.',
+      'description' => 'Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac. If you do not have any Categories yet, a site administrator can add
+them, and integrate them with the site architecture.',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -353,9 +354,7 @@ function stanford_news_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(
-          'apply_chosen' => 0,
-        ),
+        'settings' => array(),
         'type' => 'options_select',
         'weight' => '10',
       ),
@@ -395,7 +394,7 @@ function stanford_news_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'stanford_news_item',
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Use this Date field to indicate the date when a story appeared in an external publication.',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -459,7 +458,7 @@ function stanford_news_field_default_fields() {
         'module' => 'date',
         'settings' => array(
           'display_all_day' => 0,
-          'increment' => 15,
+          'increment' => '15',
           'input_format' => 'M j Y - g:i:sa',
           'input_format_custom' => '',
           'label_position' => 'above',
@@ -665,14 +664,14 @@ function stanford_news_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-stanford_news_item-field_s_news_featured'.
-  $fields['node-stanford_news_item-field_s_news_featured'] = array(
+  // Exported field: 'node-stanford_news_item-field_s_slide_featured'.
+  $fields['node-stanford_news_item-field_s_slide_featured'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_s_news_featured',
+      'field_name' => 'field_s_slide_featured',
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -699,7 +698,7 @@ function stanford_news_field_default_fields() {
         ),
       ),
       'deleted' => '0',
-      'description' => 'This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).',
+      'description' => 'This is a setting used to feature a Stanford event in the carousel slideshow (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -743,7 +742,8 @@ function stanford_news_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Body');
   t('Categories');
-  t('Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac.');
+  t('Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac. If you do not have any Categories yet, a site administrator can add
+them, and integrate them with the site architecture.');
   t('Date');
   t('External Link');
   t('Featured');
@@ -754,6 +754,7 @@ function stanford_news_field_default_fields() {
   t('Source');
   t('This is a setting used to feature a Stanford event in the carousel slideshow (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
   t('Upload file attachments associated with this news item.');
+  t('Use this Date field to indicate the date when a story appeared in an external publication.');
 
   return $fields;
 }
