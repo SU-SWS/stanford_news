@@ -61,19 +61,11 @@ function stanford_news_field_default_fields() {
         ),
         'taxonomy' => array(
           'label' => 'hidden',
-          'module' => 'smart_trim',
+          'module' => 'text',
           'settings' => array(
-            'more_link' => '0',
-            'more_text' => 'Read more',
-            'summary_handler' => 'full',
             'trim_length' => '144',
-            'trim_options' => array(
-              'text' => 'text',
-            ),
-            'trim_suffix' => '...',
-            'trim_type' => 'chars',
           ),
-          'type' => 'smart_trim_format',
+          'type' => 'text_summary_or_trimmed',
           'weight' => '17',
         ),
         'teaser' => array(
@@ -409,7 +401,7 @@ function stanford_news_field_default_fields() {
           'label' => 'hidden',
           'module' => 'date',
           'settings' => array(
-            'format_type' => 'stanford_date_year_time',
+            'format_type' => 'short',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
@@ -435,7 +427,7 @@ function stanford_news_field_default_fields() {
           'label' => 'hidden',
           'module' => 'date',
           'settings' => array(
-            'format_type' => 'stanford_date_year_time',
+            'format_type' => 'short',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
@@ -759,9 +751,7 @@ function stanford_news_field_default_fields() {
   t('Insert the article\'s source and URL link. (e.g. Stanford Report)');
   t('News Image');
   t('Optional external link associated with this news item.');
-  t('Person');
   t('Source');
-  t('Start typing the associated person then select from the auto-complete list.  This news item will appear on the person\'s profile page.');
   t('This is a setting used to feature a Stanford event in the carousel slideshow (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
   t('Upload file attachments associated with this news item.');
 
