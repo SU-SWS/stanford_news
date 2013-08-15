@@ -664,14 +664,14 @@ them, and integrate them with the site architecture.',
     ),
   );
 
-  // Exported field: 'node-stanford_news_item-field_s_slide_featured'.
-  $fields['node-stanford_news_item-field_s_slide_featured'] = array(
+  // Exported field: 'node-stanford_news_item-field_s_news_featured'.
+  $fields['node-stanford_news_item-field_s_news_featured'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_s_slide_featured',
+      'field_name' => 'field_s_news_featured',
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -698,7 +698,7 @@ them, and integrate them with the site architecture.',
         ),
       ),
       'deleted' => '0',
-      'description' => 'This is a setting used to feature a Stanford event in the carousel slideshow (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).',
+      'description' => 'This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).',
       'display' => array(
         'default' => array(
           'label' => 'above',
