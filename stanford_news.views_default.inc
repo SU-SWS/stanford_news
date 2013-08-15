@@ -15,7 +15,7 @@ function stanford_news_views_default_views() {
   $view->description = 'View, edit, and delete your site\'s content.';
   $view->tag = 'admin';
   $view->base_table = 'node';
-  $view->human_name = 'admin_manage_stanford_news_item';
+  $view->human_name = 'Stanford News: Manage';
   $view->core = 0;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -303,16 +303,6 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['label'] = ' New';
   $handler->display->display_options['fields']['timestamp']['element_label_colon'] = FALSE;
-  /* Field: Field: Image */
-  $handler->display->display_options['fields']['field_s_image_image']['id'] = 'field_s_image_image';
-  $handler->display->display_options['fields']['field_s_image_image']['table'] = 'field_data_field_s_image_image';
-  $handler->display->display_options['fields']['field_s_image_image']['field'] = 'field_s_image_image';
-  $handler->display->display_options['fields']['field_s_image_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_s_image_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_s_image_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => 'content',
-  );
   /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
@@ -426,9 +416,13 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['filters']['tid']['hierarchy'] = 1;
 
   /* Display: Page */
-  $handler = $view->new_display('system', 'Page', 'system_1');
-  $handler->display->display_options['display_description'] = 'Manage Stanford News Item Content';
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'admin/manage/stanford_news_item';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Manage News';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
   $export['admin_manage_stanford_news_item'] = $view;
 
   $view = new view;
