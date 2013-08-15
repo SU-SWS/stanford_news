@@ -601,7 +601,7 @@ them, and integrate them with the site architecture.',
       'bundle' => 'stanford_news_item',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Insert the article\'s source and URL link. (e.g. Stanford Report)',
+      'description' => 'Insert the article\'s source and URL link. (e.g. Stanford Report, http://news.stanford.edu/sr/)',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
