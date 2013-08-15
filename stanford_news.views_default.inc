@@ -15,7 +15,7 @@ function stanford_news_views_default_views() {
   $view->description = 'View, edit, and delete your site\'s content.';
   $view->tag = 'admin';
   $view->base_table = 'node';
-  $view->human_name = 'Stanford News: Manage';
+  $view->human_name = 'News: Manage';
   $view->core = 0;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -430,7 +430,7 @@ function stanford_news_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Stanford News';
+  $view->human_name = 'News';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -642,8 +642,8 @@ function stanford_news_views_default_views() {
   );
   $handler->display->display_options['sitename_title'] = 1;
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
+  /* Display: Home Page Block */
+  $handler = $view->new_display('block', 'Home Page Block', 'block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent News';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
