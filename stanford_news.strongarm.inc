@@ -119,5 +119,12 @@ function stanford_news_strongarm() {
   $strongarm->value = 0;
   $export['node_submitted_stanford_news_item'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_stanford_news_item_pattern';
+  $strongarm->value = 'news/[node:title]';
+  $export['pathauto_node_stanford_news_item_pattern'] = $strongarm;
+
   return $export;
 }

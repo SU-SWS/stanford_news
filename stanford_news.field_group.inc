@@ -45,8 +45,8 @@ function stanford_news_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_s_eng_categories|node|stanford_news_item|default';
-  $field_group->group_name = 'group_s_eng_categories';
+  $field_group->identifier = 'group_s_news_categories|node|stanford_news_item|default';
+  $field_group->group_name = 'group_s_news_categories';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'default';
@@ -71,7 +71,36 @@ function stanford_news_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_s_eng_categories|node|stanford_news_item|default'] = $field_group;
+  $export['group_s_news_categories|node|stanford_news_item|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_news_advanced|node|stanford_news_item|form';
+  $field_group->group_name = 'group_s_news_advanced';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Advanced',
+    'weight' => '15',
+    'children' => array(
+      0 => 'field_s_news_categories',
+      1 => 'field_s_news_featured',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Advanced',
+      'instance_settings' => array(
+        'required_fields' => 0,
+        'classes' => '',
+        'description' => '',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $export['group_s_news_advanced|node|stanford_news_item|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -103,6 +132,35 @@ function stanford_news_field_group_info() {
     ),
   );
   $export['group_s_news_categories_style|node|stanford_news_item|taxonomy'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_news_external_info|node|stanford_news_item|form';
+  $field_group->group_name = 'group_s_news_external_info';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Add/Edit External Article Information',
+    'weight' => '4',
+    'children' => array(
+      0 => 'field_s_news_date',
+      1 => 'field_s_news_source',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'label' => 'Add/Edit External Article Information',
+      'instance_settings' => array(
+        'required_fields' => 0,
+        'classes' => '',
+        'description' => '',
+      ),
+      'formatter' => 'collapsed',
+    ),
+  );
+  $export['group_s_news_external_info|node|stanford_news_item|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -185,7 +243,7 @@ function stanford_news_field_group_info() {
       0 => 'body',
       1 => 'field_s_news_attachment',
       2 => 'field_s_news_link',
-      3 => 'group_s_eng_categories',
+      3 => 'group_s_news_categories',
       4 => 'group_descriptor_info',
     ),
     'format_type' => 'div',

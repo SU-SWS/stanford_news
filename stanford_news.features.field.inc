@@ -356,7 +356,7 @@ them, and integrate them with the site architecture.',
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '10',
+        'weight' => '2',
       ),
     ),
   );
@@ -467,6 +467,80 @@ them, and integrate them with the site architecture.',
         ),
         'type' => 'date_popup',
         'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-stanford_news_item-field_s_news_featured'.
+  $fields['node-stanford_news_item-field_s_news_featured'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_s_news_featured',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'No',
+          1 => 'Yes',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'stanford_news_item',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => 'This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '2',
+        ),
+        'taxonomy' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_s_news_featured',
+      'label' => 'Featured',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 1,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '1',
       ),
     ),
   );
@@ -664,80 +738,6 @@ them, and integrate them with the site architecture.',
     ),
   );
 
-  // Exported field: 'node-stanford_news_item-field_s_news_featured'.
-  $fields['node-stanford_news_item-field_s_news_featured'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_s_news_featured',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => 'No',
-          1 => 'Yes',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_boolean',
-    ),
-    'field_instance' => array(
-      'bundle' => 'stanford_news_item',
-      'default_value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'deleted' => '0',
-      'description' => 'This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '2',
-        ),
-        'taxonomy' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '11',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_s_news_featured',
-      'label' => 'Featured',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'display_label' => 1,
-        ),
-        'type' => 'options_onoff',
-        'weight' => '1',
-      ),
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
@@ -748,7 +748,7 @@ them, and integrate them with the site architecture.');
   t('External Link');
   t('Featured');
   t('File Attachment');
-  t('Insert the article\'s source and URL link. (e.g. Stanford Report)');
+  t('Insert the article\'s source and URL link. (e.g. Stanford Report, http://news.stanford.edu/sr/)');
   t('News Image');
   t('Optional external link associated with this news item.');
   t('Source');
