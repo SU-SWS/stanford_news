@@ -33,28 +33,36 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Filter';
   $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = 50;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'views_bulk_operations' => 'views_bulk_operations',
+    'field_s_image_info' => 'field_s_image_info',
     'title' => 'title',
     'timestamp' => 'title',
-    'field_s_image_image' => 'field_s_image_image',
     'changed' => 'changed',
     'status' => 'status',
     'field_s_news_date' => 'field_s_news_date',
     'field_s_news_source' => 'field_s_news_source',
     'term_node_tid' => 'term_node_tid',
     'nid' => 'nid',
-    'edit_node' => 'nid',
-    'view_node' => 'nid',
-    'delete_node' => 'nid',
+    'edit_node' => 'edit_node',
+    'view_node' => 'edit_node',
+    'delete_node' => 'edit_node',
   );
   $handler->display->display_options['style_options']['default'] = 'changed';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_s_image_info' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -67,13 +75,6 @@ function stanford_news_views_default_views() {
       'empty_column' => 0,
     ),
     'timestamp' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_s_image_image' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -100,8 +101,8 @@ function stanford_news_views_default_views() {
       'empty_column' => 0,
     ),
     'field_s_news_source' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -293,6 +294,17 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['display_result'] = 1;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['merge_single_action'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo']['force_single'] = 0;
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['table'] = 'field_data_field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'stanford_thumbnail_square',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -349,21 +361,31 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = 'Nid and links';
+  $handler->display->display_options['fields']['nid']['label'] = 'NID';
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Actions';
+  $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '[edit_node] |';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['edit_node']['text'] = ' Edit';
+  $handler->display->display_options['fields']['edit_node']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node']['element_wrapper_class'] = 'edit-link';
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
   /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
+  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['text'] = '[view_node] |';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view_node']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['view_node']['element_wrapper_class'] = 'edit-link';
+  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = ' View';
   /* Field: Content: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
