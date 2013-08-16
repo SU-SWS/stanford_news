@@ -239,7 +239,7 @@ function stanford_news_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_s_news_attachment',
-      'label' => 'File Attachment',
+      'label' => '',
       'required' => 0,
       'settings' => array(
         'description_field' => 1,
@@ -747,7 +747,6 @@ them, and integrate them with the site architecture.');
   t('Date');
   t('External Link');
   t('Featured');
-  t('File Attachment');
   t('Insert the article\'s source and URL link. (e.g. Stanford Report, http://news.stanford.edu/sr/)');
   t('News Image');
   t('Optional external link associated with this news item.');
