@@ -1,6 +1,15 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
-Stanford News 7.x-2.0-alpha1, xxxx-xx-xx
+Stanford News 7.x-2.0-alpha5, 2013-08-19
+----------------------------------------
+Note: There are no tagged releases for -alpha2 through -alpha4
+
+Changes since 7.x-2.0-alpha1:
+  -Changes to Views
+  -Renamed field from s_slide_featured to s_news_featured
+  -Updates to fields
+
+Stanford News 7.x-2.0-alpha1, 2013-08-13
 ----------------------------------------
 Initial release
