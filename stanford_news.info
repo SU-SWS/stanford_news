@@ -7,7 +7,6 @@ version = 7.x-2.0-alpha5
 project = stanford_news
 dependencies[] = date
 dependencies[] = date_popup
-dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_group
 dependencies[] = image
