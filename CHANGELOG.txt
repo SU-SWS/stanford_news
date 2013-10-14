@@ -1,6 +1,12 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+
+Stanford News 7.x-2.0-alpha6, 2013-10-14
+----------------------------------------
+  -Removed leftover entityreference dependency
+  -Add VBO to Manage Content menu
+
 Stanford News 7.x-2.0-alpha5, 2013-08-19
 ----------------------------------------
 Note: There are no tagged releases for -alpha2 through -alpha4
