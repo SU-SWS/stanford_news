@@ -45,37 +45,6 @@ function stanford_news_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_s_news_categories|node|stanford_news_item|default';
-  $field_group->group_name = 'group_s_news_categories';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'stanford_news_item';
-  $field_group->mode = 'default';
-  $field_group->parent_name = 'group_s_postcard_content';
-  $field_group->data = array(
-    'label' => 'Categories Div',
-    'weight' => '17',
-    'children' => array(
-      0 => 'field_s_news_categories',
-    ),
-    'format_type' => 'div',
-    'format_settings' => array(
-      'label' => 'Categories Div',
-      'instance_settings' => array(
-        'classes' => 'descriptor descriptor-btn',
-        'description' => '',
-        'show_label' => '0',
-        'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-      ),
-      'formatter' => 'open',
-    ),
-  );
-  $export['group_s_news_categories|node|stanford_news_item|default'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_s_news_advanced|node|stanford_news_item|form';
   $field_group->group_name = 'group_s_news_advanced';
   $field_group->entity_type = 'node';
@@ -132,6 +101,37 @@ function stanford_news_field_group_info() {
     ),
   );
   $export['group_s_news_categories_style|node|stanford_news_item|taxonomy'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_news_categories|node|stanford_news_item|default';
+  $field_group->group_name = 'group_s_news_categories';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_s_postcard_content';
+  $field_group->data = array(
+    'label' => 'Categories Div',
+    'weight' => '17',
+    'children' => array(
+      0 => 'field_s_news_categories',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Categories Div',
+      'instance_settings' => array(
+        'classes' => 'descriptor descriptor-btn',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_s_news_categories|node|stanford_news_item|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
