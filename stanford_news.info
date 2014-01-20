@@ -22,7 +22,6 @@ features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
-features[field_base][] = body
 features[field_base][] = field_s_image_caption
 features[field_base][] = field_s_image_credits
 features[field_base][] = field_s_image_image
