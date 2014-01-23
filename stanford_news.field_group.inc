@@ -45,23 +45,24 @@ function stanford_news_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_s_news_categories|node|stanford_news_item|default';
-  $field_group->group_name = 'group_s_news_categories';
+  $field_group->identifier = 'group_s_descriptor_info|node|stanford_news_item|default';
+  $field_group->group_name = 'group_s_descriptor_info';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'default';
-  $field_group->parent_name = 'group_s_postcard_content';
+  $field_group->parent_name = 'group_s_postcard_image';
   $field_group->data = array(
-    'label' => 'Categories Div',
-    'weight' => '17',
+    'label' => 'Descriptor',
+    'weight' => '3',
     'children' => array(
-      0 => 'field_s_news_categories',
+      0 => 'field_s_news_date',
+      1 => 'field_s_news_source',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Categories Div',
+      'label' => 'Descriptor',
       'instance_settings' => array(
-        'classes' => 'descriptor descriptor-btn',
+        'classes' => 'descriptor',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -71,7 +72,7 @@ function stanford_news_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_s_news_categories|node|stanford_news_item|default'] = $field_group;
+  $export['group_s_descriptor_info|node|stanford_news_item|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -84,10 +85,9 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Advanced',
-    'weight' => '15',
+    'weight' => '11',
     'children' => array(
-      0 => 'field_s_news_categories',
-      1 => 'field_s_news_featured',
+      0 => 'field_s_news_featured',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -136,6 +136,37 @@ function stanford_news_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_news_categories|node|stanford_news_item|default';
+  $field_group->group_name = 'group_s_news_categories';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_s_postcard_content';
+  $field_group->data = array(
+    'label' => 'Categories Div',
+    'weight' => '17',
+    'children' => array(
+      0 => 'field_s_news_categories',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Categories Div',
+      'instance_settings' => array(
+        'classes' => 'descriptor descriptor-btn',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_s_news_categories|node|stanford_news_item|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_s_news_external_info|node|stanford_news_item|form';
   $field_group->group_name = 'group_s_news_external_info';
   $field_group->entity_type = 'node';
@@ -144,10 +175,9 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Add/Edit External Article Information',
-    'weight' => '4',
+    'weight' => '6',
     'children' => array(
-      0 => 'field_s_news_date',
-      1 => 'field_s_news_source',
+      0 => 'field_s_news_link',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -244,7 +274,6 @@ function stanford_news_field_group_info() {
       1 => 'field_s_news_attachment',
       2 => 'field_s_news_link',
       3 => 'group_s_news_categories',
-      4 => 'group_descriptor_info',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -308,6 +337,7 @@ function stanford_news_field_group_info() {
     'weight' => '10',
     'children' => array(
       0 => 'field_s_image_info',
+      1 => 'group_s_descriptor_info',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -338,8 +368,8 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard',
     'weight' => '0',
     'children' => array(
-      0 => 'group_s_postcard_image',
-      1 => 'group_s_postcard_content',
+      0 => 'group_s_postcard_content',
+      1 => 'group_s_postcard_image',
     ),
     'format_type' => 'div',
     'format_settings' => array(
