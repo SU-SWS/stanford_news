@@ -33,7 +33,7 @@ function stanford_news_node_info() {
     'stanford_news_item' => array(
       'name' => t('News Item'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('The news item captures information about news related to the site.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

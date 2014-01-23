@@ -66,13 +66,13 @@ function stanford_news_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '8',
         ),
         'metatags' => array(
-          'weight' => '12',
+          'weight' => '10',
         ),
         'redirect' => array(
-          'weight' => '11',
+          'weight' => '9',
         ),
       ),
       'display' => array(),
@@ -84,9 +84,7 @@ function stanford_news_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_stanford_news_item';
-  $strongarm->value = array(
-    0 => 'main-menu',
-  );
+  $strongarm->value = array();
   $export['menu_options_stanford_news_item'] = $strongarm;
 
   $strongarm = new stdClass();
