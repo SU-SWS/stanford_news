@@ -1,0 +1,13 @@
+.node-type-stanford-news-item .group_descriptor_info {
+   margin-bottom: 1em;
+}
+.group_s_news_link_style {
+   margin-bottom: 1em;
+}
+
+.group_s_news_postedin .field-item:before {
+   content: "Posted in: ";
+}
+.node-stanford-news-item .field-name-field-s-news-postedin {
+margin:0;
+}

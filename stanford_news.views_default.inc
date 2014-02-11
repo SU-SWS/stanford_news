@@ -446,7 +446,6 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'menu-manage-content-by-type';
   $handler->display->display_options['menu']['context'] = 0;
-
   $export['admin_manage_stanford_news_item'] = $view;
 
   $view = new view();
@@ -470,6 +469,8 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Go';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -482,32 +483,19 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'No news items listed.';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: All taxonomy terms */
-  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
-  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['label'] = '';
-  $handler->display->display_options['fields']['term_node_tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['separator'] = '';
-  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
-    's_destination' => 0,
-    'news_categories' => 0,
-    'publication_type' => 0,
-    'stanford_slide_category' => 0,
-    'stanford_event_audience' => 0,
-    'stanford_event_categories' => 0,
-    'stanford_faculty_type' => 0,
-    'stanford_interests' => 0,
-    'stanford_student_type' => 0,
-    'tags' => 0,
+  /* Field: Field: Image */
+  $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['table'] = 'field_data_field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
+  $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
+  $handler->display->display_options['fields']['field_s_image_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'stanford_large_square',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -548,6 +536,37 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['field_s_news_source']['element_wrapper_class'] = 'descriptor';
   $handler->display->display_options['fields']['field_s_news_source']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_s_news_source']['click_sort_column'] = 'url';
+  /* Field: Content: Categories */
+  $handler->display->display_options['fields']['field_s_news_categories_1']['id'] = 'field_s_news_categories_1';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['table'] = 'field_data_field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['field'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['alter']['text'] = '<span class="descriptor"> | Posted In: </span>';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['delta_offset'] = '0';
+  /* Field: Content: Categories */
+  $handler->display->display_options['fields']['field_s_news_categories']['id'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['table'] = 'field_data_field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['field'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_categories']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_s_news_categories']['delta_offset'] = '0';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -578,38 +597,26 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div>[term_node_tid]</div>
-      <div class="postcard-left">
-
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="postcard-left">
       <div class="postcard-image">
-           <div class="news-image">[field_s_image_image]</div>
+           <div class="news-image">[field_s_image_info]</div>
       </div>
+      
       <div class="postcard-content">
            <div><h3>[title]</h3></div>
-           <div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
+           <div class="descriptor">[field_s_news_date] [field_s_news_source][field_s_news_categories_1][field_s_news_categories]</div>
            <div>[body]</div>
       </div>
 
       </div>
-      <div class="edit-link">[edit_node]</div>';
+<div class="edit-link">[edit_node]</div>';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['nothing']['empty'] = 'There are no news items to display.';
   $handler->display->display_options['fields']['nothing']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
-  /* Field: Field: Image */
-  $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
-  $handler->display->display_options['fields']['field_s_image_info']['table'] = 'field_data_field_s_image_info';
-  $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
-  $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
-  $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
-    'edit' => '',
-    'delete' => '',
-    'add' => '',
-    'description' => 0,
-    'view_mode' => 'stanford_large_square',
-  );
   /* Sort criterion: Content: Date (field_s_news_date) */
   $handler->display->display_options['sorts']['field_s_news_date_value']['id'] = 'field_s_news_date_value';
   $handler->display->display_options['sorts']['field_s_news_date_value']['table'] = 'field_data_field_s_news_date';
@@ -673,34 +680,6 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: All taxonomy terms */
-  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
-  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['label'] = '';
-  $handler->display->display_options['fields']['term_node_tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['separator'] = '';
-  $handler->display->display_options['fields']['term_node_tid']['limit'] = TRUE;
-  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
-    'news_categories' => 'news_categories',
-    's_destination' => 0,
-    'publication_type' => 0,
-    'stanford_slide_category' => 0,
-    'stanford_event_audience' => 0,
-    'stanford_event_categories' => 0,
-    'stanford_faculty_type' => 0,
-    'stanford_interests' => 0,
-    'stanford_student_type' => 0,
-    'tags' => 0,
-  );
   /* Field: Field: Image */
   $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
   $handler->display->display_options['fields']['field_s_image_info']['table'] = 'field_data_field_s_image_info';
@@ -757,6 +736,37 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['field_s_news_source']['element_wrapper_class'] = 'descriptor';
   $handler->display->display_options['fields']['field_s_news_source']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_s_news_source']['click_sort_column'] = 'url';
+  /* Field: Content: Categories */
+  $handler->display->display_options['fields']['field_s_news_categories_1']['id'] = 'field_s_news_categories_1';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['table'] = 'field_data_field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['field'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['alter']['text'] = '<span class="descriptor"> | Posted In: </span>';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['delta_offset'] = '0';
+  /* Field: Content: Categories */
+  $handler->display->display_options['fields']['field_s_news_categories']['id'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['table'] = 'field_data_field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['field'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_categories']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_s_news_categories']['delta_offset'] = '0';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -796,6 +806,8 @@ function stanford_news_views_default_views() {
       <div class="edit-link">[edit_node]</div>';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['nothing']['empty'] = 'There are no news items to display.';
   $handler->display->display_options['fields']['nothing']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
@@ -812,36 +824,6 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['label'] = '';
-  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: All taxonomy terms */
-  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
-  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
-  $handler->display->display_options['fields']['term_node_tid']['label'] = '';
-  $handler->display->display_options['fields']['term_node_tid']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['term_node_tid']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['term_node_tid']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['term_node_tid']['separator'] = '';
-  $handler->display->display_options['fields']['term_node_tid']['limit'] = TRUE;
-  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
-    'news_categories' => 'news_categories',
-    's_destination' => 0,
-    'publication_type' => 0,
-    'stanford_slide_category' => 0,
-    'stanford_event_audience' => 0,
-    'stanford_event_categories' => 0,
-    'stanford_faculty_type' => 0,
-    'stanford_interests' => 0,
-    'stanford_student_type' => 0,
-    'tags' => 0,
-  );
   /* Field: Field: Image */
   $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
   $handler->display->display_options['fields']['field_s_image_info']['table'] = 'field_data_field_s_image_info';
@@ -897,6 +879,37 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['fields']['field_s_news_source']['element_wrapper_class'] = 'descriptor';
   $handler->display->display_options['fields']['field_s_news_source']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_s_news_source']['click_sort_column'] = 'url';
+  /* Field: Content: Categories */
+  $handler->display->display_options['fields']['field_s_news_categories_1']['id'] = 'field_s_news_categories_1';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['table'] = 'field_data_field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['field'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['alter']['text'] = '<span class="descriptor"> | Posted In: </span>';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories_1']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_s_news_categories_1']['delta_offset'] = '0';
+  /* Field: Content: Categories */
+  $handler->display->display_options['fields']['field_s_news_categories']['id'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['table'] = 'field_data_field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['field'] = 'field_s_news_categories';
+  $handler->display->display_options['fields']['field_s_news_categories']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_categories']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_wrapper_class'] = 'descriptor';
+  $handler->display->display_options['fields']['field_s_news_categories']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_categories']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_categories']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_s_news_categories']['delta_offset'] = '0';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -928,19 +941,101 @@ function stanford_news_views_default_views() {
       <div class="postcard-image">
            <div class="news-image">[field_s_image_info]</div>
       </div>
+      
       <div class="postcard-content">
-            <div class="descriptor">[field_s_news_date] [field_s_news_source]</div>
            <div><h3>[title]</h3></div>
+           <div class="descriptor">[field_s_news_date] [field_s_news_source][field_s_news_categories_1][field_s_news_categories]</div>
            <div>[body]</div>
-           <div class="descriptor descriptor-btn">[term_node_tid]</div>
-           <div class="edit-link">[edit_node]</div>
       </div>
-      </div>';
+
+      </div>
+<div class="edit-link">[edit_node]</div>';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['nothing']['empty'] = 'There are no news items to display';
   $handler->display->display_options['fields']['nothing']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
+
+  /* Display: 5 Item News List Page with Pager */
+  $handler = $view->new_display('page', '5 Item News List Page with Pager', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Recent News';
+  $handler->display->display_options['display_description'] = 'Contains exposed filter search for title and news categories';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['exposed_block'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'stanford_news_item' => 'stanford_news_item',
+  );
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Search by title';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    6 => 0,
+    5 => 0,
+    4 => 0,
+    3 => 0,
+    8 => 0,
+    9 => 0,
+  );
+  /* Filter criterion: Content: Categories (field_s_news_categories) */
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['id'] = 'field_s_news_categories_tid';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['table'] = 'field_data_field_s_news_categories';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['field'] = 'field_s_news_categories_tid';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['expose']['operator_id'] = 'field_s_news_categories_tid_op';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['expose']['label'] = 'Filter by category';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['expose']['operator'] = 'field_s_news_categories_tid_op';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['expose']['identifier'] = 'field_s_news_categories_tid';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    7 => 0,
+    6 => 0,
+    5 => 0,
+    4 => 0,
+    3 => 0,
+    8 => 0,
+    9 => 0,
+  );
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_s_news_categories_tid']['vocabulary'] = 'news_categories';
+  $handler->display->display_options['path'] = 'news/recent-news';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Recent News';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['stanford_news'] = $view;
 
   return $export;

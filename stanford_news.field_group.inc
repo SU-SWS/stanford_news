@@ -25,6 +25,7 @@ function stanford_news_field_group_info() {
     'children' => array(
       0 => 'field_s_news_date',
       1 => 'field_s_news_source',
+      2 => 'group_s_news_postedin',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -53,10 +54,9 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Advanced',
-    'weight' => '15',
+    'weight' => '10',
     'children' => array(
-      0 => 'field_s_news_categories',
-      1 => 'field_s_news_featured',
+      0 => 'field_s_news_featured',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -110,25 +110,15 @@ function stanford_news_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'default';
-  $field_group->parent_name = 'group_s_postcard_content';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Categories Div',
-    'weight' => '17',
-    'children' => array(
-      0 => 'field_s_news_categories',
-    ),
-    'format_type' => 'div',
+    'weight' => '1',
+    'children' => array(),
+    'format_type' => 'hidden',
     'format_settings' => array(
-      'label' => 'Categories Div',
-      'instance_settings' => array(
-        'classes' => 'descriptor descriptor-btn',
-        'description' => '',
-        'show_label' => '0',
-        'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-      ),
-      'formatter' => 'open',
+      'formatter' => '',
+      'instance_settings' => array(),
     ),
   );
   $export['group_s_news_categories|node|stanford_news_item|default'] = $field_group;
@@ -144,7 +134,7 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Add/Edit External Article Information',
-    'weight' => '4',
+    'weight' => '1',
     'children' => array(
       0 => 'field_s_news_date',
       1 => 'field_s_news_source',
@@ -243,8 +233,7 @@ function stanford_news_field_group_info() {
       0 => 'body',
       1 => 'field_s_news_attachment',
       2 => 'field_s_news_link',
-      3 => 'group_s_news_categories',
-      4 => 'group_descriptor_info',
+      3 => 'group_descriptor_info',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -338,8 +327,8 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard',
     'weight' => '0',
     'children' => array(
-      0 => 'group_s_postcard_image',
-      1 => 'group_s_postcard_content',
+      0 => 'group_s_postcard_content',
+      1 => 'group_s_postcard_image',
     ),
     'format_type' => 'div',
     'format_settings' => array(
