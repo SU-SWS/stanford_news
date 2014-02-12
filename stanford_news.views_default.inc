@@ -601,7 +601,7 @@ function stanford_news_views_default_views() {
       <div class="postcard-image">
            <div class="news-image">[field_s_image_info]</div>
       </div>
-      
+
       <div class="postcard-content">
            <div><h3>[title]</h3></div>
            <div class="descriptor">[field_s_news_date] [field_s_news_source][field_s_news_categories_1][field_s_news_categories]</div>
@@ -941,7 +941,7 @@ function stanford_news_views_default_views() {
       <div class="postcard-image">
            <div class="news-image">[field_s_image_info]</div>
       </div>
-      
+
       <div class="postcard-content">
            <div><h3>[title]</h3></div>
            <div class="descriptor">[field_s_news_date] [field_s_news_source][field_s_news_categories_1][field_s_news_categories]</div>
@@ -1030,7 +1030,6 @@ function stanford_news_views_default_views() {
   $handler->display->display_options['filters']['field_s_news_categories_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_s_news_categories_tid']['vocabulary'] = 'news_categories';
   $handler->display->display_options['path'] = 'news/recent-news';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Recent News';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
