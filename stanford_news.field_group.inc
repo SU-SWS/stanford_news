@@ -112,13 +112,21 @@ function stanford_news_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Categories Div',
+    'label' => 'Posted In',
     'weight' => '1',
     'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
-      'formatter' => '',
-      'instance_settings' => array(),
+      'label' => 'Posted In',
+      'instance_settings' => array(
+        'classes' => 'descriptor',
+        'description' => '<span>Posted In:</span>',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
     ),
   );
   $export['group_s_news_categories|node|stanford_news_item|default'] = $field_group;
@@ -151,6 +159,37 @@ function stanford_news_field_group_info() {
     ),
   );
   $export['group_s_news_external_info|node|stanford_news_item|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_news_postedin|node|stanford_news_item|default';
+  $field_group->group_name = 'group_s_news_postedin';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_descriptor_info';
+  $field_group->data = array(
+    'label' => '',
+    'weight' => '14',
+    'children' => array(
+      0 => 'field_s_news_categories',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => '',
+      'instance_settings' => array(
+        'classes' => 'descriptor',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'collapsible',
+    ),
+  );
+  $export['group_s_news_postedin|node|stanford_news_item|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -230,9 +269,9 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard Content',
     'weight' => '11',
     'children' => array(
-      0 => 'body',
-      1 => 'field_s_news_attachment',
-      2 => 'field_s_news_link',
+      0 => 'field_s_news_attachment',
+      1 => 'field_s_news_link',
+      2 => 'body',
       3 => 'group_descriptor_info',
     ),
     'format_type' => 'div',

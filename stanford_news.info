@@ -37,6 +37,7 @@ features[field_group][] = group_s_news_advanced|node|stanford_news_item|form
 features[field_group][] = group_s_news_categories_style|node|stanford_news_item|taxonomy
 features[field_group][] = group_s_news_categories|node|stanford_news_item|default
 features[field_group][] = group_s_news_external_info|node|stanford_news_item|form
+features[field_group][] = group_s_news_postedin|node|stanford_news_item|default
 features[field_group][] = group_s_postcard_col1|node|stanford_news_item|taxonomy
 features[field_group][] = group_s_postcard_col2|node|stanford_news_item|taxonomy
 features[field_group][] = group_s_postcard_content|node|stanford_news_item|default
