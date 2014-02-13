@@ -7,7 +7,7 @@
 /**
  * Implements hook_views_default_views().
  */
-function stanford_news_views_default_views() {
+function stanford_news_views_views_default_views() {
   $export = array();
 
   $view = new view();
