@@ -495,7 +495,7 @@ function stanford_news_views_views_default_views() {
     'delete' => '',
     'add' => '',
     'description' => 0,
-    'view_mode' => 'stanford_large_square',
+    'view_mode' => 'stanford_small_square',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -671,6 +671,8 @@ function stanford_news_views_views_default_views() {
   $handler = $view->new_display('block', '2 Item Recent News List Block', 'block_2_item_recent_news_list');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent News';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'views-row-lines';
   $handler->display->display_options['display_description'] = 'Homepage block of two items';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
