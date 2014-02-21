@@ -700,7 +700,7 @@ function stanford_news_views_views_default_views() {
     'delete' => '',
     'add' => '',
     'description' => 0,
-    'view_mode' => 'stanford_thumbnail_square',
+    'view_mode' => 'stanford_icon_square',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
