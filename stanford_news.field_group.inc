@@ -243,7 +243,7 @@ function stanford_news_field_group_info() {
     'format_settings' => array(
       'label' => 'Posted In: ',
       'instance_settings' => array(
-        'classes' => 'postcard-postedin',
+        'classes' => 'postcard-postedin group_s_news_postedin',
         'description' => '',
         'show_label' => '1',
         'label_element' => 'h3',
@@ -439,7 +439,7 @@ function stanford_news_field_group_info() {
     'format_settings' => array(
       'label' => 'Postcard Image',
       'instance_settings' => array(
-        'classes' => 'postcard-image',
+        'classes' => 'postcard-image group_s_postcard_image',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -470,7 +470,7 @@ function stanford_news_field_group_info() {
     'format_settings' => array(
       'label' => 'Postcard Image',
       'instance_settings' => array(
-        'classes' => 'postcard-image',
+        'classes' => 'postcard-image group_s_postcard_image',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -495,8 +495,8 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard',
     'weight' => '0',
     'children' => array(
-      0 => 'group_s_postcard_content',
-      1 => 'group_s_postcard_image',
+      0 => 'group_s_postcard_image',
+      1 => 'group_s_postcard_content',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -527,8 +527,8 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard',
     'weight' => '0',
     'children' => array(
-      0 => 'group_s_postcard_image',
-      1 => 'group_s_postcard_content',
+      0 => 'group_s_postcard_content',
+      1 => 'group_s_postcard_image',
     ),
     'format_type' => 'div',
     'format_settings' => array(
