@@ -1,6 +1,15 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.0-alpha1, 2014-03-11
+----------------------------------------
+  - Features 2.x Compatible Version
+  - News Categories CSS
+  - Updated News Display
+  - Updated Views Displays
+  - Consolidated features, new sub module features
+  - Image style fixes
+  - Display suite view mode clean up
 
 Stanford News 7.x-2.0-alpha6, 2013-10-14
 ----------------------------------------
