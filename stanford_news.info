@@ -2,7 +2,7 @@ name = Stanford News
 description = News Item content type, and list Views with an image and taxonomy terms
 core = 7.x
 package = Stanford
-version = 7.x-3.0-alpha4
+version = 7.x-3.0-dev
 project = stanford_news
 dependencies[] = ctools
 dependencies[] = date
@@ -22,6 +22,7 @@ dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text
 stylesheets[all][] = css/stanford_news.css
+datestamp = 1393876942
 features[ctools][] = ds:ds:1
 features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
@@ -33,6 +34,7 @@ features[field_base][] = field_s_news_categories
 features[field_base][] = field_s_news_date
 features[field_base][] = field_s_news_featured
 features[field_base][] = field_s_news_link
+features[field_base][] = field_s_news_program
 features[field_base][] = field_s_news_source
 features[field_group][] = group_descriptor_info|node|stanford_news_item|default
 features[field_group][] = group_descriptor_info|node|stanford_news_item|full
@@ -59,6 +61,7 @@ features[field_instance][] = node-stanford_news_item-field_s_news_categories
 features[field_instance][] = node-stanford_news_item-field_s_news_date
 features[field_instance][] = node-stanford_news_item-field_s_news_featured
 features[field_instance][] = node-stanford_news_item-field_s_news_link
+features[field_instance][] = node-stanford_news_item-field_s_news_program
 features[field_instance][] = node-stanford_news_item-field_s_news_source
 features[node][] = stanford_news_item
 features[taxonomy][] = news_categories
@@ -71,11 +74,4 @@ features[variable][] = node_preview_stanford_news_item
 features[variable][] = node_submitted_stanford_news_item
 features[variable][] = pathauto_node_stanford_news_item_pattern
 features_exclude[field_base][body] = body
-
-
-; Information added by drush on 2014-03-03
-version = "7.x-3.x-dev-dev"
-core = "7.x"
-project = "stanford_news"
-datestamp = "1393876942"
-
+features_exclude[dependencies][stanford_program] = stanford_program

@@ -66,7 +66,7 @@ function stanford_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -135,7 +135,7 @@ function stanford_news_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -234,7 +234,7 @@ function stanford_news_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -492,7 +492,56 @@ them, and integrate them with the site architecture.',
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_program'
+  $field_instances['node-stanford_news_item-field_s_news_program'] = array(
+    'bundle' => 'stanford_news_item',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Select the program(s) with which this news item is associated.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 17,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'taxonomy' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_s_news_program',
+    'label' => 'Associated Program',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
     ),
   );
 
@@ -565,6 +614,7 @@ them, and integrate them with the site architecture.',
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Associated Program');
   t('Body');
   t('Categories');
   t('Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac. If you do not have any Categories yet, a site administrator can add
@@ -576,6 +626,7 @@ them, and integrate them with the site architecture.');
   t('Insert the article\'s source and URL link. (e.g. Stanford Report, http://news.stanford.edu/sr/)');
   t('News Image');
   t('Optional external link associated with this news item.');
+  t('Select the program(s) with which this news item is associated.');
   t('Source');
   t('This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
   t('Upload file attachments associated with this news item.');
