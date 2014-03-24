@@ -71,3 +71,11 @@ features[variable][] = node_preview_stanford_news_item
 features[variable][] = node_submitted_stanford_news_item
 features[variable][] = pathauto_node_stanford_news_item_pattern
 features_exclude[field_base][body] = body
+
+
+; Information added by drush on 2014-03-03
+version = "7.x-3.x-dev-dev"
+core = "7.x"
+project = "stanford_news"
+datestamp = "1393876942"
+
