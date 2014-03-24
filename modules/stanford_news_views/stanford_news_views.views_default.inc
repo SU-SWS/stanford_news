@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * stanford_news.views_default.inc
+ * stanford_news_views.views_default.inc
  */
 
 /**
@@ -506,6 +506,15 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Associated Program */
+  $handler->display->display_options['fields']['field_s_news_program']['id'] = 'field_s_news_program';
+  $handler->display->display_options['fields']['field_s_news_program']['table'] = 'field_data_field_s_news_program';
+  $handler->display->display_options['fields']['field_s_news_program']['field'] = 'field_s_news_program';
+  $handler->display->display_options['fields']['field_s_news_program']['label'] = '';
+  $handler->display->display_options['fields']['field_s_news_program']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_s_news_program']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_news_program']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_s_news_program']['delta_offset'] = '0';
   /* Field: Content: Date */
   $handler->display->display_options['fields']['field_s_news_date']['id'] = 'field_s_news_date';
   $handler->display->display_options['fields']['field_s_news_date']['table'] = 'field_data_field_s_news_date';
@@ -592,10 +601,11 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_wrapper_class'] = 'edit-link';
   $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
-  /* Field: Global: Custom text */
+  /* Field: Global: View Rewrite */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Global: View Rewrite';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="postcard-left">
       <div class="postcard-image">
@@ -605,6 +615,7 @@ function stanford_news_views_views_default_views() {
       <div class="postcard-content">
            <div><h3>[title]</h3></div>
            <div class="descriptor">[field_s_news_date] [field_s_news_source][field_s_news_categories_1][field_s_news_categories]</div>
+           <div>[field_s_news_program] </div>
            <div>[body]</div>
       </div>
 
@@ -1036,6 +1047,29 @@ function stanford_news_views_views_default_views() {
   );
   $handler->display->display_options['filters']['field_s_news_categories_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_s_news_categories_tid']['vocabulary'] = 'news_categories';
+  /* Filter criterion: Content: Associated Program (field_s_news_program) */
+  $handler->display->display_options['filters']['field_s_news_program_tid']['id'] = 'field_s_news_program_tid';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['table'] = 'field_data_field_s_news_program';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['field'] = 'field_s_news_program_tid';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_s_news_program_tid']['expose']['operator_id'] = 'field_s_news_program_tid_op';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['expose']['label'] = 'Filter by program';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['expose']['operator'] = 'field_s_news_program_tid_op';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['expose']['identifier'] = 'field_s_news_program_tid';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    5 => 0,
+    4 => 0,
+    3 => 0,
+    9 => 0,
+    7 => 0,
+    8 => 0,
+  );
+  $handler->display->display_options['filters']['field_s_news_program_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['vocabulary'] = 'stanford_program_type';
+  $handler->display->display_options['filters']['field_s_news_program_tid']['hierarchy'] = 1;
   $handler->display->display_options['path'] = 'news/recent-news';
   $handler->display->display_options['menu']['title'] = 'Recent News';
   $handler->display->display_options['menu']['weight'] = '0';
