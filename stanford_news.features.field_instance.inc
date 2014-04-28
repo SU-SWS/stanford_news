@@ -146,7 +146,7 @@ function stanford_news_field_default_field_instances() {
     'description' => 'Upload file attachments associated with this news item.',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',

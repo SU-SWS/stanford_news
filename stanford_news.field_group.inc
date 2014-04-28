@@ -333,9 +333,9 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard Content',
     'weight' => '11',
     'children' => array(
-      0 => 'field_s_news_attachment',
-      1 => 'field_s_news_link',
-      2 => 'body',
+      0 => 'body',
+      1 => 'field_s_news_attachment',
+      2 => 'field_s_news_link',
       3 => 'group_descriptor_info',
     ),
     'format_type' => 'div',
@@ -495,8 +495,8 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard',
     'weight' => '0',
     'children' => array(
-      0 => 'group_s_postcard_image',
-      1 => 'group_s_postcard_content',
+      0 => 'group_s_postcard_content',
+      1 => 'group_s_postcard_image',
     ),
     'format_type' => 'div',
     'format_settings' => array(
