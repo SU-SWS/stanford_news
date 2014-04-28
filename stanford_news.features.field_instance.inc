@@ -153,7 +153,7 @@ function stanford_news_field_default_field_instances() {
         'weight' => 16,
       ),
       'full' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'file',
         'settings' => array(),
         'type' => 'file_default',

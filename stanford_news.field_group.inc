@@ -367,9 +367,9 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard Content',
     'weight' => '2',
     'children' => array(
-      0 => 'field_s_news_attachment',
-      1 => 'field_s_news_link',
-      2 => 'body',
+      0 => 'body',
+      1 => 'field_s_news_attachment',
+      2 => 'field_s_news_link',
       3 => 'group_descriptor_info',
     ),
     'format_type' => 'div',
