@@ -48,6 +48,12 @@ body.page-node  .content .group_s_news_postedin h3 {
   display: inline-block;
   *display: inline;
   zoom: 1;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: 12px;
+  line-height: 1.5em;
+  color: #585754;
+  font-weight: normal;
 }
 
 @media screen and (max-width: 410px) {
