@@ -1,6 +1,14 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.1, 2015-06-25
+---------------------------------
+Changes since 7.x-3.0:
+By cynmij:
+  - Added image insert field
+By sherakama:
+  - Cached the Views
+
 Stanford News 7.x-3.0, 2014-11-27
 ----------------------------------------
 - BASIC-826 | images link to content in news views
