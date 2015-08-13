@@ -1,8 +1,8 @@
-name = Stanford News
+name = Stanford News JSVPSA
 description = News Item content type, and list Views with an image and taxonomy terms
 core = 7.x
 package = Stanford
-version = 7.x-3.0-alpha2
+version = 7.x-3.x-jsvpsa
 project = stanford_news
 dependencies[] = ctools
 dependencies[] = date
