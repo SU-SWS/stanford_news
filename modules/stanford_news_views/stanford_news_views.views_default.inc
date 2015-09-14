@@ -851,6 +851,28 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['empty'] = 'There are no news items to display.';
   $handler->display->display_options['fields']['nothing']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'stanford_news_item' => 'stanford_news_item',
+  );
+  /* Filter criterion: Content: Date (field_s_news_date) */
+  $handler->display->display_options['filters']['field_s_news_date_value']['id'] = 'field_s_news_date_value';
+  $handler->display->display_options['filters']['field_s_news_date_value']['table'] = 'field_data_field_s_news_date';
+  $handler->display->display_options['filters']['field_s_news_date_value']['field'] = 'field_s_news_date_value';
+  $handler->display->display_options['filters']['field_s_news_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_s_news_date_value']['default_date'] = 'now -31 day';
 
   /* Display: 5 Item News List Block with Pager */
   $handler = $view->new_display('block', '5 Item News List Block with Pager', 'block_5_item_news_list_with_pager');
