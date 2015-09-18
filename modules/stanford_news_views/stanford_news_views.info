@@ -25,4 +25,3 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = admin_manage_stanford_news_item
 features[views_view][] = stanford_news
-mtime = 1422905087
