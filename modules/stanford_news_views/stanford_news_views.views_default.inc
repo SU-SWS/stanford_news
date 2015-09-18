@@ -174,14 +174,14 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
-      'action::node_assign_owner_action' => array(
+    'action::node_assign_owner_action' => array(
       'selected' => 0,
       'skip_confirmation' => 1,
       'override_label' => 1,
       'label' => 'Change author',
       'postpone_processing' => 0,
     ),
-      'action::views_bulk_operations_delete_item' => array(
+    'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
       'skip_confirmation' => 0,
       'override_label' => 1,
