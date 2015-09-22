@@ -174,46 +174,11 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
-    'action::node_assign_owner_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 1,
-      'override_label' => 1,
-      'label' => 'Change author',
-      'postpone_processing' => 0,
-    ),
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
       'skip_confirmation' => 0,
       'override_label' => 1,
       'label' => 'Delete',
-      'postpone_processing' => 0,
-    ),
-    'action::system_message_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'postpone_processing' => 0,
-    ),
-    'action::views_bulk_operations_script_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'postpone_processing' => 0,
-    ),
-    'action::node_make_sticky_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 1,
-      'override_label' => 1,
-      'label' => 'Stick',
-      'postpone_processing' => 0,
-    ),
-    'action::node_make_unsticky_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 1,
-      'override_label' => 1,
-      'label' => 'Unstick',
       'postpone_processing' => 0,
     ),
     'action::views_bulk_operations_modify_action' => array(
@@ -229,22 +194,6 @@ function stanford_news_views_views_default_views() {
       ),
       'postpone_processing' => 0,
     ),
-    'action::views_bulk_operations_argument_selector_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'settings' => array(
-        'url' => '',
-      ),
-    ),
-    'action::node_promote_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 1,
-      'override_label' => 1,
-      'label' => 'Promote to front page',
-      'postpone_processing' => 0,
-    ),
     'action::node_publish_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
@@ -252,53 +201,11 @@ function stanford_news_views_views_default_views() {
       'label' => 'Publish',
       'postpone_processing' => 0,
     ),
-    'action::system_goto_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'postpone_processing' => 0,
-    ),
-    'action::node_unpromote_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 1,
-      'override_label' => 1,
-      'label' => 'Demote from front page',
-      'postpone_processing' => 0,
-    ),
-    'action::node_save_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'postpone_processing' => 0,
-    ),
-    'action::system_send_email_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'postpone_processing' => 0,
-    ),
     'action::node_unpublish_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
       'label' => 'Unpublish',
-      'postpone_processing' => 0,
-    ),
-    'action::node_unpublish_by_keyword_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
-      'postpone_processing' => 0,
-    ),
-    'action::pathauto_node_update_action' => array(
-      'selected' => 0,
-      'skip_confirmation' => 0,
-      'override_label' => 0,
-      'label' => '',
       'postpone_processing' => 0,
     ),
   );
@@ -529,7 +436,6 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
   $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
   $handler->display->display_options['fields']['field_s_image_info']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_s_image_info']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_s_image_info']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
@@ -538,6 +444,17 @@ function stanford_news_views_views_default_views() {
     'add' => '',
     'description' => 0,
     'view_mode' => 'stanford_small_square',
+    'custom_link_to_entity' => 0,
+    'custom_prefix' => '',
+    'custom_suffix' => '',
+    'custom_reverse' => 0,
+    'custom_trim' => 0,
+    'custom_strtolower' => 0,
+    'custom_strtoupper' => 0,
+    'custom_ucfirst' => 0,
+    'custom_ucwords' => 0,
+    'custom_strip_tags' => 0,
+    'custom_strip_preserve' => '',
   );
   /* Field: Content: Source */
   $handler->display->display_options['fields']['field_s_news_source']['id'] = 'field_s_news_source';
@@ -755,7 +672,7 @@ function stanford_news_views_views_default_views() {
   /* Display: 2 Item Recent News List Block */
   $handler = $view->new_display('block', '2 Item Recent News List Block', 'block_2_item_recent_news_list');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Recent News';
+  $handler->display->display_options['title'] = 'Announcements & News';
   $handler->display->display_options['display_description'] = 'Homepage block of two items';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
@@ -776,7 +693,6 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
   $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
   $handler->display->display_options['fields']['field_s_image_info']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_s_image_info']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_s_image_info']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_image_info']['hide_empty'] = TRUE;
@@ -786,6 +702,17 @@ function stanford_news_views_views_default_views() {
     'add' => '',
     'description' => 0,
     'view_mode' => 'stanford_icon_square',
+    'custom_link_to_entity' => 0,
+    'custom_prefix' => '',
+    'custom_suffix' => '',
+    'custom_reverse' => 0,
+    'custom_trim' => 0,
+    'custom_strtolower' => 0,
+    'custom_strtoupper' => 0,
+    'custom_ucfirst' => 0,
+    'custom_ucwords' => 0,
+    'custom_strip_tags' => 0,
+    'custom_strip_preserve' => '',
   );
   /* Field: Content: Source */
   $handler->display->display_options['fields']['field_s_news_source']['id'] = 'field_s_news_source';
@@ -990,7 +917,6 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
   $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
   $handler->display->display_options['fields']['field_s_image_info']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_s_image_info']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_s_image_info']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
@@ -999,6 +925,17 @@ function stanford_news_views_views_default_views() {
     'add' => '',
     'description' => 0,
     'view_mode' => 'stanford_small_square',
+    'custom_link_to_entity' => 0,
+    'custom_prefix' => '',
+    'custom_suffix' => '',
+    'custom_reverse' => 0,
+    'custom_trim' => 0,
+    'custom_strtolower' => 0,
+    'custom_strtoupper' => 0,
+    'custom_ucfirst' => 0,
+    'custom_ucwords' => 0,
+    'custom_strip_tags' => 0,
+    'custom_strip_preserve' => '',
   );
   /* Field: Content: Source */
   $handler->display->display_options['fields']['field_s_news_source']['id'] = 'field_s_news_source';
@@ -1164,7 +1101,7 @@ function stanford_news_views_views_default_views() {
   /* Display: 5 Item News List Page with Pager */
   $handler = $view->new_display('page', '5 Item News List Page with Pager', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Recent News';
+  $handler->display->display_options['title'] = 'In the News';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'views-row-lines';
   $handler->display->display_options['display_description'] = 'Contains exposed filter search for title and news categories';
@@ -1244,7 +1181,7 @@ function stanford_news_views_views_default_views() {
   /* Display: 3 Item News List Block with Details */
   $handler = $view->new_display('block', '3 Item News List Block with Details', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Recent News';
+  $handler->display->display_options['title'] = 'Announcements & News';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'views-row-lines';
   $handler->display->display_options['display_description'] = 'Recent News block for Home page';
@@ -1270,7 +1207,6 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
   $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
   $handler->display->display_options['fields']['field_s_image_info']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_s_image_info']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_s_image_info']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
@@ -1279,6 +1215,17 @@ function stanford_news_views_views_default_views() {
     'add' => '',
     'description' => 0,
     'view_mode' => 'stanford_small_square',
+    'custom_link_to_entity' => 0,
+    'custom_prefix' => '',
+    'custom_suffix' => '',
+    'custom_reverse' => 0,
+    'custom_trim' => 0,
+    'custom_strtolower' => 0,
+    'custom_strtoupper' => 0,
+    'custom_ucfirst' => 0,
+    'custom_ucwords' => 0,
+    'custom_strip_tags' => 0,
+    'custom_strip_preserve' => '',
   );
   /* Field: Content: Source */
   $handler->display->display_options['fields']['field_s_news_source']['id'] = 'field_s_news_source';
