@@ -32,7 +32,7 @@ function stanford_news_views_api($module = NULL, $api = NULL) {
 function stanford_news_node_info() {
   $items = array(
     'stanford_news_item' => array(
-      'name' => t('News Item'),
+      'name' => t('Announcement/News'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

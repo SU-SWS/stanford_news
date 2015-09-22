@@ -99,8 +99,8 @@ function stanford_news_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_stanford_news_item';
   $strongarm->value = array(
-    1 => 'moderation',
-    2 => 'revision',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_stanford_news_item'] = $strongarm;
 
