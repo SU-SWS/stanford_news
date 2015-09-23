@@ -174,6 +174,13 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+    'action::node_assign_owner_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 1,
+      'override_label' => 1,
+      'label' => 'Change author',
+      'postpone_processing' => 0,
+    ),
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
       'skip_confirmation' => 0,
@@ -181,6 +188,34 @@ function stanford_news_views_views_default_views() {
       'label' => 'Delete',
       'postpone_processing' => 0,
     ),
+   'action::system_message_action' => array(
+     'selected' => 0,
+     'skip_confirmation' => 0,
+     'override_label' => 0,
+     'label' => '',
+     'postpone_processing' => 0,
+   ),
+   'action::views_bulk_operations_script_action' => array(
+     'selected' => 0,
+     'skip_confirmation' => 0,
+     'override_label' => 0,
+     'label' => '',
+     'postpone_processing' => 0,
+   ),
+   'action::node_make_sticky_action' => array(
+     'selected' => 0,
+     'skip_confirmation' => 1,
+     'override_label' => 1,
+     'label' => 'Stick',
+     'postpone_processing' => 0,
+   ),
+   'action::node_make_unsticky_action' => array(
+     'selected' => 0,
+     'skip_confirmation' => 1,
+     'override_label' => 1,
+     'label' => 'Unstick',
+     'postpone_processing' => 0,
+   ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'skip_confirmation' => 0,
@@ -194,6 +229,22 @@ function stanford_news_views_views_default_views() {
       ),
       'postpone_processing' => 0,
     ),
+    'action::views_bulk_operations_argument_selector_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'settings' => array(
+        'url' => '',
+      ),
+    ),
+    'action::node_promote_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 1,
+      'override_label' => 1,
+      'label' => 'Promote to front page',
+      'postpone_processing' => 0,
+    ),
     'action::node_publish_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
@@ -201,11 +252,53 @@ function stanford_news_views_views_default_views() {
       'label' => 'Publish',
       'postpone_processing' => 0,
     ),
+    'action::system_goto_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'postpone_processing' => 0,
+    ),
+    'action::node_unpromote_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 1,
+      'override_label' => 1,
+      'label' => 'Demote from front page',
+      'postpone_processing' => 0,
+    ),
+    'action::node_save_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'postpone_processing' => 0,
+    ),
+    'action::system_send_email_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'postpone_processing' => 0,
+    ),
     'action::node_unpublish_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
       'override_label' => 1,
       'label' => 'Unpublish',
+      'postpone_processing' => 0,
+    ),
+    'action::node_unpublish_by_keyword_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'postpone_processing' => 0,
+    ),
+    'action::pathauto_node_update_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
       'postpone_processing' => 0,
     ),
   );
