@@ -174,13 +174,6 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
-    'action::node_assign_owner_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 1,		
-      'override_label' => 1,		
-      'label' => 'Change author',		
-      'postpone_processing' => 0,		
-    ),		
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
       'skip_confirmation' => 0,
@@ -188,34 +181,6 @@ function stanford_news_views_views_default_views() {
       'label' => 'Delete',
       'postpone_processing' => 0,
     ),
-    'action::system_message_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'postpone_processing' => 0,		
-    ),		
-    'action::views_bulk_operations_script_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'postpone_processing' => 0,		
-    ),		
-    'action::node_make_sticky_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 1,		
-      'override_label' => 1,		
-      'label' => 'Stick',		
-      'postpone_processing' => 0,		
-    ),		
-    'action::node_make_unsticky_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 1,		
-      'override_label' => 1,		
-      'label' => 'Unstick',		
-      'postpone_processing' => 0,		
-    ),		
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
       'skip_confirmation' => 0,
@@ -229,22 +194,6 @@ function stanford_news_views_views_default_views() {
       ),
       'postpone_processing' => 0,
     ),
-    'action::views_bulk_operations_argument_selector_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'settings' => array(		
-        'url' => '',		
-      ),		
-    ),		
-    'action::node_promote_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 1,		
-      'override_label' => 1,		
-      'label' => 'Promote to front page',		
-      'postpone_processing' => 0,		
-    ),		
     'action::node_publish_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
@@ -252,34 +201,6 @@ function stanford_news_views_views_default_views() {
       'label' => 'Publish',
       'postpone_processing' => 0,
     ),
-    'action::system_goto_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'postpone_processing' => 0,		
-    ),		
-    'action::node_unpromote_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 1,		
-      'override_label' => 1,		
-      'label' => 'Demote from front page',		
-      'postpone_processing' => 0,		
-    ),		
-    'action::node_save_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'postpone_processing' => 0,		
-    ),		
-    'action::system_send_email_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'postpone_processing' => 0,		
-    ),		
     'action::node_unpublish_action' => array(
       'selected' => 1,
       'skip_confirmation' => 1,
@@ -287,20 +208,6 @@ function stanford_news_views_views_default_views() {
       'label' => 'Unpublish',
       'postpone_processing' => 0,
     ),
-    'action::node_unpublish_by_keyword_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'postpone_processing' => 0,		
-    ),		
-    'action::pathauto_node_update_action' => array(		
-      'selected' => 0,		
-      'skip_confirmation' => 0,		
-      'override_label' => 0,		
-      'label' => '',		
-      'postpone_processing' => 0,		
-    ),		
   );
   /* Field: Field: Image */
   $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
@@ -491,7 +398,7 @@ function stanford_news_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'See more announcements';
   $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -516,7 +423,8 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'News Item - No Results';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No news items listed.';
+  $handler->display->display_options['empty']['area']['content'] = '<p>See all announcements and news in the archive.</p>
+<p><a class="more-link" href="news/announcements">View past announcements</a></p>';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -1293,6 +1201,15 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'News Item - No Results';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = '<p>See all announcements and news in the archive.</p>
+<p><a class="more-link" href="news/announcements">View past announcements</a></p>';
+  $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
