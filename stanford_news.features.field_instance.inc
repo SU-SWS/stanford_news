@@ -112,7 +112,7 @@ function stanford_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -214,7 +214,7 @@ function stanford_news_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -337,7 +337,7 @@ function stanford_news_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -346,8 +346,7 @@ function stanford_news_field_default_field_instances() {
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac. If you do not have any Categories yet, a site administrator can add
-them, and integrate them with the site architecture.',
+    'description' => 'Choose the appropriate category tag(s).  If you do not have any Categories yet, a site administrator can add them, and integrate them with the site architecture.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -720,7 +719,7 @@ them, and integrate them with the site architecture.',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -812,7 +811,7 @@ them, and integrate them with the site architecture.',
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -921,12 +920,66 @@ them, and integrate them with the site architecture.',
     ),
   );
 
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_type'
+  $field_instances['node-stanford_news_item-field_s_news_type'] = array(
+    'bundle' => 'stanford_news_item',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Select the appropriate news type.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(
+          'custom_link_to_entity' => '',
+          'custom_prefix' => '',
+          'custom_reverse' => '',
+          'custom_strip_preserve' => '',
+          'custom_strip_tags' => '',
+          'custom_strtolower' => '',
+          'custom_strtoupper' => '',
+          'custom_suffix' => '',
+          'custom_trim' => '',
+          'custom_ucfirst' => '',
+          'custom_ucwords' => '',
+        ),
+        'type' => 'list_default',
+        'weight' => 18,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_s_news_type',
+    'label' => 'News Type',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 2,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
   t('Categories');
-  t('Choose the appropriate category tag(s).  To select more than one tag, hold the Ctrl or Command keyboard key on the Mac. If you do not have any Categories yet, a site administrator can add
-them, and integrate them with the site architecture.');
+  t('Choose the appropriate category tag(s).  If you do not have any Categories yet, a site administrator can add them, and integrate them with the site architecture.');
   t('Date');
   t('External Link');
   t('Featured');
@@ -934,7 +987,9 @@ them, and integrate them with the site architecture.');
   t('Image Insert');
   t('Insert the article\'s source and URL link. (e.g. Stanford Report, http://news.stanford.edu/sr/)');
   t('News Image');
+  t('News Type');
   t('Optional external link associated with this news item.');
+  t('Select the appropriate news type.');
   t('Source');
   t('This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
   t('Upload file attachments associated with this news item.');

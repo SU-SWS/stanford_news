@@ -87,9 +87,10 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Advanced',
-    'weight' => '11',
+    'weight' => '12',
     'children' => array(
-      0 => 'field_s_news_featured',
+      0 => 'field_s_news_categories',
+      1 => 'field_s_news_featured',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
