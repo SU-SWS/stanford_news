@@ -59,6 +59,9 @@ function stanford_news_strongarm() {
       '300_flexwidth' => array(
         'custom_settings' => FALSE,
       ),
+      'stanford_huge_landscape' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -66,16 +69,16 @@ function stanford_news_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '9',
-        ),
-        'metatags' => array(
-          'weight' => '11',
-        ),
-        'redirect' => array(
           'weight' => '10',
         ),
+        'metatags' => array(
+          'weight' => '12',
+        ),
+        'redirect' => array(
+          'weight' => '11',
+        ),
         'xmlsitemap' => array(
-          'weight' => '13',
+          'weight' => '14',
         ),
       ),
       'display' => array(),

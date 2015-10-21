@@ -83,7 +83,7 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Advanced',
-    'weight' => '12',
+    'weight' => '13',
     'children' => array(
       0 => 'field_s_news_categories',
       1 => 'field_s_news_featured',

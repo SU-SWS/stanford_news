@@ -112,7 +112,7 @@ function stanford_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -128,21 +128,21 @@ function stanford_news_field_default_field_instances() {
         'module' => 'field_collection',
         'settings' => array(
           'add' => '',
-          'custom_link_to_entity' => '',
+          'custom_link_to_entity' => 0,
           'custom_prefix' => '',
-          'custom_reverse' => '',
+          'custom_reverse' => 0,
           'custom_strip_preserve' => '',
-          'custom_strip_tags' => '',
-          'custom_strtolower' => '',
-          'custom_strtoupper' => '',
+          'custom_strip_tags' => 0,
+          'custom_strtolower' => 0,
+          'custom_strtoupper' => 0,
           'custom_suffix' => '',
-          'custom_trim' => '',
-          'custom_ucfirst' => '',
-          'custom_ucwords' => '',
+          'custom_trim' => 0,
+          'custom_ucfirst' => 0,
+          'custom_ucwords' => 0,
           'delete' => '',
           'description' => 0,
           'edit' => '',
-          'view_mode' => '300_flexwidth',
+          'view_mode' => 'stanford_large_scaled',
         ),
         'type' => 'field_collection_view',
         'weight' => 2,
@@ -214,7 +214,7 @@ function stanford_news_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -337,7 +337,7 @@ function stanford_news_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -674,7 +674,7 @@ function stanford_news_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -768,7 +768,7 @@ function stanford_news_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
