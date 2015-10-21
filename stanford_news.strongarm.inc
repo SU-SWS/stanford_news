@@ -59,9 +59,6 @@ function stanford_news_strongarm() {
       '300_flexwidth' => array(
         'custom_settings' => FALSE,
       ),
-      'stanford_huge_landscape' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
