@@ -28,10 +28,7 @@ function stanford_news_ds_layout_settings_info() {
         5 => 'field_s_news_date',
         6 => 'field_s_news_link',
         7 => 'field_s_news_attachment',
-        8 => 'field_s_news_source',
-        9 => 'field_s_image_info',
-        10 => 'group_s_news_postedin',
-        11 => 'field_s_news_categories',
+        8 => 'field_s_image_info',
       ),
     ),
     'fields' => array(
@@ -43,10 +40,7 @@ function stanford_news_ds_layout_settings_info() {
       'field_s_news_date' => 'ds_content',
       'field_s_news_link' => 'ds_content',
       'field_s_news_attachment' => 'ds_content',
-      'field_s_news_source' => 'ds_content',
       'field_s_image_info' => 'ds_content',
-      'group_s_news_postedin' => 'ds_content',
-      'field_s_news_categories' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(

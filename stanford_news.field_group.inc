@@ -24,8 +24,6 @@ function stanford_news_field_group_info() {
     'weight' => '11',
     'children' => array(
       0 => 'field_s_news_date',
-      1 => 'field_s_news_source',
-      2 => 'group_s_news_postedin',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -57,8 +55,6 @@ function stanford_news_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'field_s_news_date',
-      1 => 'field_s_news_source',
-      2 => 'group_s_news_postedin',
     ),
     'format_type' => 'div',
     'format_settings' => array(
@@ -147,7 +143,7 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Posted In',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
@@ -202,14 +198,16 @@ function stanford_news_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'default';
-  $field_group->parent_name = 'group_descriptor_info';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => '',
-    'weight' => '14',
+    'weight' => '3',
     'children' => array(
       0 => 'field_s_news_categories',
+      1 => 'field_s_news_image_insert',
+      2 => 'field_s_news_type',
     ),
-    'format_type' => 'div',
+    'format_type' => 'hidden',
     'format_settings' => array(
       'label' => '',
       'instance_settings' => array(
@@ -233,10 +231,10 @@ function stanford_news_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'full';
-  $field_group->parent_name = 'group_descriptor_info';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Posted In: ',
-    'weight' => '7',
+    'weight' => '2',
     'children' => array(
       0 => 'field_s_news_categories',
     ),
@@ -334,9 +332,9 @@ function stanford_news_field_group_info() {
     'label' => 'Postcard Content',
     'weight' => '11',
     'children' => array(
-      0 => 'body',
-      1 => 'field_s_news_attachment',
-      2 => 'field_s_news_link',
+      0 => 'field_s_news_attachment',
+      1 => 'field_s_news_link',
+      2 => 'body',
       3 => 'group_descriptor_info',
     ),
     'format_type' => 'div',
