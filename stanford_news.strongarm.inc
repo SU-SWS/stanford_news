@@ -66,16 +66,16 @@ function stanford_news_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '9',
-        ),
-        'metatags' => array(
-          'weight' => '11',
-        ),
-        'redirect' => array(
           'weight' => '10',
         ),
+        'metatags' => array(
+          'weight' => '12',
+        ),
+        'redirect' => array(
+          'weight' => '11',
+        ),
         'xmlsitemap' => array(
-          'weight' => '13',
+          'weight' => '14',
         ),
       ),
       'display' => array(),
