@@ -143,7 +143,7 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Posted In',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
@@ -171,15 +171,16 @@ function stanford_news_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Add/Edit External Article Information',
+    'label' => 'Add/Edit Article Information',
     'weight' => '1',
     'children' => array(
       0 => 'field_s_news_date',
       1 => 'field_s_news_source',
+      2 => 'field_s_news_external',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Add/Edit External Article Information',
+      'label' => 'Add/Edit Article Information',
       'instance_settings' => array(
         'required_fields' => 0,
         'classes' => '',
@@ -201,7 +202,7 @@ function stanford_news_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => '',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'field_s_news_categories',
       1 => 'field_s_news_image_insert',
