@@ -518,6 +518,54 @@ function stanford_news_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_external'
+  $field_instances['node-stanford_news_item-field_s_news_external'] = array(
+    'bundle' => 'stanford_news_item',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Check this box if this article links out to an external source (e.g. Stanford News, http://news.stanford.edu/).',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_s_news_external',
+    'label' => 'This this an external news article',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-stanford_news_item-field_s_news_featured'
   $field_instances['node-stanford_news_item-field_s_news_featured'] = array(
     'bundle' => 'stanford_news_item',
@@ -533,7 +581,7 @@ function stanford_news_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'full' => array(
         'label' => 'above',
@@ -783,7 +831,7 @@ function stanford_news_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -897,6 +945,7 @@ function stanford_news_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Body');
   t('Categories');
+  t('Check this box if this article links out to an external source (e.g. Stanford News, http://news.stanford.edu/).');
   t('Choose the appropriate category tag(s).  If you do not have any Categories yet, a site administrator can add them, and integrate them with the site architecture.');
   t('Date');
   t('External Link');
@@ -910,6 +959,7 @@ function stanford_news_field_default_field_instances() {
   t('Select the appropriate news type.');
   t('Source');
   t('This is a setting used to feature a news item in various places on the site (e.g., check "Featured" if you want to display this item, leave unchecked if you do not want to display this item).');
+  t('This this an external news article');
   t('Upload file attachments associated with this news item.');
   t('Use this Date field to indicate the date when a story appeared in an external publication.');
   t('Use this to Insert images into the text.');
