@@ -1,6 +1,10 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.2-jsvpsa, 2015-10-30
+-----------------------------------------
+- Stuff and things: https://github.com/SU-SWS/stanford_news/compare/7.x-3.1...7.x-3.x-jsvpsa
+
 Stanford News 7.x-3.1, 2015-06-25
 ---------------------------------
 Changes since 7.x-3.0:
