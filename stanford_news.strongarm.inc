@@ -100,6 +100,7 @@ function stanford_news_strongarm() {
   $strongarm->name = 'node_options_stanford_news_item';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_stanford_news_item'] = $strongarm;
 
