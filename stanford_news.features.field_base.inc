@@ -181,7 +181,7 @@ function stanford_news_field_default_field_bases() {
         'target' => 'default',
       ),
       'display' => array(
-        'url_cutoff' => 80,
+        'url_cutoff' => 160,
       ),
       'enable_tokens' => 1,
       'title' => 'optional',
