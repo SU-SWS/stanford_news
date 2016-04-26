@@ -26,6 +26,13 @@ Taxomomy of school news related themes
 * **Department**
 Taxomomy of departments
 
+Example use
+-----
+To import a feed, create a news importer node with fields:
+
+URL: https://engineering.stanford.edu/news/xml
+XPATH Parser: //news/news-item
+
 Troubleshooting
 ---
 
