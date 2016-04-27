@@ -38,4 +38,4 @@ features[taxonomy][] = research_themes
 features[taxonomy][] = school_themes
 features[taxonomy][] = stanford_department
 features_exclude[field_group][group_s_news_related|node|stanford_news_item|form] = group_s_news_related|node|stanford_news_item|form
-project path = sites/all/modules/stanford/stanford_news/modules/
+
