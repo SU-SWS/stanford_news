@@ -11,7 +11,7 @@ function stanford_news_administration_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'stanford_news_manage';
+  $view->name = 'admin_manage_stanford_news_item';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
@@ -22,7 +22,7 @@ function stanford_news_administration_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Manage Private Page';
+  $handler->display->display_options['title'] = 'Manage News Item';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'administer nodes';
@@ -333,7 +333,7 @@ function stanford_news_administration_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'menu-manage-content-by-type';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
-  $export['stanford_news_manage'] = $view;
+  $export['admin_manage_stanford_news_item'] = $view;
 
   return $export;
 }
