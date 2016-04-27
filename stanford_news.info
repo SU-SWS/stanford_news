@@ -73,3 +73,4 @@ features[variable][] = node_preview_stanford_news_item
 features[variable][] = node_submitted_stanford_news_item
 features[variable][] = pathauto_node_stanford_news_item_pattern
 features_exclude[field_base][body] = body
+project status url = https://github.com/SU-SWS/stanford_news.git
