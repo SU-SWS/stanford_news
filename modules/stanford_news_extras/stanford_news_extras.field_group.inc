@@ -21,10 +21,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Teaser/Byline',
-    'weight' => '10',
+    'weight' => '13',
     'children' => array(
-      0 => 'field_s_news_teaser',
-      1 => 'field_s_news_byline',
+      0 => 'field_s_news_byline',
+      1 => 'field_s_news_teaser',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
