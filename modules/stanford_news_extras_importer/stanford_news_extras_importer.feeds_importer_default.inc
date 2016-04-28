@@ -80,7 +80,7 @@ function stanford_news_extras_importer_feeds_importer_default() {
           0 => array(
             'source' => 'xpathparser:0',
             'target' => 'title',
-            'unique' => FALSE,
+            'unique' => 1,
           ),
           1 => array(
             'source' => 'xpathparser:1',
