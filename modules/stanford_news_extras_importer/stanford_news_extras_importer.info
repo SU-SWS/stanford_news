@@ -20,4 +20,4 @@ features[variable][] = node_options_stanford_news_importer
 features[variable][] = node_preview_stanford_news_importer
 features[variable][] = node_submitted_stanford_news_importer
 features_exclude[field_base][body] = body
-project path = sites/all/modules/stanford/stanford_news/modules/
+

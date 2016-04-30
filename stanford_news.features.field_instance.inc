@@ -66,7 +66,7 @@ function stanford_news_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -135,7 +135,7 @@ function stanford_news_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -234,7 +234,7 @@ function stanford_news_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -311,6 +311,7 @@ them, and integrate them with the site architecture.',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 12,
@@ -324,6 +325,7 @@ them, and integrate them with the site architecture.',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 5,
@@ -337,6 +339,7 @@ them, and integrate them with the site architecture.',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 16,
@@ -430,7 +433,8 @@ them, and integrate them with the site architecture.',
     ),
   );
 
-  // Exported field_instance: 'node-stanford_news_item-field_s_news_image_insert'
+  // Exported field_instance:
+  // 'node-stanford_news_item-field_s_news_image_insert'
   $field_instances['node-stanford_news_item-field_s_news_image_insert'] = array(
     'bundle' => 'stanford_news_item',
     'deleted' => 0,
@@ -535,7 +539,7 @@ them, and integrate them with the site architecture.',
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -578,6 +582,7 @@ them, and integrate them with the site architecture.',
     'label' => 'External Link',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -590,6 +595,7 @@ them, and integrate them with the site architecture.',
       ),
       'enable_tokens' => 1,
       'title' => 'optional',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -601,7 +607,7 @@ them, and integrate them with the site architecture.',
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -645,6 +651,7 @@ them, and integrate them with the site architecture.',
     'label' => 'Source',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -657,6 +664,7 @@ them, and integrate them with the site architecture.',
       ),
       'enable_tokens' => 1,
       'title' => 'required',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
