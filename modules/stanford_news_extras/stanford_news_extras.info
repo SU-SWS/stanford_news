@@ -27,7 +27,6 @@ features[field_base][] = field_s_news_school_theme
 features[field_base][] = field_s_news_slider_feature
 features[field_base][] = field_s_news_teaser
 features[field_group][] = group_s_new_byline_descriptor|node|stanford_news_item|full
-features[field_group][] = group_s_news_taxonomy|node|stanford_news_item|form
 features[field_group][] = group_s_news_teaser_byline|node|stanford_news_item|form
 features[field_group][] = group_s_news_teaser|node|stanford_news_item|full
 features[field_instance][] = node-stanford_news_item-field_s_news_byline
