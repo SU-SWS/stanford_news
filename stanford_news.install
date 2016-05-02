@@ -1,0 +1,14 @@
+<?php
+/**
+ * @file
+ */
+
+
+/**
+ * Enable new Stanford News Administration module.
+ */
+function stanford_news_update_7300($sandbox) {
+    if (!module_exists("stanford_news_administration")) {
+      module_enable(array("stanford_news_administration"));
+  }
+}
