@@ -39,6 +39,7 @@ function stanford_news_extras_importer_feeds_importer_default() {
           'xpathparser:5' => 'type',
           'xpathparser:6' => 'department',
           'xpathparser:8' => 'image',
+          'xpathparser:9' => 'image',
         ),
         'rawXML' => array(
           'xpathparser:0' => 0,
@@ -50,6 +51,7 @@ function stanford_news_extras_importer_feeds_importer_default() {
           'xpathparser:5' => 0,
           'xpathparser:6' => 0,
           'xpathparser:8' => 0,
+          'xpathparser:9' => 0,
         ),
         'context' => '//news/news-item',
         'exp' => array(
@@ -65,6 +67,7 @@ function stanford_news_extras_importer_feeds_importer_default() {
             'xpathparser:5' => 0,
             'xpathparser:6' => 0,
             'xpathparser:8' => 0,
+            'xpathparser:9' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -120,6 +123,11 @@ function stanford_news_extras_importer_feeds_importer_default() {
           8 => array(
             'source' => 'xpathparser:8',
             'target' => 'field_s_news_optional_image',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'xpathparser:9',
+            'target' => 'field_s_image_info:field_s_image_image',
             'unique' => FALSE,
           ),
         ),
