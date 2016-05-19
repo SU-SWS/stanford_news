@@ -24,6 +24,7 @@ features[ctools][] = ds:ds:1
 features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
 features[ds_layout_settings][] = node|stanford_news_item|stanford_news_extras
+features[ds_view_modes][] = stanford_news_extras
 features[features_api][] = api:2
 features[field_base][] = field_s_news_byline
 features[field_base][] = field_s_news_department
