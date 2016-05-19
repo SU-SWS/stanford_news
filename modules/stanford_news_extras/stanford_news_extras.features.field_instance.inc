@@ -36,7 +36,7 @@ function stanford_news_extras_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 5,
       ),
       'taxonomy' => array(
         'label' => 'above',
