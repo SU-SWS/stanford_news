@@ -13,85 +13,25 @@ function stanford_news_extras_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_s_new_byline_descriptor|node|stanford_news_item|full';
-  $field_group->group_name = 'group_s_new_byline_descriptor';
+  $field_group->identifier = 'group_s_postcard_content|node|stanford_news_item|stanford_news_extras';
+  $field_group->group_name = 'group_s_postcard_content';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
-  $field_group->mode = 'full';
-  $field_group->parent_name = 'group_s_news_teaser';
+  $field_group->mode = 'stanford_news_extras';
+  $field_group->parent_name = 'group_s_postcard';
   $field_group->data = array(
-    'label' => 'Descriptor',
-    'weight' => '1',
-    'children' => array(
-      0 => 'field_s_news_byline',
-    ),
-    'format_type' => 'div',
-    'format_settings' => array(
-      'label' => 'Descriptor',
-      'instance_settings' => array(
-        'id' => '',
-        'classes' => 'descriptor',
-        'description' => '',
-        'show_label' => '0',
-        'label_element' => 'h3',
-        'effect' => 'none',
-        'speed' => 'fast',
-      ),
-      'formatter' => 'open',
-    ),
-  );
-  $export['group_s_new_byline_descriptor|node|stanford_news_item|full'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_s_news_teaser_byline|node|stanford_news_item|form';
-  $field_group->group_name = 'group_s_news_teaser_byline';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'stanford_news_item';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Teaser/Byline',
-    'weight' => '13',
-    'children' => array(
-      0 => 'field_s_news_byline',
-      1 => 'field_s_news_teaser',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-s-news-teaser-byline field-group-fieldset',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_s_news_teaser_byline|node|stanford_news_item|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_s_news_teaser|node|stanford_news_item|full';
-  $field_group->group_name = 'group_s_news_teaser';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'stanford_news_item';
-  $field_group->mode = 'full';
-  $field_group->parent_name = 'group_s_postcard_content';
-  $field_group->data = array(
-    'label' => 'Teaser',
+    'label' => 'Postcard Content',
     'weight' => '23',
     'children' => array(
-      0 => 'field_s_news_teaser',
-      1 => 'group_s_new_byline_descriptor',
+      0 => 'body',
+      1 => 'field_s_news_teaser',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'label' => 'Teaser',
+      'label' => 'Postcard Content',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-s-news-teaser field-group-div lead',
+        'classes' => 'postcard-content',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -101,7 +41,74 @@ function stanford_news_extras_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_s_news_teaser|node|stanford_news_item|full'] = $field_group;
+  $export['group_s_postcard_content|node|stanford_news_item|stanford_news_extras'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_postcard_image|node|stanford_news_item|stanford_news_extras';
+  $field_group->group_name = 'group_s_postcard_image';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'stanford_news_extras';
+  $field_group->parent_name = 'group_s_postcard';
+  $field_group->data = array(
+    'label' => 'Postcard Image',
+    'weight' => '22',
+    'children' => array(
+      0 => 'field_s_image_info',
+      1 => 'field_s_news_date',
+      2 => 'field_s_news_byline',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Postcard Image',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'postcard-image',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_s_postcard_image|node|stanford_news_item|stanford_news_extras'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_postcard|node|stanford_news_item|stanford_news_extras';
+  $field_group->group_name = 'group_s_postcard';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'stanford_news_extras';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Postcard',
+    'weight' => '0',
+    'children' => array(
+      0 => 'group_s_postcard_image',
+      1 => 'group_s_postcard_content',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Postcard',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'postcard',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_s_postcard|node|stanford_news_item|stanford_news_extras'] = $field_group;
 
   return $export;
 }
