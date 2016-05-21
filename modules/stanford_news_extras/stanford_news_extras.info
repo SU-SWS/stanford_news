@@ -23,6 +23,7 @@ features[ctools][] = context:context:3
 features[ctools][] = ds:ds:1
 features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
+features[ds_field_settings][] = node|stanford_news_item|stanford_news_extras
 features[ds_layout_settings][] = node|stanford_news_item|stanford_news_extras
 features[ds_view_modes][] = stanford_news_extras
 features[features_api][] = api:2

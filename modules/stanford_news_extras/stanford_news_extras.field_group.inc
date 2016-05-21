@@ -114,10 +114,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_news_extras';
-  $field_group->parent_name = 'group_s_postcard_content';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Teaser Style',
-    'weight' => '32',
+    'weight' => '2',
     'children' => array(
       0 => 'field_s_news_teaser',
     ),
@@ -151,8 +151,7 @@ function stanford_news_extras_field_group_info() {
     'label' => 'Postcard Content',
     'weight' => '23',
     'children' => array(
-      0 => 'group_s_news_teaser_style',
-      1 => 'group_s_news_body_style',
+      0 => 'group_s_news_body_style',
     ),
     'format_type' => 'div',
     'format_settings' => array(

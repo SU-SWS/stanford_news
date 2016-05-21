@@ -120,7 +120,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 18,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -178,7 +178,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 17,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -344,7 +344,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 19,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -400,7 +400,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 20,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -456,7 +456,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 21,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -516,7 +516,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 16,
       ),
       'taxonomy' => array(
         'label' => 'above',
