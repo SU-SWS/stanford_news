@@ -4,7 +4,6 @@
  * stanford_news.ds.inc
  */
 
-
 /**
  * Implements hook_ds_field_settings_info().
  */
@@ -45,7 +44,7 @@ function stanford_news_ds_field_settings_info() {
     ),
   );
   $export['node|stanford_news_item|full'] = $ds_fieldsetting;
-  
+
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'node|stanford_news_item|taxonomy';

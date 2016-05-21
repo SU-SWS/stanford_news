@@ -59,6 +59,12 @@ function stanford_news_strongarm() {
       '300_flexwidth' => array(
         'custom_settings' => FALSE,
       ),
+      'stanford_news_extras' => array(
+        'custom_settings' => TRUE,
+      ),
+      'stanford_cap' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
