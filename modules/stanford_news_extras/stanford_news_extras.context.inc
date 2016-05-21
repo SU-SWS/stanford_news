@@ -15,7 +15,7 @@ function stanford_news_extras_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'stanford_news_extras';
   $context->description = 'Context for news items with extras fields';
-  $context->tag = 'news';
+  $context->tag = 'News';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -24,6 +24,16 @@ function stanford_news_extras_context_default_contexts() {
     ),
   );
   $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'ds_extras-banner' => array(
+          'module' => 'ds_extras',
+          'delta' => 'banner',
+          'region' => 'fullwidth_top',
+          'weight' => '-10',
+        ),
+      ),
+    ),
     'context_reaction_view_mode' => array(
       'entity_types' => array(
         'bean' => array(
@@ -94,7 +104,7 @@ function stanford_news_extras_context_default_contexts() {
         'wysiwyg_profile' => array(
           'wysiwyg_profile' => 'none',
         ),
-        'reactions__plugins__context_reaction_view_mode__entity_types__active_tab' => 'edit-reactions-plugins-context-reaction-view-mode-entity-types-node',
+        'reactions__plugins__context_reaction_view_mode__entity_types__active_tab' => 'edit-reactions-plugins-context-reaction-view-mode-entity-types-bean',
       ),
     ),
   );
@@ -103,7 +113,7 @@ function stanford_news_extras_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Context for news items with extras fields');
-  t('news');
+  t('News');
   $export['stanford_news_extras'] = $context;
 
   return $export;

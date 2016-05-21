@@ -10,6 +10,83 @@
 function stanford_news_extras_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_banner'
+  $field_instances['node-stanford_news_item-field_s_news_banner'] = array(
+    'bundle' => 'stanford_news_item',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 26,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'stanford_news_extras' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'taxonomy' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_s_news_banner',
+    'label' => 'Banner',
+    'required' => FALSE,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'image',
+      'settings' => array(
+        'insert' => 0,
+        'insert_absolute' => FALSE,
+        'insert_class' => '',
+        'insert_default' => array(
+          0 => 'auto',
+        ),
+        'insert_styles' => array(
+          0 => 'auto',
+        ),
+        'insert_width' => '',
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'node-stanford_news_item-field_s_news_byline'
   $field_instances['node-stanford_news_item-field_s_news_byline'] = array(
     'bundle' => 'stanford_news_item',
@@ -638,6 +715,7 @@ function stanford_news_extras_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('"By " + author name');
+  t('Banner');
   t('Byline');
   t('Check this box to indicate that the news item is being used as a slider feature on the site home page. This will prevent it from surfacing in the home page home page "Recent News" feed but not on the actual News Feed page.  ');
   t('Department');
