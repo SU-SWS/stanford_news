@@ -36,7 +36,7 @@ function stanford_news_extras_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 28,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -575,7 +575,7 @@ function stanford_news_extras_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 33,
       ),
       'taxonomy' => array(
         'label' => 'above',
