@@ -4,35 +4,6 @@
  * stanford_news_extras.ds.inc
  */
 
-
-/**
- * Implements hook_ds_field_settings_info().
- */
-function stanford_news_extras_ds_field_settings_info() {
-  $export = array();
-  
-  $ds_fieldsetting = new stdClass();
-  $ds_fieldsetting->disabled = FALSE; /* Edit this to true to make a default dsfieldsetting disabled initially */
-  $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'node|stanford_news_item|stanford_news_extras';
-  $ds_fieldsetting->entity_type = 'node';
-  $ds_fieldsetting->bundle = 'stanford_news_item';
-  $ds_fieldsetting->view_mode = 'stanford_news_extras';
-  $ds_fieldsetting->settings = array(
-    'title' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'default',
-      'formatter_settings' => array(
-        'link' => '0',
-        'wrapper' => 'h1',
-        'class' => '',
-      ),
-    ),
-  );
-  $export['node|stanford_news_item|stanford_news_extras'] = $ds_fieldsetting;
-}
-
 /**
  * Implements hook_ds_layout_settings_info().
  */
