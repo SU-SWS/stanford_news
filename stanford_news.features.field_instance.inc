@@ -36,7 +36,7 @@ function stanford_news_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 14,
+        'weight' => 34,
       ),
       'taxonomy' => array(
         'label' => 'hidden',
@@ -118,10 +118,10 @@ function stanford_news_field_default_field_instances() {
           'delete' => '',
           'description' => 0,
           'edit' => '',
-          'view_mode' => '300_flexwidth',
+          'view_mode' => 'stanford_banner_850x400',
         ),
         'type' => 'field_collection_view',
-        'weight' => 2,
+        'weight' => 29,
       ),
       'taxonomy' => array(
         'label' => 'hidden',
@@ -181,9 +181,8 @@ function stanford_news_field_default_field_instances() {
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 16,
       ),
       'taxonomy' => array(
@@ -295,12 +294,8 @@ them, and integrate them with the site architecture.',
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
-        'module' => 'ds',
-        'settings' => array(
-          'taxonomy_term_link' => 0,
-          'taxonomy_term_separator' => ', ',
-        ),
-        'type' => 'ds_taxonomy_separator',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 15,
       ),
       'taxonomy' => array(
@@ -379,7 +374,7 @@ them, and integrate them with the site architecture.',
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 12,
+        'weight' => 27,
       ),
       'taxonomy' => array(
         'label' => 'hidden',
@@ -515,12 +510,8 @@ them, and integrate them with the site architecture.',
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => '',
-        ),
-        'type' => 'image',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 17,
       ),
       'taxonomy' => array(
@@ -633,9 +624,8 @@ them, and integrate them with the site architecture.',
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
+        'type' => 'hidden',
         'weight' => 15,
       ),
       'taxonomy' => array(
@@ -708,9 +698,8 @@ them, and integrate them with the site architecture.',
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
-        'module' => 'link',
         'settings' => array(),
-        'type' => 'link_default',
+        'type' => 'hidden',
         'weight' => 13,
       ),
       'taxonomy' => array(
