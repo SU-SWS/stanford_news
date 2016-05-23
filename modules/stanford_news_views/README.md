@@ -16,6 +16,3 @@ The 5 items news list page is identical to the 5 item list block except for that
 
 * **3 Item news list block with page**   r
 The three item news list block displays exactly three of the most recent news items in a formatted list. The list contains a thumbnail, title, date, tags, and short description. 
-
-* **Manage Content**   
-This contains a view for the stanford_manage feature. It provides a bulk operation view where content authors can make changes to multiple news items in one task.
