@@ -34,12 +34,8 @@ function stanford_news_extras_field_default_field_instances() {
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'full-width-banner',
-        ),
-        'type' => 'image',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'taxonomy' => array(
@@ -291,7 +287,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 18,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -349,7 +345,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 17,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -515,7 +511,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 19,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -571,7 +567,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 20,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -627,7 +623,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 21,
       ),
       'taxonomy' => array(
         'label' => 'above',
@@ -687,7 +683,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 16,
       ),
       'taxonomy' => array(
         'label' => 'above',

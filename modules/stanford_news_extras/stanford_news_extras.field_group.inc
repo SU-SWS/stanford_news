@@ -53,7 +53,7 @@ function stanford_news_extras_field_group_info() {
   $field_group->parent_name = 'group_s_postcard_image';
   $field_group->data = array(
     'label' => 'Byline Style',
-    'weight' => '27',
+    'weight' => '30',
     'children' => array(
       0 => 'field_s_news_byline',
     ),
@@ -85,7 +85,7 @@ function stanford_news_extras_field_group_info() {
   $field_group->parent_name = 'group_s_postcard_image';
   $field_group->data = array(
     'label' => 'Date Style',
-    'weight' => '26',
+    'weight' => '29',
     'children' => array(
       0 => 'field_s_news_date',
     ),
@@ -114,10 +114,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_news_extras';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_postcard_image';
   $field_group->data = array(
     'label' => 'Teaser Style',
-    'weight' => '3',
+    'weight' => '28',
     'children' => array(
       0 => 'field_s_news_teaser',
     ),
@@ -186,6 +186,7 @@ function stanford_news_extras_field_group_info() {
       0 => 'field_s_image_info',
       1 => 'group_s_news_date_style',
       2 => 'group_s_news_byline_style',
+      3 => 'group_s_news_teaser_style',
     ),
     'format_type' => 'div',
     'format_settings' => array(
