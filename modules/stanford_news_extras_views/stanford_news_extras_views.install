@@ -4,12 +4,18 @@
  */
 
 /**
+ * Implements hook_install().
+ *
  * Disable the Stanford News Views module since it conflicts with this module.
  *
- *
  */
-function stanford_news_extras_news_update_7300($sandbox) {
-    if (module_exists("stanford_news_views")) {
-      module_disable(array("stanford_news_views"));
+function stanford_news_extras_views_install() {
+
+  if (module_exists("stanford_news_views")) {
+    module_disable(array("stanford_news_views"));
+
+    watchdog('stanford_news_extras_views',
+      "Disabled conficting module: stanford_news_views.", array(),
+      WATCHDOG_INFO);
   }
 }
