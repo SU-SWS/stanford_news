@@ -34,9 +34,13 @@ function stanford_news_extras_field_default_field_instances() {
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'full-width-banner-short',
+        ),
+        'type' => 'image',
+        'weight' => 2,
       ),
       'taxonomy' => array(
         'label' => 'above',

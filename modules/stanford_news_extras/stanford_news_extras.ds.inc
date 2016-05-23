@@ -18,7 +18,7 @@ function stanford_news_extras_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'stanford_news_extras';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '2',
+      'weight' => '1',
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
@@ -50,26 +50,32 @@ function stanford_news_extras_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'group_s_postcard',
-        1 => 'group_s_postcard_image',
-        2 => 'group_s_postcard_content',
-        3 => 'field_s_news_date',
-        4 => 'field_s_news_byline',
-        5 => 'group_s_news_teaser_style',
-        6 => 'group_s_news_date_style',
-        7 => 'group_s_news_byline_style',
-        8 => 'field_s_image_info',
-        9 => 'group_s_news_body_style',
-        10 => 'field_s_news_teaser',
-        11 => 'body',
+        3 => 'group_s_postcard_image',
+        4 => 'group_s_postcard_content',
+        5 => 'field_s_news_date',
+        6 => 'group_s_news_teaser_style',
+        7 => 'field_s_news_byline',
+        8 => 'group_s_news_date_style',
+        9 => 'group_s_news_byline_style',
+        10 => 'field_s_image_info',
+        11 => 'group_s_news_body_style',
+        12 => 'field_s_news_teaser',
+        13 => 'body',
+      ),
+      'banner' => array(
+        1 => 'title',
+        2 => 'field_s_news_banner',
       ),
     ),
     'fields' => array(
       'group_s_postcard' => 'ds_content',
+      'title' => 'banner',
+      'field_s_news_banner' => 'banner',
       'group_s_postcard_image' => 'ds_content',
       'group_s_postcard_content' => 'ds_content',
       'field_s_news_date' => 'ds_content',
-      'field_s_news_byline' => 'ds_content',
       'group_s_news_teaser_style' => 'ds_content',
+      'field_s_news_byline' => 'ds_content',
       'group_s_news_date_style' => 'ds_content',
       'group_s_news_byline_style' => 'ds_content',
       'field_s_image_info' => 'ds_content',
