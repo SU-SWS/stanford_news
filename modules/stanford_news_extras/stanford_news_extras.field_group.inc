@@ -30,7 +30,7 @@ function stanford_news_extras_field_group_info() {
       'label' => 'Body Style',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-s-news-body-style field-group-div',
+        'classes' => 'group-s-news-body-style field-group-div body-style',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',

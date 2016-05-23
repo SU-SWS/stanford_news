@@ -11,5 +11,4 @@ features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[views_view][] = stanford_news_with_teaser
 features_exclude[dependencies][ctools] = ctools
-project path = sites/all/modules/stanford/stanford_news/modules
 project status url = https://github.com/SU-SWS/stanford_news.git
