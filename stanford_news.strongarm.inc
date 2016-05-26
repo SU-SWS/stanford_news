@@ -59,6 +59,12 @@ function stanford_news_strongarm() {
       '300_flexwidth' => array(
         'custom_settings' => FALSE,
       ),
+      'stanford_news_extras' => array(
+        'custom_settings' => TRUE,
+      ),
+      'stanford_cap' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -66,13 +72,13 @@ function stanford_news_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '9',
+          'weight' => '10',
         ),
         'metatags' => array(
           'weight' => '12',
         ),
         'redirect' => array(
-          'weight' => '10',
+          'weight' => '11',
         ),
       ),
       'display' => array(),
@@ -93,6 +99,20 @@ function stanford_news_strongarm() {
   $strongarm->name = 'menu_parent_stanford_news_item';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_stanford_news_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_node__stanford_news_item';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_node__stanford_news_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'metatag_enable_taxonomy_term__news_categories';
+  $strongarm->value = TRUE;
+  $export['metatag_enable_taxonomy_term__news_categories'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
