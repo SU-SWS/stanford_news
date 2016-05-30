@@ -1,6 +1,22 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.2, 2016-05-30
+---------------------------------
+- Enable revisions by default on stanford_news_item content type
+- Resolves BASIC-1363 update URL Cutoff settings to 160
+- SOE-627: Added all the extra fields in SoE to make a new extras module
+- SOE-745: Removed manage content from the news views module
+- SOE-745: replaced manage content view
+- SOE-745: removed project path from .info files
+- SOE-745: Added install hook() to enable administration module
+- SOE-811: added News Extras view mode
+- Update news feature with strongarm variables
+- SOE-790: Added stanford_news_extras_views
+- SOE-790: updated to install() function to disable the conficting module: stanford_news_views
+- SOE-811: added News Extras view mode
+- Added new administration views module
+
 Stanford News 7.x-3.1, 2015-06-25
 ---------------------------------
 Changes since 7.x-3.0:
