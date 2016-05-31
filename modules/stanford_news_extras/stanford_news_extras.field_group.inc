@@ -13,6 +13,70 @@ function stanford_news_extras_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_caption_div|field_collection_item|field_s_image_info|soe_news_item';
+  $field_group->group_name = 'group_caption_div';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_s_image_info';
+  $field_group->mode = 'soe_news_item';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Caption Style',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_s_image_caption',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Caption Style',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'caption',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_caption_div|field_collection_item|field_s_image_info|soe_news_item'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_credits_style|field_collection_item|field_s_image_info|soe_news_item';
+  $field_group->group_name = 'group_s_credits_style';
+  $field_group->entity_type = 'field_collection_item';
+  $field_group->bundle = 'field_s_image_info';
+  $field_group->mode = 'soe_news_item';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Credits Style',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_s_image_credits',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Credits Style',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'credits',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_s_credits_style|field_collection_item|field_s_image_info|soe_news_item'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_s_new_banner_style|node|stanford_news_item|stanford_news_extras';
   $field_group->group_name = 'group_s_new_banner_style';
   $field_group->entity_type = 'node';
