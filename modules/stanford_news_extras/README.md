@@ -14,13 +14,13 @@ Current approach to installing all the things for importing news from SoE
 
 1. Install and enable the module stanford_feeds_helper (https://github.com/SU-SWS/stanford_feeds_helper.git)
 1. Pull the changes for:
-* stanford_image_styles
-* stanford_image
-* stanford_news
+   * stanford_image_styles
+   * stanford_image
+   * stanford_news
 2. Revert features:
-* stanford_news_extras,
-* stanford_news_extras_importer,
-* stanford_news
+   * stanford_news_extras,
+   * stanford_news_extras_importer,
+   * stanford_news
 3. Disable & uninstall: stanford_news_views
 4. Enable: stanford_news_extras_views
 5. If necessary, create Banner and Banner Overlay regions (they don't seem to get exported/imported)
