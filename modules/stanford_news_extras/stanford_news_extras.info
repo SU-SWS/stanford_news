@@ -62,6 +62,7 @@ features[field_instance][] = node-stanford_news_item-field_s_news_teaser
 features[taxonomy][] = research_themes
 features[taxonomy][] = school_themes
 features[taxonomy][] = stanford_department
+features[variable][] = stanford_news_banner
 features_exclude[dependencies][stanford_news_extras_importer] = stanford_news_extras_importer
 features_exclude[field_group][group_s_news_taxonomy|node|stanford_news_item|form] = group_s_news_taxonomy|node|stanford_news_item|form
 project status url = https://github.com/SU-SWS/stanford_news.git
