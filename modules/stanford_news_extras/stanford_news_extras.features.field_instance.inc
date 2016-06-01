@@ -62,6 +62,7 @@ function stanford_news_extras_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 1,
       'default_image' => 0,
+      'default_image_ft_source_var' => 'stanford_news_banner',
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
