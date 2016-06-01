@@ -10,9 +10,9 @@ Install this module like any other module. [See Drupal Documentation](https://dr
 
 Configuration
 -------------
-Current approach to installing all the things for importing news from SoE``
+Current approach to installing all the things for importing news from SoE
 
- Install and enable the module stanford_feeds_helper (https://github.com/SU-SWS/stanford_feeds_helper.git)
+1. Install and enable the module stanford_feeds_helper (https://github.com/SU-SWS/stanford_feeds_helper.git)
 1. Pull the changes for:
 ..* stanford_image_styles
 ..* stanford_image
