@@ -12,7 +12,9 @@ Configuration
 -------------
 Current approach to installing all the things for importing news from SoE
 
-1. Install and enable the module stanford_feeds_helper (https://github.com/SU-SWS/stanford_feeds_helper.git)
+1. Install and enable modules: 
+   * stanford_feeds_helper (https://github.com/SU-SWS/stanford_feeds_helper.git)
+   * stanford_soe_helper https://github.com/SU-SOE/stanford_soe_helper.git
 1. Pull the changes for:
    * stanford_image_styles
    * stanford_image
