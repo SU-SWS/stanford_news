@@ -1,0 +1,42 @@
+<?php
+
+
+/**
+ * Implements hook_install().
+ */
+function stanford_news_extras_install() {
+
+  // Get the default banner image
+  $filename = "news-extra-default-image.png";
+  $file_path = drupal_get_path('module', 'stanford_news_extras') . "/images/" . $filename ;
+
+  $image = file_get_contents($file_path);
+
+  //Creates a database entry.
+  $file = file_save_data($image, "public://" . $filename, FILE_EXISTS_REPLACE);
+
+  //Set the file status to permanent so it is not deleted in next cron run
+  $file->status = FILE_STATUS_PERMANENT;
+  file_save($file);
+
+  // And save the file id for default_image_ft to use
+  variable_set('stanford_news_banner', $file->fid);
+}
+
+/**
+ * Implements hook_enable().
+ */
+function stanford_news_extras_enable() {
+}
+
+/**
+ * Implements hook_disable().
+ */
+function stanford_news_extras_disable() {
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function stanford_news_extras_uninstall() {
+}
