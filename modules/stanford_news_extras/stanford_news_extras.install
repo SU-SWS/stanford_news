@@ -1,21 +1,5 @@
 <?php
 
-/**
- *
- * @param array $args
- *   Installation arguments.
- */
-/* TODO: delete this
-public function execute(&$args = array()) {
-  // Setting default image on stanford news item using a variable leveraging default_image_ft module.
-  $q = db_select('file_managed', 'fm');
-  $q->addField('fm', 'fid');
-  $q->condition('fm.filename', 'default-profile-image.png', '=');
-  $fid = $q->execute()->fetchField();
-
-  // This default image is being pulled in by CAP.
-  variable_set('stanford_person_profile_picture', $fid);
-}*/
 
 /**
  * Implements hook_install().
@@ -23,27 +7,20 @@ public function execute(&$args = array()) {
 function stanford_news_extras_install() {
 
   // Get the default banner image
-  $file_path = drupal_get_path('module', 'stanford_news_extras') . "/images/news-extra-default-image.png";
+  $filename = "news-extra-default-image.png";
+  $file_path = drupal_get_path('module', 'stanford_news_extras') . "/images/" . $filename ;
 
   $image = file_get_contents($file_path);
 
   //Creates a database entry.
-  $file = file_save_data($image, NULL, FILE_EXISTS_REPLACE);
+  $file = file_save_data($image, "public://" . $filename, FILE_EXISTS_REPLACE);
 
   //Set the file status to permanent so it is not deleted in next cron run
   $file->status = FILE_STATUS_PERMANENT;
   file_save($file);
-/* todo: add this
 
-  // Set default banner image on stanford news item using a variable leveraging default_image_ft module.
-  $q = db_select('file_managed', 'fm');
-  $q->addField('fm', 'fid');
-  $q->condition('fm.filename', 'news-extra-default-image.png', '=');
-  $fid = $q->execute()->fetchField();
-
-  // This default image is being pulled in by CAP.
-  variable_set('stanford_news_banner', $fid);
-  */
+  // And save the file id for default_image_ft to use
+  variable_set('stanford_news_banner', $file->fid);
 }
 
 /**
