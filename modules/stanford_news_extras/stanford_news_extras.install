@@ -6,19 +6,14 @@
 function stanford_news_extras_install() {
 
   // Get the default banner image
-  $filename = "news-extra-default-image.png";
+  $filename = "stanford_news_extras_default_image.png";
   $file_path = drupal_get_path('module', 'stanford_news_extras') . "/images/" . $filename ;
-
   $image = file_get_contents($file_path);
 
-  //Creates a database entry.
+  //Create a database entry.
   $file = file_save_data($image, "public://" . $filename, FILE_EXISTS_REPLACE);
 
-  //Set the file status to permanent so it is not deleted in next cron run
-  $file->status = FILE_STATUS_PERMANENT;
-  file_save($file);
-
-  // And save the file id for default_image_ft to use
+  // And save the file id for default_image_ft to use.
   variable_set('stanford_news_banner', $file->fid);
 
   stanford_news_extras_set_ds_region_blocks();
