@@ -21,18 +21,6 @@ function stanford_news_extras_install() {
 }
 
 /**
- * Implements hook_enable().
- */
-function stanford_news_extras_enable() {
-}
-
-/**
- * Implements hook_disable().
- */
-function stanford_news_extras_disable() {
-}
-
-/**
  * Implements hook_uninstall().
  */
 function stanford_news_extras_uninstall() {
@@ -44,28 +32,40 @@ function stanford_news_extras_uninstall() {
   variable_set('ds_extras_region_blocks', $settings);
 }
 
+/**
+ * Implements hook_update_N().
+ */
+function stanford_news_extras_update_7300(&$sandbox) {
+  stanford_news_extras_set_ds_region_blocks();
+}
 
 /**
  * Set the DS region block values.
  */
 function stanford_news_extras_set_ds_region_blocks() {
-  $settings = variable_get('ds_extras_region_blocks');
+  $settings = variable_get('ds_extras_region_blocks', array());
 
-  $settings['banner'] = array(
-    'title' => 'Banner',
-    'info' => 'node_stanford_news_item_stanford_news_extras');
-  $settings['banner_overlay'] = array(
-    'title' => 'Banner Overlay',
-    'info' => 'node_stanford_news_item_stanford_news_extras');
+  if (!isset($settings['banner'])) {
+    $settings['banner'] = array(
+      'title' => t('Banner'),
+      'info' => 'node_stanford_news_item_stanford_news_extras',
+      );
+  }
+  else {
+    watchdog('stanford_news_extras', 'DS extras Banner region already in use', WATCHDOG_NOTICE);
+  }
+
+  if (!isset($settings['banner_overlay'])) {
+    $settings['banner_overlay'] = array(
+      'title' => t('Banner Overlay'),
+      'info' => 'node_stanford_news_item_stanford_news_extras',
+    );
+  }
+  else {
+    watchdog('stanford_news_extras', 'DS extras Banner Overlay region already in use', WATCHDOG_NOTICE);
+  }
 
   variable_set('ds_extras_region_blocks', $settings );
-
 }
 
-/**
- * Implements hook_update_N().
- */
-function stanford_news_extras_update_7310(&$sandbox) {
-  stanford_news_extras_set_ds_region_blocks();
-}
 
