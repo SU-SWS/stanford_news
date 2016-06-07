@@ -61,3 +61,11 @@ function stanford_news_extras_set_ds_region_blocks() {
   variable_set('ds_extras_region_blocks', $settings );
 
 }
+
+/**
+ * Implements hook_update_N().
+ */
+function stanford_news_extras_update_7310(&$sandbox) {
+  stanford_news_extras_set_ds_region_blocks();
+}
+
