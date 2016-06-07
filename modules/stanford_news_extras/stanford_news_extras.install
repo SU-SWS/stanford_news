@@ -49,7 +49,7 @@ function stanford_news_extras_set_ds_region_blocks() {
     $settings['banner'] = array(
       'title' => t('Banner'),
       'info' => 'node_stanford_news_item_stanford_news_extras',
-      );
+    );
   }
   else {
     watchdog('stanford_news_extras', 'DS extras Banner region already in use', WATCHDOG_NOTICE);
