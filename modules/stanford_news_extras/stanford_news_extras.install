@@ -52,7 +52,8 @@ function stanford_news_extras_set_ds_region_blocks() {
     );
   }
   else {
-    watchdog('stanford_news_extras', 'DS extras Banner region already in use', WATCHDOG_NOTICE);
+    watchdog('stanford_news_extras', '%msg', array('%msg' => 'DS extras Banner block already in use'), WATCHDOG_NOTICE);
+
   }
 
   if (!isset($settings['banner_overlay'])) {
@@ -62,7 +63,7 @@ function stanford_news_extras_set_ds_region_blocks() {
     );
   }
   else {
-    watchdog('stanford_news_extras', 'DS extras Banner Overlay region already in use', WATCHDOG_NOTICE);
+    watchdog('stanford_news_extras', '%msg', array('%msg' => 'DS extras Banner overlay block already in use'), WATCHDOG_NOTICE);
   }
 
   variable_set('ds_extras_region_blocks', $settings );
