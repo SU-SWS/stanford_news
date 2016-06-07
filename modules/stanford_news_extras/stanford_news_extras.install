@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Implements hook_install().
  */
@@ -21,6 +20,8 @@ function stanford_news_extras_install() {
 
   // And save the file id for default_image_ft to use
   variable_set('stanford_news_banner', $file->fid);
+
+  stanford_news_extras_set_ds_region_blocks();
 }
 
 /**
@@ -39,4 +40,28 @@ function stanford_news_extras_disable() {
  * Implements hook_uninstall().
  */
 function stanford_news_extras_uninstall() {
+
+  // Remove the DS Blocks variables for news extras
+  $settings = variable_get('ds_extras_region_blocks');
+  unset($settings['banner']);
+  unset($settings['banner_overlay']);
+  variable_set('ds_extras_region_blocks', $settings);
+}
+
+
+/**
+ * Set the DS region block values.
+ */
+function stanford_news_extras_set_ds_region_blocks() {
+  $settings = variable_get('ds_extras_region_blocks');
+
+  $settings['banner'] = array(
+    'title' => 'Banner',
+    'info' => 'node_stanford_news_item_stanford_news_extras');
+  $settings['banner_overlay'] = array(
+    'title' => 'Banner Overlay',
+    'info' => 'node_stanford_news_item_stanford_news_extras');
+
+  variable_set('ds_extras_region_blocks', $settings );
+
 }
