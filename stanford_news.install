@@ -53,7 +53,7 @@ function stanford_news_set_ds_region_blocks() {
     );
   }
   else {
-    watchdog('stanford_news', 'DS extras News Image already in use', WATCHDOG_NOTICE);
+    watchdog('stanford_news', 'DS extras News Image already in use', array(), WATCHDOG_NOTICE);
   }
   variable_set('ds_extras_region_blocks', $settings );
 }
