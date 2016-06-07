@@ -16,6 +16,7 @@ function stanford_news_extras_install() {
   // And save the file id for default_image_ft to use.
   variable_set('stanford_news_banner', $file->fid);
 
+  // Set the DS region block values
   stanford_news_extras_set_ds_region_blocks();
 }
 
