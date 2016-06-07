@@ -10,24 +10,8 @@ Install this module like any other module. [See Drupal Documentation](https://dr
 
 Configuration
 -------------
-Current approach to installing all the things for importing news from SoE
 
-1. Install and enable the module stanford_feeds_helper (https://github.com/SU-SWS/stanford_feeds_helper.git)
-1. Pull the changes for:
-   * stanford_image_styles
-   * stanford_image
-   * stanford_news
-2. Revert features:
-   * stanford_news_extras,
-   * stanford_news_extras_importer,
-   * stanford_news
-3. Disable & uninstall: stanford_news_views
-4. Enable: stanford_news_extras_views
-5. If necessary, create Banner and Banner Overlay regions (they don't seem to get exported/imported)
-6. Remove title on news banner block and flush caches
-7. Update homepage with the new news block
-8. Add block at the bottom of each news item to link back to the news listing page
-
+Nothing special needed.
 
 Troubleshooting
 ---
