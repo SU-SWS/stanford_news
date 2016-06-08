@@ -18,7 +18,7 @@ function stanford_news_extras_install() {
 function stanford_news_extras_uninstall() {
 
   // Remove the DS Blocks variables for news extras
-  $settings = variable_get('ds_extras_region_blocks');
+  $settings = variable_get('ds_extras_region_blocks', array());
   unset($settings['banner']);
   unset($settings['banner_overlay']);
   variable_set('ds_extras_region_blocks', $settings);
