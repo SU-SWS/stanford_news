@@ -63,7 +63,7 @@ function stanford_news_extras_set_ds_region_blocks() {
 
   if (!isset($settings['banner'])) {
     $settings['banner'] = array(
-      'title' => t('<none>'),
+      'title' => '<none>',
       'info' => 'node_stanford_news_item_stanford_news_extras',
     );
   }
@@ -74,7 +74,7 @@ function stanford_news_extras_set_ds_region_blocks() {
 
   if (!isset($settings['banner_overlay'])) {
     $settings['banner_overlay'] = array(
-      'title' => t('<none>'),
+      'title' => '<none>',
       'info' => 'node_stanford_news_item_stanford_news_extras',
     );
   }
