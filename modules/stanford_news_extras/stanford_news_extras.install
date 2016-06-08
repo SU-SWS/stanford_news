@@ -5,18 +5,10 @@
  */
 function stanford_news_extras_install() {
 
-  // Get the default banner image
-  $filename = "stanford_news_extras_default_image.png";
-  $file_path = drupal_get_path('module', 'stanford_news_extras') . "/images/" . $filename ;
-  $image = file_get_contents($file_path);
+  // Set the banner image fid.
+  stanford_news_extras_set_banner_image();
 
-  //Create a database entry.
-  $file = file_save_data($image, "public://" . $filename, FILE_EXISTS_REPLACE);
-
-  // And save the file id for default_image_ft to use.
-  variable_set('stanford_news_banner', $file->fid);
-
-  // Set the DS region block values
+  // Set the DS region block values.
   stanford_news_extras_set_ds_region_blocks();
 }
 
@@ -37,6 +29,30 @@ function stanford_news_extras_uninstall() {
  */
 function stanford_news_extras_update_7300(&$sandbox) {
   stanford_news_extras_set_ds_region_blocks();
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function stanford_news_extras_update_7301(&$sandbox) {
+  stanford_news_extras_set_banner_image();
+}
+
+/**
+ * Set the banner image fid.
+ */
+function stanford_news_extras_set_banner_image() {
+
+  // Get the default banner image
+  $filename = "stanford_news_extras_default_image.png";
+  $file_path = drupal_get_path('module', 'stanford_news_extras') . "/images/" . $filename ;
+  $image = file_get_contents($file_path);
+
+  //Create a database entry.
+  $file = file_save_data($image, "public://" . $filename, FILE_EXISTS_REPLACE);
+
+  // And save the file id for default_image_ft to use.
+  variable_set('stanford_news_banner', $file->fid);
 }
 
 /**
