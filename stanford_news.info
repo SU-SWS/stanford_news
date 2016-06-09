@@ -2,11 +2,7 @@ name = Stanford News
 description = News Item content type, and list Views with an image and taxonomy terms
 core = 7.x
 package = Stanford
-<<<<<<< HEAD
-version = 7.x-3.1-dev
-=======
 version = 7.x-3.2-dev
->>>>>>> 7.x-3.x-dev
 project = stanford_news
 dependencies[] = ctools
 dependencies[] = date
