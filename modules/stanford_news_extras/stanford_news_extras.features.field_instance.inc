@@ -726,7 +726,7 @@ function stanford_news_extras_field_default_field_instances() {
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'The Teaser is the short text which introduces a news story.',
+    'description' => 'The Teaser is the short text which introduces a news story. Please keep this teaser under 180 characters.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -820,7 +820,7 @@ function stanford_news_extras_field_default_field_instances() {
   t('School Theme');
   t('Slider Feature');
   t('Teaser');
-  t('The Teaser is the short text which introduces a news story.');
+  t('The Teaser is the short text which introduces a news story. Please keep this teaser under 180 characters.');
   t('Uploading a square thumbnail will replace the automatic square crop of the Feature Image that is displayed in news listing pages and teasers. It will not replace the image used in the news story detail view. ');
 
   return $field_instances;
