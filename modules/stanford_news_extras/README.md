@@ -1,5 +1,5 @@
 # [Stanford News Extras Importer](https://github.com/SU-SWS/stanford_news)
-##### Version: 7.x-3.1
+##### Version: 7.x-3.2-dev
 
 Stanford News Extras feature provides extra fields needed to support SoE needs.
 
