@@ -32,6 +32,12 @@ function stanford_news_extras_context_default_contexts() {
           'region' => 'fullwidth_top',
           'weight' => '-10',
         ),
+        'ds_extras-banner_overlay' => array(
+          'module' => 'ds_extras',
+          'delta' => 'banner_overlay',
+          'region' => 'highlighted',
+          'weight' => '-10',
+        ),
       ),
     ),
     'context_reaction_view_mode' => array(
@@ -53,6 +59,8 @@ function stanford_news_extras_context_default_contexts() {
         ),
         'node' => array(
           'stanford_affiliate_organization' => 'none',
+          'article' => 'none',
+          'page' => 'none',
           'stanford_gallery' => 'none',
           'stanford_landing_page' => 'none',
           'stanford_news_importer' => 'none',
@@ -64,6 +72,7 @@ function stanford_news_extras_context_default_contexts() {
           'stanford_event_importer' => 'none',
           'stanford_event_series' => 'none',
           'stanford_page' => 'none',
+          'webform' => 'none',
         ),
         'capx_cfe' => array(
           'mapper' => 'none',
@@ -94,6 +103,7 @@ function stanford_news_extras_context_default_contexts() {
           'tags' => 'none',
           'stanford_slide_category' => 'none',
           'fellowship_location' => 'none',
+          'capx_organizations' => 'none',
           'research_themes' => 'none',
           'school_themes' => 'none',
           'stanford_department' => 'none',

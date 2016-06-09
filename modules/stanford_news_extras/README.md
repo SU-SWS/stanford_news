@@ -9,7 +9,9 @@ Installation
 Install this module like any other module. [See Drupal Documentation](https://drupal.org/documentation/install/modules-themes/modules-7)
 
 Configuration
----
+-------------
+
+Nothing special needed.
 
 Troubleshooting
 ---
