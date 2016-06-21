@@ -102,5 +102,4 @@ function stanford_news_extras_set_contexts() {
   $context_status['stanford_news_extras'] = FALSE;
 
   variable_set('context_status', $context_status);
-
 }
