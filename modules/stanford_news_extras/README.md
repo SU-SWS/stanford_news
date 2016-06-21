@@ -1,4 +1,4 @@
-# [Stanford News Extras Importer](https://github.com/SU-SWS/stanford_news)
+# [Stanford News Extras](https://github.com/SU-SWS/stanford_news)
 ##### Version: 7.x-3.2-dev
 
 Stanford News Extras feature provides extra fields needed to support SoE needs.
@@ -11,7 +11,8 @@ Install this module like any other module. [See Drupal Documentation](https://dr
 Configuration
 -------------
 
-Nothing special needed.
+To display properly, this module needs "fullwidth_top" and "highlighted" theme regions. 
+[See Open Framework](https://github.com/SU-SWS/open_framework/blob/8d5f74106fb1708955c9a07a2cd7cedeac117853/open_framework.info).
 
 Troubleshooting
 ---
