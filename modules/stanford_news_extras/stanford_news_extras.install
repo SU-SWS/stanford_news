@@ -10,6 +10,9 @@ function stanford_news_extras_install() {
 
   // Set the DS region block values.
   stanford_news_extras_set_ds_region_blocks();
+
+  // Set the context for news extras.
+  stanford_news_extras_set_contexts();
 }
 
 /**
@@ -63,8 +66,9 @@ function stanford_news_extras_set_ds_region_blocks() {
 
   if (!isset($settings['banner'])) {
     $settings['banner'] = array(
-      'title' => '<none>',
+      'title' => 'Banner',
       'info' => 'node_stanford_news_item_stanford_news_extras',
+      'label_display' => 'hidden',
     );
   }
   else {
@@ -74,8 +78,9 @@ function stanford_news_extras_set_ds_region_blocks() {
 
   if (!isset($settings['banner_overlay'])) {
     $settings['banner_overlay'] = array(
-      'title' => '<none>',
+      'title' => 'Banner Overlay',
       'info' => 'node_stanford_news_item_stanford_news_extras',
+      'label_display' => 'hidden',
     );
   }
   else {
@@ -86,3 +91,16 @@ function stanford_news_extras_set_ds_region_blocks() {
 }
 
 
+/**
+ * Set the context for news extras.
+ */
+function stanford_news_extras_set_contexts() {
+
+  $context_status = variable_get('context_status', array());
+
+  // Get the context for news extras.
+  $context_status['stanford_news_extras'] = FALSE;
+
+  variable_set('context_status', $context_status);
+
+}
