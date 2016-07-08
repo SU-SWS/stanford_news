@@ -1,5 +1,5 @@
 #[Stanford News](https://github.com/SU-SWS/stanford_news)
-##### Version: 7.x-3.3
+##### Version: 7.x-3.3-dev
 
 Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)
 [Changelog.txt](CHANGELOG.txt)
