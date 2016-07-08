@@ -1,6 +1,16 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+
+Stanford News 7.x-3.3, 2016-06-08
+---------------------------------
+- Work on Banner and Banner overlay for News Extras
+- Add test for conflicting news views
+- SOE-849: added stanford_news_banner, and default image variable
+- SOE-849: added dependency to stanford_feeds_helper
+- SOE-849: Updated config info in readme.md
+- Straighten up overlapping cruft from Stanford Person
+
 Stanford News 7.x-3.2, 2016-05-30
 ---------------------------------
 - Enable revisions by default on stanford_news_item content type
