@@ -1,6 +1,11 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.3+8-dev, 2016-07-19
+---------------------------------
+-	Removed block titles on banner and banner overlay
+-	SOE-884: Enabling new extras context
+- SOE-884: adding css
 
 Stanford News 7.x-3.3, 2016-06-08
 ---------------------------------
