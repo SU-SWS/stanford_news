@@ -1,4 +1,4 @@
-.views-grid-two .views-row {
+.view-stanford-news-grid.views-grid-two .views-row {
     box-sizing: border-box;
     display: inline-block;
     margin-right: 3%;
@@ -7,11 +7,20 @@
     vertical-align: top;
 }
 
-.views-grid-two .views-row-2,
-.views-grid-two .views-row-4 {
+
+.view-stanford-news-grid.views-grid-two .views-row-2,
+.view-stanford-news-grid.views-grid-two .views-row-4 {
     margin-right: 0;
 }
-
-.view-display-id-attachment .views-row-1 {
+ .view-display-id-attachment .views-row-1 {
     padding-top: 0;
+}
+
+.view-stanford-news-grid.views-grid-three .views-row {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-right: 3%;
+    margin-bottom: 20px;
+    width: 30%;
+    vertical-align: top;
 }
