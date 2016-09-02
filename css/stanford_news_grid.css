@@ -7,7 +7,6 @@
     vertical-align: top;
 }
 
-
 .view-stanford-news-grid.views-grid-two .views-row-2,
 .view-stanford-news-grid.views-grid-two .views-row-4 {
     margin-right: 0;
@@ -23,4 +22,9 @@
     margin-bottom: 20px;
     width: 30%;
     vertical-align: top;
+}
+.view-stanford-news-grid.views-grid-three .views-row-3,
+.view-stanford-news-grid.views-grid-three .views-row-6,
+.view-stanford-news-grid.views-grid-three .views-row-12 {
+    margin-right: 0;
 }
