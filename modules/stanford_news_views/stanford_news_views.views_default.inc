@@ -849,10 +849,10 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_class'] = 'normal-link';
   $handler->display->display_options['fields']['title']['element_label_type'] = 'div';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'normal-link';
   /* Field: Content: Date */
   $handler->display->display_options['fields']['field_s_news_date']['id'] = 'field_s_news_date';
   $handler->display->display_options['fields']['field_s_news_date']['table'] = 'field_data_field_s_news_date';
