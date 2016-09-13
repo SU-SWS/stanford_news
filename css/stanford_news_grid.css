@@ -1,3 +1,9 @@
+@media (max-width: 680px) {
+    .block[class*="span"] .view-stanford-news-grid.views-grid-two .views-row {
+        width: 100%;
+        max-width: 100%;
+    }
+}
 
 .view-stanford-news-grid.views-grid-two .views-row {
     box-sizing: border-box;
