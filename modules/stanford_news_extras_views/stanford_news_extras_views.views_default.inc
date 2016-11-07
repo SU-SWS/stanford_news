@@ -49,6 +49,12 @@ function stanford_news_extras_views_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'No news items listed.';
   $handler->display->display_options['empty']['area']['format'] = 'content_editor_text_format';
+  /* Relationship: Field: Featured Image (field_s_image_info) */
+  $handler->display->display_options['relationships']['field_s_image_info_value']['id'] = 'field_s_image_info_value';
+  $handler->display->display_options['relationships']['field_s_image_info_value']['table'] = 'field_data_field_s_image_info';
+  $handler->display->display_options['relationships']['field_s_image_info_value']['field'] = 'field_s_image_info_value';
+  $handler->display->display_options['relationships']['field_s_image_info_value']['label'] = 'field_s_image_info';
+  $handler->display->display_options['relationships']['field_s_image_info_value']['delta'] = '-1';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -56,20 +62,19 @@ function stanford_news_extras_views_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Field: Featured Image */
-  $handler->display->display_options['fields']['field_s_image_info']['id'] = 'field_s_image_info';
-  $handler->display->display_options['fields']['field_s_image_info']['table'] = 'field_data_field_s_image_info';
-  $handler->display->display_options['fields']['field_s_image_info']['field'] = 'field_s_image_info';
-  $handler->display->display_options['fields']['field_s_image_info']['label'] = '';
-  $handler->display->display_options['fields']['field_s_image_info']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_s_image_info']['alter']['path'] = 'node/[nid]';
-  $handler->display->display_options['fields']['field_s_image_info']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_s_image_info']['settings'] = array(
-    'edit' => '',
-    'delete' => '',
-    'add' => '',
-    'description' => 0,
-    'view_mode' => 'stanford_small_square',
+  /* Field: Field collection item: Image */
+  $handler->display->display_options['fields']['field_s_image_image']['id'] = 'field_s_image_image';
+  $handler->display->display_options['fields']['field_s_image_image']['table'] = 'field_data_field_s_image_image';
+  $handler->display->display_options['fields']['field_s_image_image']['field'] = 'field_s_image_image';
+  $handler->display->display_options['fields']['field_s_image_image']['relationship'] = 'field_s_image_info_value';
+  $handler->display->display_options['fields']['field_s_image_image']['label'] = '';
+  $handler->display->display_options['fields']['field_s_image_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_s_image_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_s_image_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_image_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_s_image_image']['settings'] = array(
+    'image_style' => '3-col-header',
+    'image_link' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
