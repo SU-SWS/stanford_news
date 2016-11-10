@@ -36,7 +36,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 14,
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
@@ -305,7 +305,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 18,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -369,7 +369,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 19,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -541,7 +541,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 17,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -603,7 +603,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 16,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -665,7 +665,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 15,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -731,7 +731,7 @@ function stanford_news_extras_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 23,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',

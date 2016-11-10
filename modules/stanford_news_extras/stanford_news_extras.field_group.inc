@@ -373,7 +373,7 @@ function stanford_news_extras_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'File Style',
-    'weight' => '9',
+    'weight' => '6',
     'children' => array(
       0 => 'field_s_news_attachment',
     ),
@@ -439,9 +439,8 @@ function stanford_news_extras_field_group_info() {
     'label' => 'Links group style',
     'weight' => '5',
     'children' => array(
-      0 => 'group_s_news_link_style',
-      1 => 'group_s_news_source_style',
-      2 => 'group_s_news_external_link_style',
+      0 => 'group_s_news_source_style',
+      1 => 'group_s_news_external_link_style',
     ),
     'format_type' => 'div',
     'format_settings' => array(
