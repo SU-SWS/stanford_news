@@ -10,7 +10,7 @@
 function stanford_news_extras_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-stanford_news_item-field_s_news_banner'
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_banner'.
   $field_instances['node-stanford_news_item-field_s_news_banner'] = array(
     'bundle' => 'stanford_news_item',
     'deleted' => 0,
@@ -31,6 +31,12 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 0,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
@@ -182,7 +188,7 @@ function stanford_news_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-stanford_news_item-field_s_news_byline'
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_byline'.
   $field_instances['node-stanford_news_item-field_s_news_byline'] = array(
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
@@ -202,6 +208,13 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 2,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 15,
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
@@ -268,7 +281,7 @@ function stanford_news_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-stanford_news_item-field_s_news_department'
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_department'.
   $field_instances['node-stanford_news_item-field_s_news_department'] = array(
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
@@ -287,6 +300,12 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 11,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -324,7 +343,7 @@ function stanford_news_extras_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-stanford_news_item-field_s_news_optional_image'
+  // 'node-stanford_news_item-field_s_news_optional_image'.
   $field_instances['node-stanford_news_item-field_s_news_optional_image'] = array(
     'bundle' => 'stanford_news_item',
     'deleted' => 0,
@@ -345,6 +364,12 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 13,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 19,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -490,7 +515,7 @@ function stanford_news_extras_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-stanford_news_item-field_s_news_organization'
+  // 'node-stanford_news_item-field_s_news_organization'.
   $field_instances['node-stanford_news_item-field_s_news_organization'] = array(
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
@@ -511,6 +536,12 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 14,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -548,7 +579,7 @@ function stanford_news_extras_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-stanford_news_item-field_s_news_research_theme'
+  // 'node-stanford_news_item-field_s_news_research_theme'.
   $field_instances['node-stanford_news_item-field_s_news_research_theme'] = array(
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
@@ -567,6 +598,12 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 17,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -604,7 +641,7 @@ function stanford_news_extras_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-stanford_news_item-field_s_news_school_theme'
+  // 'node-stanford_news_item-field_s_news_school_theme'.
   $field_instances['node-stanford_news_item-field_s_news_school_theme'] = array(
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
@@ -623,6 +660,12 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 16,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -660,7 +703,7 @@ function stanford_news_extras_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'node-stanford_news_item-field_s_news_slider_feature'
+  // 'node-stanford_news_item-field_s_news_slider_feature'.
   $field_instances['node-stanford_news_item-field_s_news_slider_feature'] = array(
     'bundle' => 'stanford_news_item',
     'default_value' => array(
@@ -683,6 +726,12 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 15,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 22,
       ),
       'stanford_news_extras' => array(
         'label' => 'above',
@@ -721,7 +770,7 @@ function stanford_news_extras_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-stanford_news_item-field_s_news_teaser'
+  // Exported field_instance: 'node-stanford_news_item-field_s_news_teaser'.
   $field_instances['node-stanford_news_item-field_s_news_teaser'] = array(
     'bundle' => 'stanford_news_item',
     'default_value' => NULL,
@@ -741,6 +790,13 @@ function stanford_news_extras_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 0,
+      ),
+      'stanford_extras_single_region' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
       ),
       'stanford_news_extras' => array(
         'label' => 'hidden',
