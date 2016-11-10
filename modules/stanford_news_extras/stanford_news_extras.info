@@ -57,6 +57,7 @@ features[field_group][] = group_s_news_date_style|node|stanford_news_item|stanfo
 features[field_group][] = group_s_news_external_link_style|node|stanford_news_item|stanford_extras_single_region
 features[field_group][] = group_s_news_file_style|node|stanford_news_item|stanford_extras_single_region
 features[field_group][] = group_s_news_link_style|node|stanford_news_item|stanford_extras_single_region
+features[field_group][] = group_s_news_links_group_style|node|stanford_news_item|stanford_extras_single_region
 features[field_group][] = group_s_news_source_style|node|stanford_news_item|stanford_extras_single_region
 features[field_group][] = group_s_news_taxonomy|node|stanford_news_item|form
 features[field_group][] = group_s_news_teaser_byline|node|stanford_news_item|form
