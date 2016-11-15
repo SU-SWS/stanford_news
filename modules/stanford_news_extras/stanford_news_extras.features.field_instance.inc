@@ -184,7 +184,7 @@ function stanford_news_extras_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 14,
+      'weight' => 15,
     ),
   );
 
@@ -338,7 +338,7 @@ function stanford_news_extras_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 12,
+      'weight' => 5,
     ),
   );
 
@@ -510,7 +510,7 @@ function stanford_news_extras_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 9,
+      'weight' => 16,
     ),
   );
 
@@ -574,7 +574,7 @@ function stanford_news_extras_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 6,
     ),
   );
 
@@ -636,7 +636,7 @@ function stanford_news_extras_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 14,
+      'weight' => 8,
     ),
   );
 
@@ -698,7 +698,7 @@ function stanford_news_extras_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 15,
+      'weight' => 7,
     ),
   );
 
@@ -766,7 +766,7 @@ function stanford_news_extras_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 2,
+      'weight' => 8,
     ),
   );
 

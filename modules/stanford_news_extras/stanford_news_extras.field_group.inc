@@ -499,22 +499,25 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'form';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_news_advanced';
   $field_group->data = array(
     'label' => 'Categories',
     'weight' => '14',
     'children' => array(
-      0 => 'field_s_news_department',
-      1 => 'field_s_news_organization',
-      2 => 'field_s_news_research_theme',
-      3 => 'field_s_news_school_theme',
+      0 => 'field_s_news_categories',
+      1 => 'field_s_news_featured',
+      2 => 'field_s_news_department',
+      3 => 'field_s_news_organization',
+      4 => 'field_s_news_school_theme',
+      5 => 'field_s_news_slider_feature',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'label' => 'Categories',
       'instance_settings' => array(
         'required_fields' => 1,
-        'classes' => 'group-s-news-taxonomy field-group-fieldset',
+        'id' => '',
+        'classes' => '',
         'description' => '',
       ),
       'formatter' => 'collapsed',
@@ -533,19 +536,21 @@ function stanford_news_extras_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Teaser/Byline',
-    'weight' => '13',
+    'weight' => '3',
     'children' => array(
       0 => 'field_s_news_byline',
       1 => 'field_s_news_teaser',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Teaser/Byline',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-s-news-teaser-byline field-group-fieldset',
         'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-s-news-teaser-byline field-group-fieldset',
+        'description' => '',
       ),
+      'formatter' => 'collapsed',
     ),
   );
   $field_groups['group_s_news_teaser_byline|node|stanford_news_item|form'] = $field_group;
