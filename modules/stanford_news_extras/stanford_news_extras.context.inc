@@ -20,6 +20,7 @@ function stanford_news_extras_context_default_contexts() {
     'path' => array(
       'values' => array(
         'news/*' => 'news/*',
+        '~news/recent-news' => '~news/recent-news',
       ),
     ),
   );
@@ -136,6 +137,7 @@ function stanford_news_extras_context_default_contexts() {
     'path' => array(
       'values' => array(
         'news/*' => 'news/*',
+        '~news/recent-news' => '~news/recent-news',
       ),
     ),
   );
