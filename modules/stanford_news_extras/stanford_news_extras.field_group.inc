@@ -499,17 +499,12 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_s_news_advanced';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Categories',
-    'weight' => '14',
+    'weight' => '8',
     'children' => array(
-      0 => 'field_s_news_categories',
-      1 => 'field_s_news_featured',
-      2 => 'field_s_news_department',
-      3 => 'field_s_news_organization',
-      4 => 'field_s_news_school_theme',
-      5 => 'field_s_news_slider_feature',
+      0 => 'field_s_news_research_theme',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
