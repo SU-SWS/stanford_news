@@ -73,7 +73,7 @@ function stanford_news_extras_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_image_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_s_image_image']['settings'] = array(
-    'image_style' => '3-col-header',
+    'image_style' => 'header_scale_850x400',
     'image_link' => '',
   );
   /* Field: Content: Title */
