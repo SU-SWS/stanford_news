@@ -187,3 +187,12 @@
     width: 100%;
   }
 }
+
+/* DATE AND SOURCE FOR view-mode-stanford_extras_single_region */
+.view-mode-stanford_extras_single_region .source-style {
+  font-size: 0.9EM;
+  font-weight: 300;
+}
+.view-mode-stanford_extras_single_region .date-style {
+  float: left;
+}
