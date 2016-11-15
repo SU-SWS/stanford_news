@@ -149,7 +149,7 @@ function stanford_news_extras_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Body Style',
-    'weight' => '5',
+    'weight' => '6',
     'children' => array(
       0 => 'body',
     ),
@@ -213,7 +213,7 @@ function stanford_news_extras_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Byline Style',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'field_s_news_byline',
     ),
@@ -286,7 +286,7 @@ function stanford_news_extras_field_group_info() {
       'label' => 'Date Style',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-s-news-date-style field-group-div descriptor date-style',
+        'classes' => 'field-group-div descriptor date-style',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -338,7 +338,7 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = 'group_s_news_links_group_style';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'External Link Style',
     'weight' => '8',
@@ -350,7 +350,7 @@ function stanford_news_extras_field_group_info() {
       'label' => 'External Link Style',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-s-news-external-link-style field-group-div external-link-style',
+        'classes' => 'field-group-div external-link-style more-link',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -467,10 +467,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = 'group_s_news_links_group_style';
+  $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Source Style',
-    'weight' => '7',
+    'weight' => '3',
     'children' => array(
       0 => 'field_s_news_source',
     ),
@@ -479,7 +479,7 @@ function stanford_news_extras_field_group_info() {
       'label' => 'Source Style',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-s-news-source-style field-group-div source-style',
+        'classes' => 'field-group-div source-style',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
@@ -570,7 +570,7 @@ function stanford_news_extras_field_group_info() {
       'label' => 'Teaser style',
       'instance_settings' => array(
         'id' => '',
-        'classes' => 'group-s-news-teaser-style field-group-div teaser-style',
+        'classes' => 'field-group-div teaser-style',
         'description' => '',
         'show_label' => '0',
         'label_element' => 'h3',
