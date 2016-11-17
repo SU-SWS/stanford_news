@@ -146,10 +146,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_news_postcard_col_2';
   $field_group->data = array(
     'label' => 'Body Style',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
       0 => 'body',
     ),
@@ -210,10 +210,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_news_postcard_col_1';
   $field_group->data = array(
     'label' => 'Byline Style',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
       0 => 'field_s_news_byline',
     ),
@@ -274,10 +274,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_news_postcard_col_1';
   $field_group->data = array(
     'label' => 'Date Style',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'field_s_news_date',
     ),
@@ -338,7 +338,7 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_news_postcard_col_2';
   $field_group->data = array(
     'label' => 'External Link Style',
     'weight' => '8',
@@ -462,15 +462,84 @@ function stanford_news_extras_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_news_postcard_col_1|node|stanford_news_item|stanford_extras_single_region';
+  $field_group->group_name = 'group_s_news_postcard_col_1';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'stanford_extras_single_region';
+  $field_group->parent_name = 'group_s_news_postcard';
+  $field_group->data = array(
+    'label' => 'Postcard Column 1',
+    'weight' => '32',
+    'children' => array(
+      0 => 'field_s_image_info',
+      1 => 'group_s_news_byline_style',
+      2 => 'group_s_news_date_style',
+      3 => 'group_s_news_source_style',
+      4 => 'group_s_news_teaser_style',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Postcard Column 1',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-s-news-postcard-col-1 field-group-div',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_s_news_postcard_col_1|node|stanford_news_item|stanford_extras_single_region'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_s_news_postcard_col_2|node|stanford_news_item|stanford_extras_single_region';
+  $field_group->group_name = 'group_s_news_postcard_col_2';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'stanford_news_item';
+  $field_group->mode = 'stanford_extras_single_region';
+  $field_group->parent_name = 'group_s_news_postcard';
+  $field_group->data = array(
+    'label' => 'Postcard Column 2',
+    'weight' => '33',
+    'children' => array(
+      0 => 'group_s_news_body_style',
+      1 => 'group_s_news_external_link_style',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Postcard Column 2',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-s-news-postcard-col-2 field-group-div',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_s_news_postcard_col_2|node|stanford_news_item|stanford_extras_single_region'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_s_news_source_style|node|stanford_news_item|stanford_extras_single_region';
   $field_group->group_name = 'group_s_news_source_style';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_news_postcard_col_1';
   $field_group->data = array(
     'label' => 'Source Style',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'field_s_news_source',
     ),
@@ -558,10 +627,10 @@ function stanford_news_extras_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'stanford_news_item';
   $field_group->mode = 'stanford_extras_single_region';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_s_news_postcard_col_1';
   $field_group->data = array(
     'label' => 'Teaser style',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
       0 => 'field_s_news_teaser',
     ),
@@ -761,6 +830,8 @@ function stanford_news_extras_field_group_info() {
   t('Link Style');
   t('Links group style');
   t('Postcard');
+  t('Postcard Column 1');
+  t('Postcard Column 2');
   t('Postcard Content');
   t('Postcard Image');
   t('Source Style');
