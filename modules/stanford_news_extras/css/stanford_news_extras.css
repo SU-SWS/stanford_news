@@ -192,7 +192,7 @@
   margin: 1.3em 0 0.5em;
 }
 
-/* DATE and BYLINE FOR view-mode-stanford_extras_single_region */
+/* IMAGE, DATE and BYLINE FOR view-mode-stanford_extras_single_region */
 
 .view-mode-stanford_extras_single_region .date-style {
   float: left;
@@ -204,6 +204,10 @@
   font-size: 1em;
   line-height: 1.2em;
   clear: both;
+}
+
+.node-type-stanford-news-item .content-body .view-mode-stanford_extras_single_region .field-name-field-s-image-info {
+  margin-bottom: -0.3em;
 }
 
 /* HEADERS view-mode-stanford_extras_single_region */
