@@ -1,6 +1,13 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.4 2016-11-29
+---------------------------------
+- Added new view mode so that news items can now display extra fields in just the content region
+- News items can now be displayed in a grid of 2 or 3.
+- Added code climate to enforce coding standards
+- Changed header image style for news extras views blocks to scale_850x400
+
 Stanford News 7.x-3.3+8-dev, 2016-07-19
 ---------------------------------
 -	Removed block titles on banner and banner overlay
