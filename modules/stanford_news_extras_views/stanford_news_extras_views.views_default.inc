@@ -392,6 +392,7 @@ function stanford_news_extras_views_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['edit_node']['element_wrapper_class'] = 'edit-link';
