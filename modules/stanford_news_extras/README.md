@@ -1,5 +1,5 @@
 # [Stanford News Extras](https://github.com/SU-SWS/stanford_news)
-##### Version: 7.x-3.4+4-dev
+##### Version: 7.x-3.4-dev
 
 Stanford News Extras feature provides extra fields needed to support SoE needs.
 
