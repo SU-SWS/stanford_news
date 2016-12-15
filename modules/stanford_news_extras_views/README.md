@@ -1,5 +1,5 @@
 # [Stanford News Extras Views](https://github.com/SU-SWS/stanford_news)
-##### Version: 7.x-3.4-dev
+##### Version: 7.x-3.4+4-dev
 
 This sub module contains a number of default page and block views for the Stanford News content type. Site administrators can choose to use these views with the Stanford News content type or create their own. Also included is a view that displays Stanford News content in an xml document that other sites could use.
 

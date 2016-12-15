@@ -1,6 +1,10 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+Stanford News 7.x-3.4+4-dev 2016-11-29
+---------------------------------
+- Removed an extra edit button on news block
+
 Stanford News 7.x-3.4 2016-11-29
 ---------------------------------
 - Added new view mode so that news items can now display extra fields in just the content region
