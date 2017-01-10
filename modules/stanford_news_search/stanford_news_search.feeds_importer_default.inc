@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * stanford_news_search.feeds_importer_default.inc
