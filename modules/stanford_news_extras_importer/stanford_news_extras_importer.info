@@ -8,6 +8,7 @@ dependencies[] = ctools
 dependencies[] = features
 dependencies[] = feeds
 dependencies[] = feeds_tamper
+dependencies[] = feeds_xpathparser
 dependencies[] = field_group
 dependencies[] = stanford_feeds_helper
 dependencies[] = stanford_news
