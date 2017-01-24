@@ -1,9 +1,11 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
-Stanford News 7.x-3.4+4-dev 2016-11-29
+Stanford News 7.x-3.5 2017-01-24
 ---------------------------------
 - Removed an extra edit button on news block
+- New stanford_news_search module that allows you to pull in news from
+  news.stanford.edu by a search string.
 
 Stanford News 7.x-3.4 2016-11-29
 ---------------------------------
