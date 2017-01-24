@@ -1,5 +1,5 @@
 # [Stanford News Search](https://github.com/SU-SWS/stanford_news)
-##### Version: 7.x-3.5
+##### Version: 7.x-3.6-dev
 
 Stanford News Search feature provides an out of the box solution for importing
 news content on your website from any RSS fee source such as http://news.stanford.edu/?feed=rss2.
