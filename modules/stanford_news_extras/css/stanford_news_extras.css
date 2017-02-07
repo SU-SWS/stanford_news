@@ -144,6 +144,7 @@
 .node-type-stanford-news-item .caption {
     font-size: .7em;
     font-style: normal;
+    line-height: 1.2em;
 }
 
 .node-type-stanford-news-item .caption p:after {
