@@ -7,50 +7,56 @@
 include_once 'stanford_news_extras.features.inc';
 
 /**
- * Implementation of hook_form_alter()
+ * Implements hook_form_FORM_ID_alter() for stanford_news_item_node_form.
  */
-/*
-function stanford_news_extras_form_alter(&$form, &$form_state, $form_id) {
+function stanford_news_extras_form_stanford_news_item_node_form_alter(
+  &$form,
+  &$form_state,
+  $form_id)
+{
 
-  // Targeting the news item edit form
+  // Updating the help (#decription) for the news item edit form
   if ($form_id == "stanford_news_item_node_form") {
+
     $form['title']['#description'] = t('This is the title for your news item. '
       . 'Please keep this title under 70 characters.');
+
+    // Not sure which fields to target, so target them all!
+    // Caption help text.
+    $caption_text = t("Use this field to display both the image caption and " .
+      "credits for the photographer or organization. " .
+      "Enter the caption, a pipe '|', and the credits.");
     $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['#description'] =
-      t("Use this field to display both the image caption and credits for the photographer or organization. "
-        . "Enter the caption, a pipe '|', and the credits.");
+      $caption_text;
+    $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['0']['#description'] =
+      $caption_text;
+    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#description'] =
+      $caption_text;
+
+    // Credits help text.
+    $credits_text = t("Leave this field blank. Please use the caption field " .
+      "to display both the credits and the caption instead.");
     $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['#description'] =
-      t("Leave this field blank. "
-        . "Please use the caption field to display both the credits and the caption.");
-    dsm($form);
-    dsm($form_state);
+      $credits_text;
+    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['#description'] =
+      $credits_text;
+    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#description'] =
+      $credits_text;
+
+    // Credits title.
+    $credits_title =
+      t("Credits ** Deprecated ** Include credits with the caption.");
+    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['#title'] =
+      $credits_title;
+    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['#title'] =
+      $credits_title;
+    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#title'] =
+      $credits_title;
   }
 }
-*/
 
 /**
- * Implementation of hook_form_alter()
- */
-function stanford_news_extras_form_stanford_news_item_node_form_alter(&$form, &$form_state, $form_id) {
-
-  // Targeting the news item edit form
-  if ($form_id == "stanford_news_item_node_form") {
-    $form['title']['#description'] = t('This is the title for your news item. '
-      . 'Please keep this title under 70 characters.');
-    $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['#description'] =
-      t("Use this field to display both the image caption and credits for the photographer or organization. "
-        . "Enter the caption, a pipe '|', and the credits.");
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['#description'] =
-      t("Leave this field blank. "
-        . "Please use the caption field to display both the credits and the caption instead.");
-    dsm($form);
-    dsm($form_state);
-  }
-
-}
-
-/**
- * Implementation of hook_block_view_alter()
+ * Implements hook_block_view_alter().
  */
 function stanford_news_extras_block_view_alter(&$data, $block) {
   // Remove title on blocks.
