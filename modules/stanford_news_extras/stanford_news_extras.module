@@ -14,7 +14,7 @@ function stanford_news_extras_form_stanford_news_item_node_form_alter(
   &$form_state,
   $form_id) {
 
-  // Updating the help (#decription) for the news item edit form
+  // Updating the help (#decription) for the news item edit form.
   if ($form_id == "stanford_news_item_node_form") {
 
     $form['title']['#description'] = t('This is the title for your news item. Please keep this title under 70 characters.');
