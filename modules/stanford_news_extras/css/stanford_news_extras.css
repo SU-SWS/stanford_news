@@ -133,8 +133,8 @@
 
 /* STYLE NEWS FEATURED IMAGE CAPTION AND CREDITS */
 
-.page-node.node-type-stanford-news-item .content-body .field-name-field-s-image-image {
-    margin-bottom: 0;
+.page-node.node-type-stanford-news-item .content-body .field-name-field-s-image-image.field.field-type-image {
+    margin-bottom: 10px;
 }
 
 .node-type-stanford-news-item .content-body .group-s-news-body-style {
@@ -144,7 +144,8 @@
 .node-type-stanford-news-item .caption {
     font-size: .7em;
     font-style: normal;
-    line-height: 1.2em;
+    line-height: 1.3em;
+    color: #928b81;
 }
 
 .node-type-stanford-news-item .caption p:after {
@@ -156,7 +157,7 @@
     margin-top: -8px;
     color: #928b81;
     font-size: .7em;
-    line-height: 1.2em;
+    line-height: 1.3em;
 }
 
 @media (max-width: 550px) {
