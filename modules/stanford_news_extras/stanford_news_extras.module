@@ -77,7 +77,8 @@ function stanford_news_extras_deprecate_image_credits(&$form, $form_id) {
 
     // Credits title.
     $credits_title =
-      t("Credits ** Please use the @caption_title field ** see @caption_title field help text below.", array('@caption_title' => $caption_title));
+      t("Credits ** Please use the @caption_title field ** see @caption_title field help text below.",
+        array('@caption_title' => $caption_title));
     $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['#title'] =
       $credits_title;
     $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['#title'] =
@@ -86,7 +87,8 @@ function stanford_news_extras_deprecate_image_credits(&$form, $form_id) {
       $credits_title;
 
     // Credits help text.
-    $credits_text = t("This field is no longer supported. Please move the text from this field into the @caption_title field.", array('@caption_title' => $caption_title));
+    $credits_text = t("This field is no longer supported. Please move the text from this field into the @caption_title field.",
+      array('@caption_title' => $caption_title));
     $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['#description'] =
       $credits_text;
     $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['#description'] =
