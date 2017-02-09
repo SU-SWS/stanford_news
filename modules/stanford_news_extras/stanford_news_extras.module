@@ -37,9 +37,9 @@ function stanford_news_extras_block_view_alter(&$data, $block) {
  * - Update all the appropriate title and description fields to handle
  *   deprecation.
  *
- * @param $form
- *   The form array.
- * @param $form_id
+ * @param array $form
+ *   The form to update.
+ * @param string $form_id
  *   The form ID. Make sure we're making changes to the right form!
  */
 function stanford_news_extras_deprecate_image_credits(&$form, $form_id) {
