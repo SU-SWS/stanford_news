@@ -30,6 +30,18 @@ function stanford_news_extras_block_view_alter(&$data, $block) {
   }
 }
 
+/**
+ * Handle tasks for deprecating the image credits.
+ *
+ * - Don't display the credits field unless there is text in that field.
+ * - Update all the appropriate title and description fields to handle
+ *   deprecation.
+ *
+ * @param $form
+ *   The form array.
+ * @param $form_id
+ *   The form ID. Make sure we're making changes to the right form!
+ */
 function stanford_news_extras_deprecate_image_credits(&$form, $form_id) {
   if ($form_id == "stanford_news_item_node_form") {
 
@@ -81,7 +93,5 @@ function stanford_news_extras_deprecate_image_credits(&$form, $form_id) {
       $credits_text;
     $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#description'] =
       $credits_text;
-
-    dsm($form);
   }
 }
