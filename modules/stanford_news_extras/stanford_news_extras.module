@@ -25,7 +25,7 @@ function stanford_news_extras_block_view_alter(&$data, $block) {
   if ($block->bid == 'ds_extras-banner') {
     $data['title'] = '<none>';
   }
-  else if ($block->bid == 'ds_extras-banner_overlay') {
+  elseif ($block->bid == 'ds_extras-banner_overlay') {
     $data['title'] = '<none>';
   }
 }
