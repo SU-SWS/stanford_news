@@ -31,8 +31,8 @@
 
 #block-ds-extras-banner-overlay .field-name-title h1,
 #block-ds-extras-banner-overlay .field-name-field-s-news-teaser .field-item {
-  color: white;
-  text-shadow: 0 0 4px black;
+  color: #ffffff;
+  text-shadow: 0 0 4px #000000;
 }
 
 #block-ds-extras-banner-overlay {
