@@ -46,54 +46,54 @@ function stanford_news_extras_deprecate_image_credits(&$form, $form_id) {
   if ($form_id == "stanford_news_item_node_form") {
 
     // Don't display the credits!
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['#access'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits']['#access'] =
       FALSE;
 
     // Well, okay, if there *is* text in the credits field,
     // then let's display the credits field.
-    if (isset($form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#default_value'])) {
-      $form['field_s_image_info']['und']['0']['field_s_image_credits']['#access'] =
+    if (isset($form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['0']['value']['#default_value'])) {
+      $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits']['#access'] =
         TRUE;
     }
 
     // Update caption title.
     // Not sure which fields to target, so target all the things!
     $caption_title = t("Caption and Credits");
-    $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['#title'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_caption'][LANGUAGE_NONE]['#title'] =
       $caption_title;
-    $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['0']['#title'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_caption'][LANGUAGE_NONE]['0']['#title'] =
       $caption_title;
-    $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['0']['value']['#title'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_caption'][LANGUAGE_NONE]['0']['value']['#title'] =
       $caption_title;
 
     // Caption help text.
     $caption_text = t('Use this field to display <strong>both</strong> the image caption and credits for the photographer or organization. Enter the caption, a pipe "|", and the credits.');
-    $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['#description'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_caption'][LANGUAGE_NONE]['#description'] =
       $caption_text;
-    $form['field_s_image_info']['und']['0']['field_s_image_caption']['und']['0']['#description'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_caption'][LANGUAGE_NONE]['0']['#description'] =
       $caption_text;
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#description'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['0']['value']['#description'] =
       $caption_text;
 
     // Credits title.
     $credits_title =
       t("Credits ** Please use the @caption_title field ** see @caption_title field help text below.",
         array('@caption_title' => $caption_title));
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['#title'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['#title'] =
       $credits_title;
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['#title'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['0']['#title'] =
       $credits_title;
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#title'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['0']['value']['#title'] =
       $credits_title;
 
     // Credits help text.
     $credits_text = t("This field is no longer supported. Please move the text from this field into the @caption_title field.",
       array('@caption_title' => $caption_title));
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['#description'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['#description'] =
       $credits_text;
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['#description'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['0']['#description'] =
       $credits_text;
-    $form['field_s_image_info']['und']['0']['field_s_image_credits']['und']['0']['value']['#description'] =
+    $form['field_s_image_info'][LANGUAGE_NONE]['0']['field_s_image_credits'][LANGUAGE_NONE]['0']['value']['#description'] =
       $credits_text;
   }
 }
