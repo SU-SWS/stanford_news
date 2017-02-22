@@ -1,6 +1,14 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
 
+
+Stanford News 7.x-3.6+23-dev 2017-02-22
+---------------------------------------
+- Added a function to deprecate the use of image credits and
+  transition image caption to become image "caption and credits"
+- For news extras, updated CSS for credits and captions to display on separate lines.
+- Updates code climate and updates code to coding standards
+
 Stanford News 7.x-3.5 2017-01-24
 ---------------------------------
 - Removed an extra edit button on news block
