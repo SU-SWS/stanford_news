@@ -12,14 +12,16 @@ engines:
         enabled: false
       ids:
         enabled: false
-      qualified-headings:
-        enabled: false
-      regex-selectors:
-        enabled: false
       order-alphabetical:
         enabled: false
       overqualified-elements:
         enabled: false
+      qualified-headings:
+        enabled: false
+      regex-selectors:
+        enabled: false
+      unique-headings:
+         enabled: false
   # We don't lint our coffee. Eew.
   coffeelint:
     enabled: false
