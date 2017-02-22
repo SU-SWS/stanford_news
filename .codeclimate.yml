@@ -6,17 +6,19 @@ engines:
   csslint:
     enabled: true
     checks:
-      overqualified-elements:
-        enabled: false
-      order-alphabetical:
-        enabled: false
       adjoining-classes:
         enabled: false
       fallback-colors:
         enabled: false
       ids:
         enabled: false
+      qualified-headings:
+        enabled: false
       regex-selectors:
+        enabled: false
+      order-alphabetical:
+        enabled: false
+      overqualified-elements:
         enabled: false
   # We don't lint our coffee. Eew.
   coffeelint:
