@@ -11,6 +11,12 @@ function stanford_news_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
+  if ($module == "feeds" && $api == "feeds_importer_default") {
+    return array("version" => "1");
+  }
+  if ($module == "feeds_tamper" && $api == "feeds_tamper_default") {
+    return array("version" => "2");
+  }
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -31,6 +37,14 @@ function stanford_news_views_api($module = NULL, $api = NULL) {
  */
 function stanford_news_node_info() {
   $items = array(
+    'stanford_news_importer' => array(
+      'name' => t('News Importer'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'stanford_news_item' => array(
       'name' => t('News Item'),
       'base' => 'node_content',
