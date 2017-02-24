@@ -11,11 +11,11 @@ html.js .view.masonry .views-row {
 }
 
 .view-masonry .views-field-body {
-  padding: 0 40px 40px 40px;
+  padding: 0 40px 40px;
 }
 
 .view-masonry .views-field-title {
-  padding: 40px 40px 0 40px;
+  padding: 40px 40px 0;
 }
 
 @media (max-width: 1199px) {
