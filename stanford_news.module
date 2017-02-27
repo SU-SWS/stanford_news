@@ -10,7 +10,6 @@ include_once 'stanford_news.features.inc';
 /**
  * Implements hook_views_pre_render
  */
-
 function stanford_news_views_pre_render(&$view) {
 
   // Only pull in the css if it the news grid view is in use.
@@ -20,6 +19,175 @@ function stanford_news_views_pre_render(&$view) {
 
   // Add the css for the news_grid view
   if (in_array($view->name, $valid)) {
-    drupal_add_css(drupal_get_path("module", "stanford_news") . "/css/stanford_news_grid.css");
+    drupal_add_css(drupal_get_path("module", "stanford_news") . "/css/stanfor¡d_news_grid.css");
   }
+}
+
+/**
+ * Implements hook_node_prepare().
+ */
+function stanford_news_node_prepare($node) {
+  if ($importer_ids = stanford_news_get_importer_ids($node->type)) {
+    $node->feeds = array();
+    foreach ($importer_ids as $importer_id) {
+      $source = feeds_source($importer_id, empty($node->nid) ? 0 : $node->nid);
+      $node->feeds[$importer_id] = array();
+      $node->feeds[$importer_id] += $source->configDefaults();
+    }
+  }
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function stanford_news_form_stanford_news_importer_node_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form_state['node']->feeds)) {
+    $feed_options = array();
+
+    foreach ($form_state['node']->feeds as $importer_id => $feed) {
+      if (feeds_access('import', $importer_id)) {
+        /** @var FeedsImporter $importer */
+        $importer = feeds_importer_load($importer_id);
+        $config = $importer->getConfig();
+        $feed_options[$importer_id] = t($config['name']);
+      }
+    }
+
+    if (count($feed_options) > 1) {
+      $form['feeds']['importer_id'] = array(
+        '#type' => 'radios',
+        '#title' => t('Feed Configuration'),
+        '#options' => $feed_options,
+        '#default_value' => key($feed_options),
+        '#required' => TRUE,
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_node_validate().
+ */
+function stanford_news_node_validate($node, $form, &$form_state) {
+  if (!$importer_ids = stanford_news_get_importer_ids($node->type)) {
+    return;
+  }
+  $last_feeds = &drupal_static('feeds_node_last_feeds');
+
+  // Node module magically moved $form['feeds'] to $node->feeds :P.
+  // configFormValidate may modify $last_feed, smuggle it to update/insert stage
+  // through a static variable.
+  $last_feeds = isset($node->feeds) ? $node->feeds : array();
+
+  foreach ($importer_ids as $importer_id) {
+    $class = get_class(feeds_importer($importer_id)->fetcher);
+
+    /** @var FeedsSource $source */
+    $source = feeds_source($importer_id, $node->nid);
+    $source->configFormValidate($last_feeds[$importer_id]);
+
+    // If node title is empty, try to retrieve title from feed.
+    try {
+      $source->addConfig(array($class => array('source' => $node->feeds[$class]['source'])));
+      $source->save();
+    }
+    catch (Exception $e) {
+      drupal_set_message($e->getMessage(), 'error');
+    }
+  }
+}
+
+/**
+ * Implements hook_node_submit().
+ */
+function stanford_news_node_submit($node, $form, &$form_state) {
+  if (isset($node->feeds) && isset($node->feeds['importer_id'])) {
+    $importer_id = $node->feeds['importer_id'];
+
+    $source = feeds_source($importer_id, $node->nid);
+    // Start import if requested.
+    if (feeds_importer($importer_id)->config['import_on_create'] && !isset($node->feeds['suppress_import'])) {
+      $source->startImport();
+    }
+    // Schedule the source.
+    $source->schedule();
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function stanford_news_form_alter(&$form, &$form_state, $form_id) {
+  dpm($form_id);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function stanford_news_form_feeds_import_tab_form_alter(&$form, &$form_state, $form_id) {
+  $node = node_load($form['#feed_nid']);
+  $importer_ids = stanford_news_get_importer_ids($node->type, $node->nid);
+  if (!$importer_ids) {
+    return;
+  }
+
+  unset($form['source_status']['#value']);
+  $importer_options = array();
+
+  foreach ($importer_ids as $importer_id) {
+    if (feeds_access('import', $importer_id)) {
+      /** @var FeedsSource $source */
+      $source = feeds_source($importer_id, $form['#feed_nid']);
+      $importer = $source->importer()->getConfig();
+      $importer_options[$importer_id] = t($importer['name']);
+      $form['source_status'][$importer_id]['#markup'] = $importer['name'] . feeds_source_status($source);
+    }
+  }
+  if (count($importer_options) > 1) {
+    $form['source_status']['importer_id'] = array(
+      '#type' => 'radios',
+      '#title' => t('Feeds Configuration'),
+      '#options' => $importer_options,
+      '#default_value' => key($importer_options),
+    );
+    array_unshift($form['#submit'], 'stanford_news_tab_form_submit');
+  }
+
+}
+
+function stanford_news_tab_form_submit($form, &$form_state) {
+  /** @var FeedsSource $source */
+  $source = feeds_source($form_state['values']['source_status']['importer_id'], $form_state['build_info']['args'][0]->nid);
+  $source->import();
+}
+
+/**
+ * Gets an enabled importer configuration by content type.
+ *
+ * @param string $content_type
+ *   A node type string.
+ * @param int $feed_nid
+ *   Nid for feed.
+ *
+ * @return array
+ *   A list of FeedsImporters attached to the given content type.
+ */
+function stanford_news_get_importer_ids($content_type, $feed_nid = NULL) {
+  $all_importers = _feeds_importer_digest();
+  $importers = array();
+  foreach ($all_importers as $importer => $type) {
+    if ($type == $content_type) {
+      $importers[$importer] = $importer;
+    }
+  }
+  // Sort those importers by weight.
+  if (!empty($importers)) {
+//    $weights = _feeds_get_importer_weights($importers);
+//    // Sort these arrays by key, then sort together.
+//    ksort($weights);
+//    ksort($importers);
+//    array_multisort($weights, $importers);
+  }
+  return $importers;
 }
