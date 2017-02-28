@@ -25,9 +25,11 @@ function stanford_news_views_pre_render(&$view) {
 
 /**
  * Implements hook_node_prepare().
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
  */
 function stanford_news_node_prepare($node) {
-  if ($importer_ids = stanford_news_get_importer_ids($node->type)) {
+  if ($importer_ids = stanford_news_feeds_get_importer_ids($node->type)) {
     $node->feeds = array();
     foreach ($importer_ids as $importer_id) {
       $source = feeds_source($importer_id, empty($node->nid) ? 0 : $node->nid);
@@ -35,44 +37,54 @@ function stanford_news_node_prepare($node) {
       $node->feeds[$importer_id] += $source->configDefaults();
     }
   }
-
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
  */
 function stanford_news_form_stanford_news_importer_node_form_alter(&$form, &$form_state, $form_id) {
-  if (isset($form_state['node']->feeds)) {
-    $feed_options = array();
+  if ($importer_ids = stanford_news_feeds_get_importer_ids($form['#node']->type)) {
+    $form['feeds'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Feed'),
+      '#tree' => TRUE,
+      '#weight' => 0,
+    );
 
-    foreach ($form_state['node']->feeds as $importer_id => $feed) {
-      if (feeds_access('import', $importer_id)) {
-        /** @var FeedsImporter $importer */
-        $importer = feeds_importer_load($importer_id);
-        $config = $importer->getConfig();
-        $feed_options[$importer_id] = t($config['name']);
-      }
+    // Enable uploads.
+    if (count($importer_ids)) {
+      $form['#attributes']['enctype'] = 'multipart/form-data';
     }
 
-    if (count($feed_options) > 1) {
-      $form['feeds']['importer_id'] = array(
-        '#type' => 'radios',
-        '#title' => t('Feed Configuration'),
-        '#options' => $feed_options,
-        '#default_value' => key($feed_options),
-        '#required' => TRUE,
-      );
+    foreach ($importer_ids as $importer_id) {
+      // Build form.
+      $source = feeds_source($importer_id, empty($form['#node']->nid) ? 0 : $form['#node']->nid);
+      $form['feeds'][$importer_id] = $source->configForm($form_state);
+      $class = get_class(feeds_importer($importer_id)->fetcher);
+      $form['feeds'][$importer_id][$class]['source']['#title'] = $form['feeds'][$importer_id][$class]['source']['#title']
+        . ' - '
+        . $source->importer->config['name'];
+      $form['feeds'][$importer_id][$class]['source']['#required'] = FALSE;
     }
   }
 }
 
 /**
  * Implements hook_node_validate().
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
  */
 function stanford_news_node_validate($node, $form, &$form_state) {
-  if (!$importer_ids = stanford_news_get_importer_ids($node->type)) {
+  if ($node->type != 'stanford_news_importer' || !$importer_ids = stanford_news_feeds_get_importer_ids($node->type)) {
     return;
   }
+
+  // Keep a copy of the title for subsequent node creation stages.
+  // @todo: revisit whether $node still looses all of its properties
+  // between validate and insert stage.
+  $last_title = &drupal_static('feeds_node_last_title');
   $last_feeds = &drupal_static('feeds_node_last_feeds');
 
   // Node module magically moved $form['feeds'] to $node->feeds :P.
@@ -80,90 +92,107 @@ function stanford_news_node_validate($node, $form, &$form_state) {
   // through a static variable.
   $last_feeds = isset($node->feeds) ? $node->feeds : array();
 
+  $trimmed_node_title = trim($node->title);
+  // On validation stage we are working with a FeedsSource object that is
+  // not tied to a nid - when creating a new node there is no
+  // $node->nid at this stage.
+
   foreach ($importer_ids as $importer_id) {
     $class = get_class(feeds_importer($importer_id)->fetcher);
+    if (!$form['feeds'][$importer_id][$class]['source']['#required']) {
+      break;
+    }
 
     /** @var FeedsSource $source */
-    $source = feeds_source($importer_id, $node->nid);
+    $source = feeds_source($importer_id);
     $source->configFormValidate($last_feeds[$importer_id]);
 
     // If node title is empty, try to retrieve title from feed.
-    try {
-      $source->addConfig(array($class => array('source' => $node->feeds[$class]['source'])));
-      $source->save();
-    }
-    catch (Exception $e) {
-      drupal_set_message($e->getMessage(), 'error');
+    if ($trimmed_node_title == '') {
+      try {
+        $source->addConfig($last_feeds[$importer_id]);
+        if (!$last_title = $source->preview()->title) {
+          throw new Exception(t('Could not retrieve title from feed'));
+        }
+      }
+      catch (Exception $e) {
+        drupal_set_message($e->getMessage(), 'error');
+        form_set_error('title', t('Could not retrieve title from feed.'), array('error' => array('title')));
+      }
     }
   }
 }
 
 /**
- * Implements hook_node_submit().
+ * Implements hook_node_insert().
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
  */
-function stanford_news_node_submit($node, $form, &$form_state) {
-  if (isset($node->feeds) && isset($node->feeds['importer_id'])) {
-    $importer_id = $node->feeds['importer_id'];
-
-    $source = feeds_source($importer_id, $node->nid);
-    // Start import if requested.
-    if (feeds_importer($importer_id)->config['import_on_create'] && !isset($node->feeds['suppress_import'])) {
-      $source->startImport();
-    }
-    // Schedule the source.
-    $source->schedule();
-  }
-}
-
-/**
- * Implements hook_form_alter().
- */
-function stanford_news_form_alter(&$form, &$form_state, $form_id) {
-  dpm($form_id);
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function stanford_news_form_feeds_import_tab_form_alter(&$form, &$form_state, $form_id) {
-  $node = node_load($form['#feed_nid']);
-  $importer_ids = stanford_news_get_importer_ids($node->type, $node->nid);
-  if (!$importer_ids) {
+function stanford_news_node_insert($node) {
+  if ($node->type != 'stanford_news_importer') {
     return;
   }
 
-  unset($form['source_status']['#value']);
-  $importer_options = array();
-
-  foreach ($importer_ids as $importer_id) {
-    if (feeds_access('import', $importer_id)) {
+  // Source attached to node.
+  feeds_node_update($node);
+  if (isset($node->feeds) && ($importer_ids = stanford_news_feeds_get_importer_ids($node->type, $node->nid))) {
+    foreach ($importer_ids as $importer_id) {
       /** @var FeedsSource $source */
-      $source = feeds_source($importer_id, $form['#feed_nid']);
-      $importer = $source->importer()->getConfig();
-      $importer_options[$importer_id] = t($importer['name']);
-      $form['source_status'][$importer_id]['#markup'] = $importer['name'] . feeds_source_status($source);
+      $source = feeds_source($importer_id, $node->nid);
+
+      $source->addConfig($node->feeds[$importer_id]);
+      $source->save();
+
+      // Start import if requested.
+      if (feeds_importer($importer_id)->config['import_on_create'] && !isset($node->feeds['suppress_import'])) {
+        $source->startImport();
+      }
+      // Schedule the source.
+      $source->schedule();
     }
   }
-  if (count($importer_options) > 1) {
-    $form['source_status']['importer_id'] = array(
-      '#type' => 'radios',
-      '#title' => t('Feeds Configuration'),
-      '#options' => $importer_options,
-      '#default_value' => key($importer_options),
-    );
-    array_unshift($form['#submit'], 'stanford_news_tab_form_submit');
-  }
-
 }
 
-function stanford_news_tab_form_submit($form, &$form_state) {
-  /** @var FeedsSource $source */
-  $source = feeds_source($form_state['values']['source_status']['importer_id'], $form_state['build_info']['args'][0]->nid);
-  $source->import();
+/**
+ * Implements hook_node_update().
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
+ */
+function stanford_news_node_update($node) {
+  if ($node->type != 'stanford_news_importer') {
+    return;
+  }
+
+  // Source attached to node.
+  if (isset($node->feeds) && ($importer_ids = stanford_news_feeds_get_importer_ids($node->type))) {
+    foreach ($importer_ids as $importer_id) {
+      $source = feeds_source($importer_id, $node->nid);
+      // Config may be empty if defined so by importer.
+      if ($node->feeds[$importer_id]) {
+        $source->addConfig($node->feeds[$importer_id]);
+      }
+      $source->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
+ */
+function stanford_news_node_delete($node) {
+  if ($importer_ids = db_query("SELECT id FROM {feeds_source} WHERE feed_nid = :nid", array(':nid' => $node->nid))) {
+    foreach ($importer_ids as $row) {
+      feeds_source($row->id, $node->nid)->delete();
+    }
+  }
 }
 
 /**
  * Gets an enabled importer configuration by content type.
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
  *
  * @param string $content_type
  *   A node type string.
@@ -173,7 +202,7 @@ function stanford_news_tab_form_submit($form, &$form_state) {
  * @return array
  *   A list of FeedsImporters attached to the given content type.
  */
-function stanford_news_get_importer_ids($content_type, $feed_nid = NULL) {
+function stanford_news_feeds_get_importer_ids($content_type, $feed_nid = NULL) {
   $all_importers = _feeds_importer_digest();
   $importers = array();
   foreach ($all_importers as $importer => $type) {
@@ -183,11 +212,100 @@ function stanford_news_get_importer_ids($content_type, $feed_nid = NULL) {
   }
   // Sort those importers by weight.
   if (!empty($importers)) {
-//    $weights = _feeds_get_importer_weights($importers);
-//    // Sort these arrays by key, then sort together.
-//    ksort($weights);
-//    ksort($importers);
-//    array_multisort($weights, $importers);
+    $weights = _stanford_news_feeds_get_importer_weights($importers);
+    // Sort these arrays by key, then sort together.
+    ksort($weights);
+    ksort($importers);
+    array_multisort($weights, $importers);
   }
   return $importers;
+}
+
+/**
+ * Get importer.
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
+ *
+ * @param array $importers
+ * @param bool|TRUE $sorted
+ *
+ * @return mixed
+ */
+function _stanford_news_feeds_get_importer_weights($importers, $sorted = TRUE) {
+  foreach (feeds_importer_load_all() as $importer) {
+    if (isset($importers[$importer->id])) {
+      $importer_weights[$importer->id] = isset($importer->config['weight']) ?
+        $importer->config['weight'] : '0';
+    }
+  }
+  if ($sorted) {
+    asort($importer_weights);
+  }
+  return $importer_weights;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
+ */
+function stanford_news_form_feeds_import_tab_form_alter(&$form, &$form_state, $form_id, $a) {
+  $node = node_load($form['#feed_nid']);
+
+  $importer_ids = stanford_news_feeds_get_importer_ids($node->type, $node->nid);
+  if ($node->type != 'stanford_news_importer' || count($importer_ids) < 2) {
+    return;
+  }
+  $total_progress = 0;
+  unset($form['source_status']);
+
+  foreach ($importer_ids as $importer_id => $weight) {
+    $source = feeds_source($importer_id, $node->nid);
+    $form[$importer_id]['source_status'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('@source_name: Status', array(
+        '@source_name' => $source->importer->config['name'],
+      )),
+      '#tree' => TRUE,
+      '#value' => feeds_source_status($source),
+    );
+    $progress = $source->progressImporting();
+    $total_progress += $progress;
+  }
+
+
+  $options = array();
+  foreach ($importer_ids as $importer_id => $weight) {
+    $source = feeds_source($importer_id, $node->nid);
+    $options[$importer_id] = $source->importer->config['name'];
+  }
+  $form['importer_ids'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $options,
+    '#default_value' => array_keys($options),
+    '#title' => t('Sources'),
+    '#description' => t('Select the sources to import.'),
+  );
+
+  $progress = $total_progress / count($importer_ids);
+  if ($progress !== FEEDS_BATCH_COMPLETE) {
+    $form['actions']['submit']['#disabled'] = TRUE;
+    $form['actions']['submit']['#value'] = t('Importing (@progress %)',
+      array('@progress' => number_format(100 * $progress, 0)));
+  }
+
+  $form['#submit'] = array('stanford_news_feeds_import_form_submit');
+  return $form;
+}
+
+/**
+ * Feeds Tab import submit handler.
+ *
+ * @see https://www.drupal.org/node/1127696#comment-11819331
+ */
+function stanford_news_feeds_import_form_submit($form, &$form_state) {
+  $form_state['redirect'] = $form['#redirect'];
+  foreach (array_filter($form_state['values']['importer_ids']) as $importer_id) {
+    feeds_source($importer_id, $form['#feed_nid'])->startImport();
+  }
 }
