@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * Stanford News Extras Importer install/uninstall.
+ */
+
+/**
  * Update importer id and disable module.
  */
 function stanford_news_extras_importer_update_7301() {
@@ -24,10 +28,12 @@ function stanford_news_extras_importer_update_7301() {
     ->condition('importer', 'stanford_news_extras_feed_importer')
     ->fields(array('importer' => 'stanford_news_importer_xml'))
     ->execute();
+
   $query = db_select('queue', 'q')
     ->fields('q')
     ->condition('data', '%stanford_news_extras_feed_importer%', 'like')
     ->execute();
+
   while ($row = $query->fetchAssoc()) {
     $data = unserialize($row['data']);
     $data[1][1] = 'stanford_news_importer_xml';
@@ -42,6 +48,9 @@ function stanford_news_extras_importer_update_7301() {
   $importer->delete();
 }
 
+/**
+ * Schedule new importers.
+ */
 function stanford_news_extras_importer_update_7302() {
   $query = db_select('feeds_source', 'f')
     ->fields('f', array('feed_nid'))
