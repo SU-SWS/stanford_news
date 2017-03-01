@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @file
  * Stanford News Extras Importer install/uninstall.
  */
 
