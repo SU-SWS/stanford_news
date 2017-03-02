@@ -779,7 +779,7 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = TRUE;
 
   /* Display: Masonry List Page */
-  $handler = $view->new_display('page', 'Masonry List Page', 'page_2');
+  $handler = $view->new_display('page', 'Masonry List Page', 'stanford_news_view_masonry');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Recent News';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
