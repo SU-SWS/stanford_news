@@ -157,3 +157,4 @@ exclude_paths:
 - "*.twig"
 - "**.tpl.php"
 - "**.strongarm.inc"
+- "**.feeds_importer_default.inc"
