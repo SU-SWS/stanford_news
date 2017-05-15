@@ -1,6 +1,6 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
-7.x-3.7-alpha1               2017-02-22
+7.x-3.7-alpha1               2017-05-15=
 ---------------------------------------
 - Added masonry view
 - RSS & XML importers with upgrade from news_extras
