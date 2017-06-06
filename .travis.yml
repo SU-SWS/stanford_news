@@ -65,6 +65,7 @@ env:
     - CLICKY_BRANCH="HSDO-661-news-masonry"
     - SCRIPTS_BRANCH=""
 
+
 language: php
 php:
   - '5.6'
