@@ -56,7 +56,7 @@
 
 env:
   global:
-    - PRODUCT_NAME=""
+    - PRODUCT_NAME="jumpstart"
     - ENABLE_MODULES="stanford_jumpstart-7.x-5.x stanford_jumpstart_masonry stanford_news_administration stanford_news_extras stanford_news_extras_importer stanford_news_extras_views stanford_news_importers stanford_news_search stanford_news_views"
     - DISABLE_MODULES="webauth"
     - ONLY_TEST=""
