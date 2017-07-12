@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: news_items
+label: 'News Items'
+type: 'canonical_entities:node'
+pattern: 'news/[node:title]'
+selection_criteria:
+  afb9de84-1792-44b3-b24f-6f00aa45638d:
+    id: node_type
+    bundles:
+      stanford_news: stanford_news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: afb9de84-1792-44b3-b24f-6f00aa45638d
+selection_logic: and
+weight: -5
+relationships: {  }

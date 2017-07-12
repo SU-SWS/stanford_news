@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_s_news_rich_content
+    - node.type.stanford_news
+  module:
+    - entity_reference_revisions
+id: node.stanford_news.field_s_news_rich_content
+field_name: field_s_news_rich_content
+entity_type: node
+bundle: stanford_news
+label: 'Rich Content'
+description: 'Add any number of rich content paragraphs.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    target_bundles_drag_drop: {  }
+field_type: entity_reference_revisions
