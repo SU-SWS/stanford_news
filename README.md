@@ -1,4 +1,4 @@
-#[Stanford News](https://github.com/SU-SWS/stanford_news)
+# [Stanford News](https://github.com/SU-SWS/stanford_news)
 ##### Version: 7.x-3.6+23-dev 
 
 Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)
