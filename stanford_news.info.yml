@@ -9,7 +9,6 @@ dependencies:
   - datetime
   - entity_reference_revisions
   - field
-  - layout_plugin
   - link
   - menu_ui
   - node
