@@ -1,6 +1,12 @@
+$breakpoint: 765px;
+
 .view-display-id-paragraphs_news_block {
   .view-content {
     display: flex;
+
+    @media(max-width: $breakpoint) {
+      display: block;
+    }
   }
 
   .views-row {
@@ -13,6 +19,13 @@
     &.views-row-last {
       margin-right: 0;
       border: 1px solid black;
+
+    }
+
+    @media(max-width: $breakpoint) {
+      &, &.views-row-last{
+        margin: 20px;
+      }
     }
   }
 
