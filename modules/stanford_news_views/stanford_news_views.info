@@ -26,3 +26,4 @@ features[features_api][] = api:2
 features[views_view][] = stanford_news
 features[views_view][] = stanford_news_grid
 project status url = https://github.com/SU-SWS/stanford_news.git
+stylesheets[all][] = css/stanford_news_views.css

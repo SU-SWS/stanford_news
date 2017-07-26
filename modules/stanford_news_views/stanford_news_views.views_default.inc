@@ -876,6 +876,20 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['relationships']['field_s_image_info_value']['label'] = 'field_s_image_info';
   $handler->display->display_options['relationships']['field_s_image_info_value']['delta'] = '-1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Description */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['max_length'] = '110';
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['html'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '600',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -911,7 +925,6 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_image']['alter']['path'] = '[field_s_news_source]';
   $handler->display->display_options['fields']['field_s_image_image']['alter']['alt'] = '[title_1]';
   $handler->display->display_options['fields']['field_s_image_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_s_image_image']['empty'] = '<a href="[field_s_news_source]" title="[title_1]"><img width="850" src="https://thumbs.dreamstime.com/z/magnified-word-news-16135816.jpg" /></a>';
   $handler->display->display_options['fields']['field_s_image_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_s_image_image']['settings'] = array(
     'image_style' => 'banner-850x400',
@@ -933,8 +946,30 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['path'] = '[field_s_news_source]';
   $handler->display->display_options['fields']['title']['alter']['alt'] = '[title_1]';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Field collection item: Image */
+  $handler->display->display_options['fields']['field_s_image_image_1']['id'] = 'field_s_image_image_1';
+  $handler->display->display_options['fields']['field_s_image_image_1']['table'] = 'field_data_field_s_image_image';
+  $handler->display->display_options['fields']['field_s_image_image_1']['field'] = 'field_s_image_image';
+  $handler->display->display_options['fields']['field_s_image_image_1']['relationship'] = 'field_s_image_info_value';
+  $handler->display->display_options['fields']['field_s_image_image_1']['label'] = '';
+  $handler->display->display_options['fields']['field_s_image_image_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_s_image_image_1']['alter']['text'] = '<span></span>';
+  $handler->display->display_options['fields']['field_s_image_image_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_s_image_image_1']['empty'] = '[body]';
+  $handler->display->display_options['fields']['field_s_image_image_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_s_image_image_1']['settings'] = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $export['stanford_news'] = $view;
 
   $view = new view();
