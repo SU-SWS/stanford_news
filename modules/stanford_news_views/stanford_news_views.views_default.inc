@@ -922,7 +922,7 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['field_s_image_image_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_s_image_image_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_s_image_image_1']['settings'] = array(
-    'image_style' => 'header_370_x_170',
+    'image_style' => 'header_370_x_240',
     'image_link' => '',
   );
   /* Field: Content: Categories */
