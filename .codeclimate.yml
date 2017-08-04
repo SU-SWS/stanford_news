@@ -23,7 +23,7 @@ engines:
       unique-headings:
         enabled: false
       box-sizing:
-        enabled: false;
+        enabled: false
   # We don't lint our coffee. Eew.
   coffeelint:
     enabled: false
