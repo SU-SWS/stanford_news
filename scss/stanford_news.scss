@@ -1,5 +1,6 @@
 .node-type-stanford-news-item {
-  .group_descriptor_info, .node-type-stanford-news-item .group-descriptor-info {
+  .group_descriptor_info,
+  .node-type-stanford-news-item .group-descriptor-info {
     margin-bottom: 1em;
   }
 
@@ -9,13 +10,11 @@
 
   .group-descriptor-info {
     display: inline-block;
-    *display: inline;
     zoom: 1;
   }
 
   .field-name-field-s-news-categories {
     display: inline-block;
-    *display: inline;
     zoom: 1;
     text-transform: uppercase;
     letter-spacing: .04em;
@@ -64,7 +63,6 @@ body.page-node .content-body {
     font-weight: normal;
 
     display: inline-block;
-    *display: inline;
     zoom: 1;
   }
 }

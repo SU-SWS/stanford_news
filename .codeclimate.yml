@@ -21,7 +21,9 @@ engines:
       regex-selectors:
         enabled: false
       unique-headings:
-         enabled: false
+        enabled: false
+      box-sizing:
+        enabled: false;
   # We don't lint our coffee. Eew.
   coffeelint:
     enabled: false

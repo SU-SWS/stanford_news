@@ -1,4 +1,5 @@
-.node-type-stanford-news-item .group_descriptor_info, .node-type-stanford-news-item .node-type-stanford-news-item .group-descriptor-info {
+.node-type-stanford-news-item .group_descriptor_info,
+.node-type-stanford-news-item .node-type-stanford-news-item .group-descriptor-info {
   margin-bottom: 1em;
 }
 .node-type-stanford-news-item .field-name-field-s-news-postedin {
@@ -6,12 +7,10 @@
 }
 .node-type-stanford-news-item .group-descriptor-info {
   display: inline-block;
-  *display: inline;
   zoom: 1;
 }
 .node-type-stanford-news-item .field-name-field-s-news-categories {
   display: inline-block;
-  *display: inline;
   zoom: 1;
   text-transform: uppercase;
   letter-spacing: .04em;
@@ -54,7 +53,6 @@ body.page-node .content-body .group-s-news-postedin h3 {
   color: #585754;
   font-weight: normal;
   display: inline-block;
-  *display: inline;
   zoom: 1;
 }
 
