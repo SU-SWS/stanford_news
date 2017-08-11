@@ -5,8 +5,8 @@ dependencies:
     - entity_reference_revisions
     - node
     - paragraphs
-id: node.field_s_news_hero_banner
-field_name: field_s_news_hero_banner
+id: node.field_s_news_top_media
+field_name: field_s_news_top_media
 entity_type: node
 type: entity_reference_revisions
 settings:
