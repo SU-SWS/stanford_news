@@ -6,3 +6,24 @@
  *
  * Long description.
  */
+
+use \Drupal\panels\Plugin\DisplayVariant\PanelsDisplayVariant;
+
+/**
+ * Implements hook_panels_build_alter().
+ */
+function stanford_news_panels_build_alter(array &$build, PanelsDisplayVariant $panels_display) {
+  $config = $panels_display->getConfiguration();
+  switch ($config['storage_id']) {
+    case 'node:stanford_news:full:default':
+      $dom = new DOMDocument();
+      $dom->loadHTML(render($build['hero']));
+
+      // If the hero region has an h1 tag, we dont want to render the h1 in the
+      // layout.
+      if ($dom->getElementsByTagName('h1')->length) {
+        unset($build['title']);
+      }
+      break;
+  }
+}

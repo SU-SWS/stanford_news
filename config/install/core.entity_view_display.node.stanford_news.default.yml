@@ -131,8 +131,25 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
             region: hero
-            weight: 0
+            weight: -10
             uuid: 12c3a181-8d77-4eac-b445-8d40e2b380c2
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          35ca74d6-b8ab-44bb-9c71-9835b498e7e8:
+            id: 'entity_field:node:title'
+            label: Title
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: string
+              settings:
+                link_to_entity: false
+              third_party_settings: {  }
+              weight: 0
+            region: title
+            weight: -3
+            uuid: 35ca74d6-b8ab-44bb-9c71-9835b498e7e8
             context_mapping:
               entity: '@panelizer.entity_context:entity'
         id: panels_variant
