@@ -19,9 +19,10 @@ function stanford_news_panels_build_alter(array &$build, PanelsDisplayVariant $p
       $dom = new DOMDocument();
       $dom->loadHTML(render($build['hero']));
 
-      // If the hero region has an h1 tag, we dont want to render the h1 in the
-      // layout.
-      if ($dom->getElementsByTagName('h1')->length) {
+      // If the hero region has a _populated_ h1 tag, we dont want to render
+      // the h1 in the layout.
+      $h1_tags = $dom->getElementsByTagName('h1');
+      if ($h1_tags->length && $h1_tags->item(0)->nodeValue) {
         unset($build['title']);
       }
       break;
