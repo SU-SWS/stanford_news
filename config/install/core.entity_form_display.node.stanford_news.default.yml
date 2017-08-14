@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.stanford_news.body
+    - field.field.node.stanford_news.field_earth_matters_topic
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_hero_banner
@@ -37,6 +38,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_earth_matters_topic:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_s_news_category:
     weight: 5
     settings:
