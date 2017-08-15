@@ -131,27 +131,19 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
             region: hero
-            weight: -10
+            weight: 0
             uuid: 12c3a181-8d77-4eac-b445-8d40e2b380c2
             context_mapping:
               entity: '@panelizer.entity_context:entity'
-          35ca74d6-b8ab-44bb-9c71-9835b498e7e8:
-            id: 'entity_field:node:title'
-            label: Title
-            provider: ctools_block
+          44ace210-2576-4c92-8a88-d15c45e55b5a:
+            id: stanford_layouts_node_title
+            label: 'Node Title for Panels'
+            provider: stanford_layouts
             label_display: '0'
-            formatter:
-              label: hidden
-              type: string
-              settings:
-                link_to_entity: false
-              third_party_settings: {  }
-              weight: 0
-            region: title
+            region: first
             weight: -3
-            uuid: 35ca74d6-b8ab-44bb-9c71-9835b498e7e8
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
+            uuid: 44ace210-2576-4c92-8a88-d15c45e55b5a
+            context_mapping: {  }
         id: panels_variant
         label: Default
         uuid: 78139241-22d3-40fe-9d10-20f2164e1639
