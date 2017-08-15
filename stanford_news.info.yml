@@ -3,7 +3,7 @@ type: module
 description: 'Stanford news items and views.'
 core: 8.x
 package: Stanford
-version: 8.x-1.1-earthfork-dev
+version: 8.x-1.0-dev
 dependencies:
   - allowed_formats
   - datetime
@@ -20,7 +20,6 @@ dependencies:
   - scheduler
   - stanford_page
   - stanford_paragraph_hero_banner
-  - stanford_research_area
   - taxonomy
   - text
   - user

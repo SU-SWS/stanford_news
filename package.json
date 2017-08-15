@@ -1,7 +1,7 @@
 {
   "name": "",
   "version": "0.1.0",
-  "repository": "https://github.com/stanford-earth/stanford_earth_news",
+  "repository": "https://github.com/SU-SWS/stanford_news",
   "dependencies": {
     "bourbon": "^5.0.0-beta.7",
     "bourbon-neat": "^2.0.0",
