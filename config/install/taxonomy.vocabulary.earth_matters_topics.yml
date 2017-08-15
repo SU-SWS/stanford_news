@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Earth Matters Topics'
+vid: earth_matters_topics
+description: 'List of topics covered by Earth Matters news items'
+hierarchy: 0
+weight: 0

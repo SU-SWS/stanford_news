@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_chal
+    - taxonomy.vocabulary.earth_matters_topics
+    - taxonomy.vocabulary.research_areas
+id: taxonomy_term.earth_matters_topics.field_chal
+field_name: field_chal
+entity_type: taxonomy_term
+bundle: earth_matters_topics
+label: 'Challenge Areas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      research_areas: research_areas
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,9 +1,7 @@
-name: 'Stanford News'
-type: module
+name: 'Stanford Earth News'
 description: 'Stanford news items and views.'
+type: module
 core: 8.x
-package: Stanford
-version: 8.x-1.1-earthfork-dev
 dependencies:
   - allowed_formats
   - datetime
@@ -18,9 +16,11 @@ dependencies:
   - pathauto
   - rdf
   - scheduler
+  - stanford_news
   - stanford_page
   - stanford_paragraph_hero_banner
   - stanford_research_area
   - taxonomy
   - text
   - user
+version: 8.x-1.1-dev

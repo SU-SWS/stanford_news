@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.earth_matters_topics.field_chal
+    - taxonomy.vocabulary.earth_matters_topics
+  module:
+    - text
+id: taxonomy_term.earth_matters_topics.default
+targetEntityType: taxonomy_term
+bundle: earth_matters_topics
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_chal:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }
