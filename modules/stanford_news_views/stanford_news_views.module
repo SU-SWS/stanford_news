@@ -7,21 +7,12 @@
 
 use Drupal\views\ViewExecutable;
 
-function stanford_news_views_preprocess_views_view(&$vars){
-  // $var['#attached']['library'][] = 'stanford_news_views/list_view';
-}
-
 /**
  * Implements hook_views_pre_render().
  */
 function stanford_news_views_views_pre_render(ViewExecutable $view) {
-  $view->element['#attached']['library'][] = 'stanford_news_views/list_view';
-}
-
-/**
- * Implementation of hook_libraries_info_alter().
- */
-function stanford_news_views_libraries_info_alter(&$libraries) {
-  dpm($libraries);
-  // Drupal\Core\Asset\LibraryDiscoveryParser->buildByExtension()
+  if ($view->curren_display == 'list_page') {
+    // Can we improve this condition and keep cloned views working?
+    $view->element['#attached']['library'][] = 'stanford_news_views/list_view';
+  }
 }
