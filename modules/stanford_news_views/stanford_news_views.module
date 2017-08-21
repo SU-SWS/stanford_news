@@ -11,7 +11,7 @@ use Drupal\views\ViewExecutable;
  * Implements hook_views_pre_render().
  */
 function stanford_news_views_views_pre_render(ViewExecutable $view) {
-  if ($view->curren_display == 'list_page') {
+  if ($view->current_display == 'list_page') {
     // Can we improve this condition and keep cloned views working?
     $view->element['#attached']['library'][] = 'stanford_news_views/list_view';
   }
