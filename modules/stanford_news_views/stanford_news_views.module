@@ -17,3 +17,11 @@ function stanford_news_views_preprocess_views_view(&$vars){
 function stanford_news_views_views_pre_render(ViewExecutable $view) {
   $view->element['#attached']['library'][] = 'stanford_news_views/list_view';
 }
+
+/**
+ * Implementation of hook_libraries_info_alter().
+ */
+function stanford_news_views_libraries_info_alter(&$libraries) {
+  dpm($libraries);
+  // Drupal\Core\Asset\LibraryDiscoveryParser->buildByExtension()
+}

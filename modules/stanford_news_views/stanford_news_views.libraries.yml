@@ -1,4 +1,5 @@
 list_view:
+  version: 1.0
   css:
-    component:
-      css/stanford_news_views.list_view.css
+    layout:
+      css/stanford_news_views.list_view.css: {}

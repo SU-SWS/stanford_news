@@ -6,6 +6,13 @@
   width: calc(25% - 10px);
   margin: 0 10px 0 0;
 }
-.stanford-news .views-row:last-child {
-  margin: 0;
+@media (max-width: 768px) {
+  .stanford-news .views-row {
+    width: calc(33% - 10px);
+  }
+}
+@media (max-width: 450px) {
+  .stanford-news .views-row {
+    width: calc(50% - 10px);
+  }
 }
