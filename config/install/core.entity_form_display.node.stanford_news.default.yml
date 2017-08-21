@@ -6,13 +6,16 @@ dependencies:
     - field.field.node.stanford_news.field_earth_matters_topic
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
-    - field.field.node.stanford_news.field_s_news_hero_banner
+    - field.field.node.stanford_news.field_s_news_feat_image
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
+    - field.field.node.stanford_news.field_s_news_top_media
     - field.field.node.stanford_news.panelizer
+    - image.style.thumbnail
     - node.type.stanford_news
   module:
     - datetime
+    - image
     - link
     - paragraphs
     - path
@@ -25,7 +28,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 3
     settings:
       rows: 9
       summary_rows: 3
@@ -48,7 +51,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_s_news_category:
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -57,22 +60,18 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_s_news_date:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_s_news_hero_banner:
-    type: entity_reference_paragraphs
-    weight: 0
+  field_s_news_feat_image:
+    weight: 1
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
+    type: image_image
     region: content
   field_s_news_rich_content:
     type: entity_reference_paragraphs
@@ -87,12 +86,24 @@ content:
     third_party_settings: {  }
     region: content
   field_s_news_source:
-    weight: 4
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_s_news_top_media:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
     region: content
   path:
     type: path
@@ -127,7 +138,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 1
+    weight: 2
     region: content
     settings:
       size: 60

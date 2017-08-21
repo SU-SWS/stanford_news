@@ -9,6 +9,9 @@ dependencies:
   - datetime
   - entity_reference_revisions
   - field
+  - file
+  - filefield_paths
+  - image
   - link
   - menu_ui
   - node
@@ -21,6 +24,7 @@ dependencies:
   - stanford_page
   - stanford_paragraph_hero_banner
   - stanford_research_area
+  - stanford_paragraph_video
   - taxonomy
   - text
   - user

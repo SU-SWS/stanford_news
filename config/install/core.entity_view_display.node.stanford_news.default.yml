@@ -5,14 +5,16 @@ dependencies:
     - field.field.node.stanford_news.body
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
-    - field.field.node.stanford_news.field_s_news_hero_banner
+    - field.field.node.stanford_news.field_s_news_feat_image
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
+    - field.field.node.stanford_news.field_s_news_top_media
     - field.field.node.stanford_news.panelizer
     - node.type.stanford_news
   module:
     - datetime
     - entity_reference_revisions
+    - image
     - link
     - panelizer
     - text
@@ -43,23 +45,6 @@ third_party_settings:
             context_mapping:
               entity: '@panelizer.entity_context:entity'
             uuid: d7aec1ef-015b-47dd-829e-f2f06cc61502
-          75934b02-ca31-4b69-825a-67426d4f0681:
-            id: 'entity_field:node:field_s_news_hero_banner'
-            label: 'Hero Banner'
-            provider: ctools_block
-            label_display: '0'
-            formatter:
-              label: hidden
-              type: entity_reference_revisions_entity_view
-              settings:
-                view_mode: default
-              third_party_settings: {  }
-              weight: 0
-            region: hero
-            weight: 0
-            uuid: 75934b02-ca31-4b69-825a-67426d4f0681
-            context_mapping:
-              entity: '@panelizer.entity_context:entity'
           6078a685-1558-4932-8fdd-6693f845b3eb:
             id: 'entity_field:node:field_s_news_rich_content'
             label: 'Rich Content'
@@ -133,6 +118,32 @@ third_party_settings:
             uuid: 900d6a98-2c80-4763-801b-ab50e4a7a612
             context_mapping:
               entity: '@panelizer.entity_context:entity'
+          12c3a181-8d77-4eac-b445-8d40e2b380c2:
+            id: 'entity_field:node:field_s_news_top_media'
+            label: 'Top Media'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: entity_reference_revisions_entity_view
+              settings:
+                view_mode: default
+              third_party_settings: {  }
+              weight: 0
+            region: hero
+            weight: 0
+            uuid: 12c3a181-8d77-4eac-b445-8d40e2b380c2
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
+          44ace210-2576-4c92-8a88-d15c45e55b5a:
+            id: stanford_layouts_node_title
+            label: 'Node Title for Panels'
+            provider: stanford_layouts
+            label_display: '0'
+            region: first
+            weight: -3
+            uuid: 44ace210-2576-4c92-8a88-d15c45e55b5a
+            context_mapping: {  }
         id: panels_variant
         label: Default
         uuid: 78139241-22d3-40fe-9d10-20f2164e1639
@@ -174,14 +185,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_s_news_hero_banner:
-    type: entity_reference_revisions_entity_view
-    weight: 106
+  field_s_news_feat_image:
+    weight: 109
     label: above
     settings:
-      view_mode: default
-      link: ''
+      image_style: ''
+      image_link: ''
     third_party_settings: {  }
+    type: image
     region: content
   field_s_news_rich_content:
     type: entity_reference_revisions_entity_view
@@ -203,6 +214,15 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
+  field_s_news_top_media:
+    type: entity_reference_revisions_entity_view
+    weight: 108
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   links:
     weight: 100

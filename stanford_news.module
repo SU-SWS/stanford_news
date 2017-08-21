@@ -6,3 +6,30 @@
  *
  * Long description.
  */
+
+use Drupal\panels\Plugin\DisplayVariant\PanelsDisplayVariant;
+
+/**
+ * Implements hook_panels_build_alter().
+ */
+function stanford_news_panels_build_alter(array &$build, PanelsDisplayVariant $panels_display) {
+  $config = $panels_display->getConfiguration();
+  switch ($config['storage_id']) {
+    case 'node:stanford_news:full:default':
+      $dom = new DOMDocument();
+      $dom->loadHTML(render($build['hero']));
+
+      // If the hero region has a _populated_ h1 tag, we dont want to render
+      // the h1 in the layout.
+      $h1_tags = $dom->getElementsByTagName('h1');
+      if ($h1_tags->length && $h1_tags->item(0)->nodeValue && !empty($build['first'])) {
+        // Find the node title block and unset it.
+        foreach($build['first'] as $uuid => $block){
+          if(is_array($block) && isset($block['#plugin_id']) && $block['#plugin_id'] == 'stanford_layouts_node_title'){
+           unset($build['first'][$uuid]);
+          }
+        }
+      }
+      break;
+  }
+}
