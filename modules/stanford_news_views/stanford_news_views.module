@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * stanford_news_views.module
+ */
+
+use Drupal\views\ViewExecutable;
+
+function stanford_news_views_preprocess_views_view(&$vars){
+  // $var['#attached']['library'][] = 'stanford_news_views/list_view';
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function stanford_news_views_views_pre_render(ViewExecutable $view) {
+  $view->element['#attached']['library'][] = 'stanford_news_views/list_view';
+}

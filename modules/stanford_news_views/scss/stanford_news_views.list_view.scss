@@ -1,0 +1,13 @@
+.stanford-news {
+display:flex;
+flex-wrap: wrap;
+
+  .views-row {
+    width: calc(25% - 10px);
+    margin: 0 10px 0 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

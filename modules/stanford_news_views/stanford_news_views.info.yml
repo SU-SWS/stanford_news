@@ -1,0 +1,17 @@
+name: 'Stanford News Views'
+description: 'Views to display Stanford News Content.'
+type: module
+core: 8.x
+dependencies:
+  - datetime
+  - image
+  - link
+  - node
+  - stanford_news
+  - stanford_paragraph_slide
+  - text
+  - ui_patterns_views
+  - user
+  - views
+version: 8.x-1.0-dev
+package: Stanford

@@ -1,0 +1,4 @@
+list_view:
+  css:
+    component:
+      css/stanford_news_views.list_view.css
