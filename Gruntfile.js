@@ -84,7 +84,9 @@ module.exports = function(grunt) {
           'css/layout.css':             'scss/layout/layout.scss',
           'css/states.css':             'scss/states/states.scss',
           'css/theme.css':              'scss/theme/theme.scss',
-          'css/print.css':              'scss/theme/print.scss'
+          'css/print.css':              'scss/theme/print.scss',
+          // News Views.
+          'modules/stanford_news_views/css/stanford_news_views.list_view.css': 'modules/stanford_news_views/scss/stanford_news_views.list_view.scss'
         }
       }
     },

@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * stanford_news_views.module
+ */
+
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function stanford_news_views_views_pre_render(ViewExecutable $view) {
+
+  if ($view->current_display == 'stanford_news_list_view') {
+    // Can we improve this condition and keep cloned views working?
+    $view->element['#attached']['library'][] = 'stanford_news_views/stanford_news_list_view';
+  }
+}
