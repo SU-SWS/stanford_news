@@ -525,7 +525,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      css_class: stanford-news
+      css_class: stanford-news-list-view
     cache_metadata:
       max-age: -1
       contexts:
