@@ -23,8 +23,8 @@ dependencies:
   - scheduler
   - stanford_page
   - stanford_paragraph_hero_banner
-  - stanford_research_area
   - stanford_paragraph_video
+  - stanford_research_area
   - taxonomy
   - text
   - user

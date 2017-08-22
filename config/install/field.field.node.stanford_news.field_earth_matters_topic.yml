@@ -9,7 +9,7 @@ id: node.stanford_news.field_earth_matters_topic
 field_name: field_earth_matters_topic
 entity_type: node
 bundle: stanford_news
-label: 'Earth Matters Topic'
+label: 'Earth Matters'
 description: ''
 required: false
 translatable: false
