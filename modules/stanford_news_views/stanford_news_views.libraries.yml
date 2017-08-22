@@ -1,0 +1,5 @@
+stanford_news_list_view:
+  version: VERSION
+  css:
+    layout:
+      css/stanford_news_views.list_view.css: {}
