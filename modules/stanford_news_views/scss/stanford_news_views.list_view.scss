@@ -1,17 +1,17 @@
+@charset 'UTF-8';
+@import 'decanter/core/utilities/decanter-utilities';
+
 .stanford-news {
-display:flex;
-flex-wrap: wrap;
 
   .views-row {
-    width: calc(25% - 10px);
-    margin: 0 10px 0 0;
+    @include grid-column(1 of 2);
 
-    @media(max-width: 768px){
-      width: calc(33% - 10px);
+    @include grid-media($media-sm) {
+      @include grid-column(1 of 4);
     }
 
-    @media(max-width: 450px){
-      width: calc(50% - 10px);
+    @include grid-media($media-md) {
+      @include grid-column(1 of 3);
     }
   }
 }

@@ -539,9 +539,9 @@ display:
         - 'config:field.storage.node.field_s_news_date'
         - 'config:field.storage.node.field_s_news_feat_image'
         - 'config:field.storage.node.field_s_news_source'
-  list_page:
+  stanford_news_list_view:
     display_plugin: page
-    id: list_page
+    id: stanford_news_list_view
     display_title: Page
     position: 1
     display_options:
