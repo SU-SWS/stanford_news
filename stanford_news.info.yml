@@ -24,6 +24,7 @@ dependencies:
   - stanford_page
   - stanford_paragraph_hero_banner
   - stanford_paragraph_video
+  - stanford_research_area
   - taxonomy
   - text
   - user

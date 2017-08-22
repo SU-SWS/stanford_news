@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_s_news_top_media
     - node.type.stanford_news
-    - paragraphs.paragraphs_type.stanford_paragraph_hero_banner
     - paragraphs.paragraphs_type.stanford_video
   module:
     - entity_reference_revisions
@@ -22,7 +21,6 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      stanford_paragraph_hero_banner: stanford_paragraph_hero_banner
       stanford_video: stanford_video
     target_bundles_drag_drop:
       stanford_buttons:
