@@ -5,6 +5,7 @@ dependencies:
     - field.storage.node.field_s_news_top_media
     - node.type.stanford_news
     - paragraphs.paragraphs_type.stanford_paragraph_hero_banner
+    - paragraphs.paragraphs_type.stanford_responsive_image
     - paragraphs.paragraphs_type.stanford_video
   module:
     - entity_reference_revisions
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     target_bundles:
       stanford_paragraph_hero_banner: stanford_paragraph_hero_banner
+      stanford_responsive_image: stanford_responsive_image
       stanford_video: stanford_video
     target_bundles_drag_drop:
       stanford_buttons:
@@ -103,6 +105,9 @@ settings:
       stanford_tall_filmstrip:
         weight: 55
         enabled: false
+      stanford_responsive_image:
+        enabled: true
+        weight: 56
       stanford_tall_slide:
         weight: 56
         enabled: false
