@@ -19,7 +19,6 @@ dependencies:
   - pathauto
   - rdf
   - scheduler
-  - stanford_news
   - stanford_page
   - stanford_paragraph_hero_banner
   - stanford_paragraph_responsive_image
