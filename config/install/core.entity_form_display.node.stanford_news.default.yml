@@ -4,11 +4,13 @@ dependencies:
   config:
     - field.field.node.stanford_news.body
     - field.field.node.stanford_news.field_earth_matters_topic
+    - field.field.node.stanford_news.field_s_news_author
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
+    - field.field.node.stanford_news.field_s_news_sub_title
     - field.field.node.stanford_news.field_s_news_top_media
     - field.field.node.stanford_news.panelizer
     - image.style.thumbnail
@@ -28,7 +30,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 9
     settings:
       rows: 9
       summary_rows: 3
@@ -37,7 +39,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -50,8 +52,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_s_news_author:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_s_news_category:
-    weight: 6
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -60,7 +70,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_s_news_date:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -75,7 +85,7 @@ content:
     region: content
   field_s_news_rich_content:
     type: entity_reference_paragraphs
-    weight: 7
+    weight: 10
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -86,12 +96,20 @@ content:
     third_party_settings: {  }
     region: content
   field_s_news_source:
-    weight: 5
+    weight: 8
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_s_news_sub_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_s_news_top_media:
     type: entity_reference_paragraphs
@@ -107,7 +125,7 @@ content:
     region: content
   path:
     type: path
-    weight: 15
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -115,17 +133,17 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
+    weight: 13
     region: content
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 14
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 12
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -133,7 +151,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 14
     region: content
     third_party_settings: {  }
   title:
@@ -146,7 +164,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 11
     settings:
       match_operator: CONTAINS
       size: 60
@@ -155,7 +173,7 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 13
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }

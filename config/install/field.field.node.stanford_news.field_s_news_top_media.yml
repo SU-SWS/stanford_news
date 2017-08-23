@@ -43,6 +43,9 @@ settings:
       stanford_deep_link_banner:
         weight: 36
         enabled: false
+      stanford_column_text:
+        weight: 37
+        enabled: false
       stanford_double_filmstrip:
         weight: 37
         enabled: false

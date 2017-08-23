@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * stanford_news.install
+ */
+
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Deletes old hero banner field if it's still there.
+ */
+function stanford_news_update_8101() {
+  if ($field = FieldConfig::load('node.stanford_news.field_s_news_hero_banner')) {
+    $field->delete();
+  }
+}

@@ -4,11 +4,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.stanford_news.body
+    - field.field.node.stanford_news.field_earth_matters_topic
+    - field.field.node.stanford_news.field_s_news_author
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
+    - field.field.node.stanford_news.field_s_news_sub_title
     - field.field.node.stanford_news.field_s_news_top_media
     - field.field.node.stanford_news.panelizer
     - node.type.stanford_news
@@ -32,10 +35,13 @@ content:
     weight: 100
     region: content
 hidden:
+  field_earth_matters_topic: true
+  field_s_news_author: true
   field_s_news_category: true
   field_s_news_date: true
   field_s_news_feat_image: true
   field_s_news_rich_content: true
   field_s_news_source: true
+  field_s_news_sub_title: true
   field_s_news_top_media: true
   panelizer: true
