@@ -1,9 +1,7 @@
 name: 'Stanford News'
-type: module
 description: 'Stanford news items and views.'
+type: module
 core: 8.x
-package: Stanford
-version: 8.x-1.0-dev
 dependencies:
   - allowed_formats
   - datetime
@@ -21,10 +19,14 @@ dependencies:
   - pathauto
   - rdf
   - scheduler
+  - stanford_news
   - stanford_page
   - stanford_paragraph_hero_banner
+  - stanford_paragraph_responsive_image
   - stanford_paragraph_video
   - stanford_research_area
   - taxonomy
   - text
   - user
+version: 8.x-1.0-dev
+package: Stanford
