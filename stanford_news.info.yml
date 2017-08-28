@@ -7,6 +7,7 @@ dependencies:
   - datetime
   - entity_reference_revisions
   - field
+  - field_group
   - file
   - filefield_paths
   - image
@@ -22,6 +23,7 @@ dependencies:
   - stanford_page
   - stanford_paragraph_hero_banner
   - stanford_paragraph_responsive_image
+  - stanford_paragraph_section_highlight_cards
   - stanford_paragraph_video
   - stanford_research_area
   - taxonomy

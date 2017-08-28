@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
+    - field.field.node.stanford_news.field_s_news_media_contacts
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
     - field.field.node.stanford_news.field_s_news_sub_title
@@ -40,6 +41,7 @@ hidden:
   field_s_news_category: true
   field_s_news_date: true
   field_s_news_feat_image: true
+  field_s_news_media_contacts: true
   field_s_news_rich_content: true
   field_s_news_source: true
   field_s_news_sub_title: true

@@ -15,3 +15,32 @@ function stanford_news_update_8101() {
     $field->delete();
   }
 }
+
+/**
+ * Install new dependencies.
+ */
+function stanford_news_update_8102() {
+  \Drupal::service('module_installer')->install([
+    'stanford_paragraph_section_highlight_cards',
+    'stanford_paragraph_responsive_image',
+    'stanford_paragraph_video',
+  ]);
+}
+
+/**
+ * Updates schema for news by reverting the feature.
+ */
+function stanford_news_update_8103() {
+  /** @var \Drupal\features\FeaturesManagerInterface $manager */
+  $manager = \Drupal::service('features.manager');
+  /** @var \Drupal\features\Package $feature */
+  $feature = $manager->loadPackage("stanford_news", TRUE);
+  $components = $feature->getConfigOrig();
+  // Determine which config the user wants to import/revert.
+  $config_to_create = [];
+  foreach ($components as $component) {
+    $config_to_create[$component] = '';
+  }
+  $config_imported = $manager->createConfiguration($config_to_create);
+  drupal_flush_all_caches();
+}

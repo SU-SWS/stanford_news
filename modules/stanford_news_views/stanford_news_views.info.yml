@@ -7,9 +7,8 @@ dependencies:
   - image
   - link
   - node
-  - stanford_news
-  - stanford_paragraph_slide
   - text
+  - stanford_news
   - ui_patterns_views
   - user
   - views

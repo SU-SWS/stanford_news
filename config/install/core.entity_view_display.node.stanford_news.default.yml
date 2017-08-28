@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
+    - field.field.node.stanford_news.field_s_news_media_contacts
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
     - field.field.node.stanford_news.field_s_news_sub_title
@@ -61,7 +62,7 @@ third_party_settings:
               third_party_settings: {  }
               weight: 0
             region: full
-            weight: 0
+            weight: -5
             uuid: 6078a685-1558-4932-8fdd-6693f845b3eb
             context_mapping:
               entity: '@panelizer.entity_context:entity'
@@ -198,6 +199,23 @@ third_party_settings:
             uuid: 349c89f6-e88e-4fe6-8c47-839ca29bd5d2
             context_mapping:
               entity: '@panelizer.entity_context:entity'
+          22657b6d-2a49-4cc7-8c50-f65c347a4121:
+            id: 'entity_field:node:field_s_news_media_contacts'
+            label: 'Media Contacts'
+            provider: ctools_block
+            label_display: '0'
+            formatter:
+              label: hidden
+              type: entity_reference_revisions_entity_view
+              settings:
+                view_mode: default
+              third_party_settings: {  }
+              weight: 0
+            region: full
+            weight: -4
+            uuid: 22657b6d-2a49-4cc7-8c50-f65c347a4121
+            context_mapping:
+              entity: '@panelizer.entity_context:entity'
         id: panels_variant
         label: Default
         uuid: 78139241-22d3-40fe-9d10-20f2164e1639
@@ -255,6 +273,15 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
+  field_s_news_media_contacts:
+    type: entity_reference_revisions_entity_view
+    weight: 112
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   field_s_news_rich_content:
     type: entity_reference_revisions_entity_view

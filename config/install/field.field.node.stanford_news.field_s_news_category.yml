@@ -9,7 +9,7 @@ id: node.stanford_news.field_s_news_category
 field_name: field_s_news_category
 entity_type: node
 bundle: stanford_news
-label: Category
+label: 'News Type'
 description: "Choose the appropriate category tag(s). If you do not have any Categories yet, a site administrator can add them, and integrate them with the site architecture.\r\n"
 required: false
 translatable: false

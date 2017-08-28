@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
+    - field.field.node.stanford_news.field_s_news_media_contacts
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
     - field.field.node.stanford_news.field_s_news_sub_title
@@ -17,12 +18,83 @@ dependencies:
     - node.type.stanford_news
   module:
     - datetime
+    - field_group
     - image
     - link
     - paragraphs
     - path
     - scheduler
     - text
+third_party_settings:
+  field_group:
+    group_media_contacts:
+      children:
+        - field_s_news_media_contacts
+      parent_name: ''
+      weight: 15
+      format_type: fieldset
+      format_settings:
+        label: 'Media Contacts'
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Media Contacts'
+    group_dynamic_content:
+      children:
+        - field_s_news_rich_content
+      parent_name: ''
+      weight: 14
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Dynamic Content'
+    group_supporting_content:
+      children:
+        - field_s_news_feat_image
+        - field_s_news_author
+        - field_s_news_date
+        - field_s_news_source
+        - field_earth_matters_topic
+        - field_s_news_category
+      parent_name: ''
+      weight: 13
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Supporting Content'
+    group_top_media:
+      children:
+        - field_s_news_top_media
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Top Media'
+    group_titles:
+      children:
+        - title
+        - field_s_news_sub_title
+        - body
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Titles
 id: node.stanford_news.default
 targetEntityType: node
 bundle: stanford_news
@@ -30,7 +102,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 3
     settings:
       rows: 9
       summary_rows: 3
@@ -39,7 +111,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -53,7 +125,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_s_news_author:
-    weight: 4
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -70,18 +142,30 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_s_news_date:
-    weight: 5
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_s_news_feat_image:
-    weight: 1
+    weight: 2
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_s_news_media_contacts:
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: stanford_section_highlight_cards
+    third_party_settings: {  }
     region: content
   field_s_news_rich_content:
     type: entity_reference_paragraphs
@@ -89,14 +173,14 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: stanford_callout_text
     third_party_settings: {  }
     region: content
   field_s_news_source:
-    weight: 8
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -104,7 +188,7 @@ content:
     type: link_default
     region: content
   field_s_news_sub_title:
-    weight: 3
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -113,7 +197,7 @@ content:
     region: content
   field_s_news_top_media:
     type: entity_reference_paragraphs
-    weight: 0
+    weight: 1
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -125,7 +209,7 @@ content:
     region: content
   path:
     type: path
-    weight: 18
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -133,17 +217,17 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 7
     region: content
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 17
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 15
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -151,12 +235,12 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 8
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 2
+    weight: 1
     region: content
     settings:
       size: 60
@@ -164,7 +248,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
@@ -173,7 +257,7 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 16
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
