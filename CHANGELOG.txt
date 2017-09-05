@@ -1,6 +1,10 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
-7.x-3.7-alpha1               2017-05-15=
+7.x-3.7-alpha2               2017-08-05
+---------------------------------------
+- HSDO-943 HSDO-955 Dynamic Paragraph Views
+
+7.x-3.7-alpha1               2017-05-15
 ---------------------------------------
 - Added masonry view
 - RSS & XML importers with upgrade from news_extras
