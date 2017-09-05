@@ -15,7 +15,7 @@
 
 @media (min-width: 767px) {
   .view-display-id-paragraphs_news_block .views-row {
-    margin: 0 10px 0;
+    margin: 0 10px;
     max-width: calc(33% - 10px);
   }
   .view-display-id-paragraphs_news_block .views-row:first-child {
