@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: earth_matters_landing
+label: 'Earth Matters Landing'
+description: ''
+use_admin_theme: false
+path: /earth-matters
+access_logic: and
+access_conditions: {  }
+parameters: {  }

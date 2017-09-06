@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * stanford_news_earth_matters.module
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $storage = $form_state->getStorage();
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $storage['view'];
+  if ($view->current_display != 'news_list' || $view->id() != 'earth_matters_listing') {
+    return;
+  }
+  $form['#attached']['library'][] = 'stanford_news_earth_matters/views';
+
+  $topics = $links = $form['topic']['#options'];
+
+  $topics_links = [];
+  foreach ($topics as $tid => $term_name) {
+    if ($tid == 'All') {
+      $topics_links[]['#markup'] = '<span class="filter-tab"><a href="" class="nav-item active" data-tid="' . $tid . '">' . $term_name . '</a></span>';
+    }
+    else {
+      $topics_links[]['#markup'] = '<span class="filter-tab"><a class="nav-item" href="?topic[]=' . $tid . '" data-tid="' . $tid . '">' . $term_name . '</a></span>';
+    }
+  }
+
+  // Create the item-list the form should render
+  $form['topics'] = [
+    '#type' => 'pattern',
+    '#id' => 'collapsible_menu',
+    '#fields' => ['items' => $topics_links],
+  ];
+}

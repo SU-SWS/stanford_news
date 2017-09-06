@@ -1,0 +1,15 @@
+// Hide select form elements to allow js to do the work.
+.earth-matters-listing.news-list {
+
+  .js-form-type-select {
+    display: none;
+  }
+
+  .form-submit {
+    display: none;
+  }
+
+  .nav-item.active {
+    border: 1px solid red;
+  }
+}

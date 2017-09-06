@@ -1,0 +1,18 @@
+name: 'Stanford News Earth Matters'
+type: module
+core: 8.x
+dependencies:
+  - datetime
+  - image
+  - link
+  - node
+  - page_manager
+  - panels
+  - stanford_components
+  - stanford_news
+  - system
+  - taxonomy
+  - text
+  - ui_patterns_views
+  - user
+  - views

@@ -1,0 +1,13 @@
+.earth-matters-listing.news-list .js-form-type-select {
+  display: none;
+}
+
+.earth-matters-listing.news-list .form-submit {
+  display: none;
+}
+
+.earth-matters-listing.news-list .nav-item.active {
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=stanford_news_earth_matters.css.map */

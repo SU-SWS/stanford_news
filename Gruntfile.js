@@ -86,7 +86,8 @@ module.exports = function(grunt) {
           'css/theme.css':              'scss/theme/theme.scss',
           'css/print.css':              'scss/theme/print.scss',
           // News Views.
-          'modules/stanford_news_views/css/stanford_news_views.list_view.css': 'modules/stanford_news_views/scss/stanford_news_views.list_view.scss'
+          'modules/stanford_news_views/css/stanford_news_views.list_view.css': 'modules/stanford_news_views/scss/stanford_news_views.list_view.scss',
+          'modules/stanford_news_earth_matters/css/stanford_news_earth_matters.css': 'modules/stanford_news_earth_matters/scss/stanford_news_earth_matters.scss'
         }
       }
     },
