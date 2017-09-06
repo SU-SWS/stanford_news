@@ -5,6 +5,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -18,7 +19,18 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
   }
   $form['#attached']['library'][] = 'stanford_news_earth_matters/views';
 
-  $topics = $links = $form['topic']['#options'];
+  $topics = &$form['topic']['#options'];
+  foreach (array_keys($topics) as $term_id) {
+    $count = \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'stanford_news')
+      ->condition('field_earth_matters_topic', $term_id)
+      ->count()->execute();
+
+    if(!$count){
+      unset($topics[$term_id]);
+    }
+  }
 
   $topics_links = [];
   foreach ($topics as $tid => $term_name) {
