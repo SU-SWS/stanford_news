@@ -19,6 +19,8 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
   $form['#attached']['library'][] = 'stanford_news_earth_matters/views';
 
   $topics = &$form['topic']['#options'];
+
+  // Remove terms from the filter that don't have any content.
   foreach (array_keys($topics) as $term_id) {
     $count = \Drupal::entityQuery('node')
       ->condition('status', 1)
@@ -26,7 +28,7 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
       ->condition('field_earth_matters_topic', $term_id)
       ->count()->execute();
 
-    if(!$count){
+    if (!$count) {
       unset($topics[$term_id]);
     }
   }

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
+    - field.field.node.stanford_news.field_s_news_masonry_style
     - field.field.node.stanford_news.field_s_news_media_contacts
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
@@ -154,6 +155,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_s_news_masonry_style:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_s_news_media_contacts:
     type: entity_reference_paragraphs
