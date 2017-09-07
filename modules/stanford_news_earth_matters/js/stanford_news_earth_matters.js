@@ -29,6 +29,7 @@
           }
 
           parameter = '';
+          console.log(value);
           if (value.length) {
             parameter = '?' + $(filter).attr('name') + '=' + value.join('&' + $(filter).attr('name') + '=');
             console.log(parameter);
@@ -63,6 +64,10 @@
       // };
 
       function setFilterClick(element, view) {
+        if ($(element).hasClass('filterClickProcessed')) {
+          return;
+        }
+
         $(element).on('click', function (e) {
           e.preventDefault();
           $(this).toggleClass('active');
@@ -74,7 +79,7 @@
           var filter = $(view).find('select');
 
           setFilter(tid, filter);
-        });
+        }).addClass('filterClickProcessed');
       }
 
 
