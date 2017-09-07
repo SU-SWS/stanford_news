@@ -29,10 +29,9 @@
           }
 
           parameter = '';
-          console.log(value);
           if (value.length) {
+            value = cleanArray(value);
             parameter = '?' + $(filter).attr('name') + '=' + value.join('&' + $(filter).attr('name') + '=');
-            console.log(parameter);
           }
         }
 
@@ -40,28 +39,21 @@
 
         var pathname = window.location.pathname;
         var path = pathname + parameter;
-        console.log(path);
         history.pushState(null, null, path);
 
         $(filter).trigger('change');
         $(filter).closest('form').find('input.form-submit').trigger('click');
       }
 
-      // function processAjaxData(response, urlPath) {
-      //   $('.earth-matters-listing.news-list').innerHTML = response.html;
-      //   document.title = response.pageTitle;
-      //   window.history.pushState({
-      //     'html': response.html,
-      //     'pageTitle': response.pageTitle
-      //   }, '', urlPath);
-      // }
-      //
-      // window.onpopstate = function (e) {
-      //   if (e.state) {
-      //     document.getElementById('content').innerHTML = e.state.html;
-      //     document.title = e.state.pageTitle;
-      //   }
-      // };
+      function cleanArray(actual) {
+        var newArray = [];
+        for (var i = 0; i < actual.length; i++) {
+          if (actual[i]) {
+            newArray.push(actual[i]);
+          }
+        }
+        return newArray;
+      }
 
       function setFilterClick(element, view) {
         if ($(element).hasClass('filterClickProcessed')) {
