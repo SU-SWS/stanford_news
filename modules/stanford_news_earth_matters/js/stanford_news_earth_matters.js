@@ -114,14 +114,14 @@
   };
 
   function setActives() {
-    // var view = $('.earth-matters-listing.news-list');
-    // $(view).find('.filter-tab a').removeClass('active');
-    // var topics = $(view).find('select').val();
-    //
-    // $(topics).each(function (i, value) {
-    //   $(view).find('a[data-tid="' + value + '"]').addClass('active');
-    //   $(view).find('a[rel="' + value + '"]').addClass('active');
-    // });
+    var view = $('.earth-matters-listing.news-list');
+    $(view).find('.filter-tab a').removeClass('active');
+    var topics = $(view).find('select').val();
+
+    $(topics).each(function (i, value) {
+      $(view).find('a[data-tid="' + value + '"]').addClass('active');
+      $(view).find('a[rel="' + value + '"]').addClass('active');
+    });
   }
 
   jQuery(document).ajaxComplete(setActives);

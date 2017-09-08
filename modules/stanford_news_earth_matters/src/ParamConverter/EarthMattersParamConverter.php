@@ -43,9 +43,12 @@ class EarthMattersParamConverter implements ParamConverterInterface {
 
     $tid = $taxonomy_storage->getQuery('AND')
       ->condition('vid', 'earth_matters_topics')
-      ->condition('name', str_replace('-', '%', $value), 'LIKE')
+      ->condition('name', str_replace('-', '%', trim($value)), 'LIKE')
       ->execute();
 
+    if (!$tid) {
+      return $value;
+    }
 
     $term = $taxonomy_storage->load(reset($tid));
     return $term ? $term : $value;
