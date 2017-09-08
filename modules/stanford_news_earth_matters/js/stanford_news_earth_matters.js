@@ -7,10 +7,13 @@
   Drupal.behaviors.EarthMatters = {
     attach: function (context, settings) {
 
-      function setFilter(value, filter) {
+      var view = $('.earth-matters-listing.news-list');
 
+      function setFilter(value, filter) {
         if ($(filter).attr('multiple')) {
           var existingValues = $(filter).val();
+
+          console.log(existingValues);
 
           if (existingValues) {
             var i = existingValues.indexOf(value);
@@ -33,9 +36,9 @@
         }
 
         filter.val(value);
-
         $(filter).trigger('change');
-        $(filter).closest('form').find('input.form-submit').trigger('click');
+
+        refreshViews();
       }
 
       function cleanString(string) {
@@ -56,6 +59,17 @@
           }
         }
         return newArray;
+      }
+
+      function refreshViews() {
+        var views = settings.views.ajaxViews;
+
+        $.each(views, function (i, view) {
+          var dom_id = view.view_dom_id;
+          var selector = '.js-view-dom-id-' + dom_id;
+          settings.views.ajaxViews['views_dom_id:' + dom_id].view_args = $(selector).find('select').val().join('+');
+          $(selector).triggerHandler('RefreshView');
+        });
       }
 
       function setFilterClick(element, view) {
@@ -93,9 +107,6 @@
         history.pushState(null, null, current_path);
       }
 
-
-      var view = $('.earth-matters-listing.news-list');
-
       $(view).find('.filter-tab a, .masonry-block__tags .tag-item').each(function () {
         setFilterClick(this, view);
       });
@@ -103,14 +114,14 @@
   };
 
   function setActives() {
-    var view = $('.earth-matters-listing.news-list');
-    $(view).find('.filter-tab a').removeClass('active');
-    var topics = $(view).find('select').val();
-
-    $(topics).each(function (i, value) {
-      $(view).find('a[data-tid="' + value + '"]').addClass('active');
-      $(view).find('a[rel="' + value + '"]').addClass('active');
-    });
+    // var view = $('.earth-matters-listing.news-list');
+    // $(view).find('.filter-tab a').removeClass('active');
+    // var topics = $(view).find('select').val();
+    //
+    // $(topics).each(function (i, value) {
+    //   $(view).find('a[data-tid="' + value + '"]').addClass('active');
+    //   $(view).find('a[rel="' + value + '"]').addClass('active');
+    // });
   }
 
   jQuery(document).ajaxComplete(setActives);

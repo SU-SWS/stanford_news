@@ -145,7 +145,7 @@ display:
               source: field_s_news_date
           variants:
             style:
-              constant_value: simple
+              constant_value: ''
               dynamic_value: field_s_news_masonry_style
       fields:
         path:
@@ -808,22 +808,13 @@ display:
           tokenize: false
           content: "<h2>No Articles Found</h2>\n<p>Please check back at a later date</p>"
           plugin_id: text_custom
-      relationships:
-        field_earth_matters_topic:
-          id: field_earth_matters_topic
-          table: node__field_earth_matters_topic
-          field: field_earth_matters_topic
-          relationship: none
-          group_type: group
-          admin_label: 'field_earth_matters_topic: Taxonomy term'
-          required: false
-          plugin_id: standard
+      relationships: {  }
       arguments:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_earth_matters_topic
+        field_earth_matters_topic_target_id:
+          id: field_earth_matters_topic_target_id
+          table: node__field_earth_matters_topic
+          field: field_earth_matters_topic_target_id
+          relationship: none
           group_type: group
           admin_label: ''
           default_action: ignore
@@ -851,20 +842,12 @@ display:
             type: none
             fail: 'not found'
           validate_options: {  }
-          glossary: false
-          limit: 0
-          case: none
-          path_case: none
-          transform_dash: false
           break_phrase: true
-          add_table: false
-          require_value: false
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
+          not: false
+          plugin_id: numeric
       display_extenders: {  }
       use_ajax: true
-      group_by: true
+      group_by: false
       show_admin_links: false
     cache_metadata:
       max-age: -1

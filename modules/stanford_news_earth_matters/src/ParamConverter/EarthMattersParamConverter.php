@@ -39,19 +39,16 @@ class EarthMattersParamConverter implements ParamConverterInterface {
    * {@inheritdoc}
    */
   public function convert($value, $definition, $name, array $defaults) {
+    $taxonomy_storage = $this->entityTypeManager->getStorage('taxonomy_term');
 
-    $tid = $this->database->select('taxonomy_term_field_data', 't')
-      ->fields('t', ['tid'])
+    $tid = $taxonomy_storage->getQuery('AND')
       ->condition('vid', 'earth_matters_topics')
       ->condition('name', str_replace('-', '%', $value), 'LIKE')
-      ->execute()
-      ->fetchField();
+      ->execute();
 
-    if ($tid) {
-      return $this->entityTypeManager->getStorage('taxonomy_term')->load($tid);
-    }
 
-    return $value;
+    $term = $taxonomy_storage->load(reset($tid));
+    return $term ? $term : $value;
   }
 
 }

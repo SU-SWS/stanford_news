@@ -5,6 +5,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use \Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -19,6 +20,24 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
   $form['#attached']['library'][] = 'stanford_news_earth_matters/views';
   $parameters = \Drupal::routeMatch()->getParameters()->all();
 
+  $tids = [];
+  /** @var \Drupal\taxonomy\Entity\Term $term */
+  foreach ($parameters as $term) {
+    if (is_a($term, '\Drupal\taxonomy\Entity\Term')) {
+      $tids[] = $term->id();
+    }
+  }
+
+
+  if (!$tids) {
+    $storage = $form_state->getStorage();
+    $tids = explode('+', reset($storage['view']->args));
+  }
+
+  if (array_filter($tids)) {
+    $form_state->setUserInput(['topic' => array_filter($tids)]);
+  }
+
   $topics = &$form['topic']['#options'];
 
   // Remove terms from the filter that don't have any content.
@@ -32,15 +51,7 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
     if (!$count) {
       unset($topics[$term_id]);
     }
-
-    if (in_array(_stanford_news_earth_matters_clean_name($term_name), $parameters)) {
-      $form['topic']['#default_value'][] = "$term_id";
-    }
   }
-
-
-//  dpm($parameters);
-//  dpm($form['topic']);
 
   $topics_links = [];
   foreach ($topics as $tid => $term_name) {
