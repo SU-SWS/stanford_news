@@ -17,11 +17,12 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
     return;
   }
   $form['#attached']['library'][] = 'stanford_news_earth_matters/views';
+  $parameters = \Drupal::routeMatch()->getParameters()->all();
 
   $topics = &$form['topic']['#options'];
 
   // Remove terms from the filter that don't have any content.
-  foreach (array_keys($topics) as $term_id) {
+  foreach ($topics as $term_id => $term_name) {
     $count = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'stanford_news')
@@ -31,15 +32,24 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
     if (!$count) {
       unset($topics[$term_id]);
     }
+
+    if (in_array(_stanford_news_earth_matters_clean_name($term_name), $parameters)) {
+      $form['topic']['#default_value'][] = "$term_id";
+    }
   }
+
+
+//  dpm($parameters);
+//  dpm($form['topic']);
 
   $topics_links = [];
   foreach ($topics as $tid => $term_name) {
+    $href = '/earth-matter/' . _stanford_news_earth_matters_clean_name($term_name);
     if ($tid == 'All') {
       $topics_links[]['#markup'] = '<span class="filter-tab"><a href="" class="nav-item active" data-tid="' . $tid . '">' . $term_name . '</a></span>';
     }
     else {
-      $topics_links[]['#markup'] = '<span class="filter-tab"><a class="nav-item" href="?topic[]=' . $tid . '" data-tid="' . $tid . '">' . $term_name . '</a></span>';
+      $topics_links[]['#markup'] = '<span class="filter-tab"><a class="nav-item" href="' . $href . '" data-tid="' . $tid . '">' . $term_name . '</a></span>';
     }
   }
 
@@ -49,4 +59,21 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
     '#id' => 'collapsible_menu',
     '#fields' => ['items' => $topics_links],
   ];
+}
+
+/**
+ * Clean a string to make it url friendly.
+ *
+ * @param string $name
+ *   Some string to clean.
+ *
+ * @return string
+ *   Clean url friendly string.
+ */
+function _stanford_news_earth_matters_clean_name($name) {
+  $new_name = preg_replace('/[^a-zA-Z0-9]+/', '-', $name);
+  while (strpos($new_name, '--')) {
+    $new_name = str_replace('--', '-', $new_name);
+  }
+  return strtolower($new_name);
 }

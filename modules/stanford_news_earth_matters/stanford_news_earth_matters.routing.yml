@@ -1,0 +1,11 @@
+route_callbacks:
+  - '\Drupal\stanford_news_earth_matters\Routing\EarthMattersRoutes::routes'
+
+
+earth_matters.landing_page:
+  path: '/earth-matters'
+  defaults:
+    _controller: '\Drupal\stanford_news_earth_matters\Controller\EarthMattersController::page'
+    _title: 'Earth Matters'
+  requirements:
+    _permission: 'access content'

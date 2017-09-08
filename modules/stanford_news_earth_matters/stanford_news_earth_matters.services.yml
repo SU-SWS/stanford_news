@@ -1,0 +1,6 @@
+services:
+  earth_matters_term:
+    class: Drupal\stanford_news_earth_matters\ParamConverter\EarthMattersParamConverter
+    arguments: ['@database', '@entity_type.manager']
+    tags:
+      - { name: paramconverter }

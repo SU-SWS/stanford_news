@@ -8,7 +8,6 @@
     attach: function (context, settings) {
 
       function setFilter(value, filter) {
-        var parameter = '?' + $(filter).attr('name') + '=' + value;
 
         if ($(filter).attr('multiple')) {
           var existingValues = $(filter).val();
@@ -28,21 +27,25 @@
             value = [value];
           }
 
-          parameter = '';
           if (value.length) {
             value = cleanArray(value);
-            parameter = '?' + $(filter).attr('name') + '=' + value.join('&' + $(filter).attr('name') + '=');
           }
         }
 
         filter.val(value);
 
-        var pathname = window.location.pathname;
-        var path = pathname + parameter;
-        history.pushState(null, null, path);
-
         $(filter).trigger('change');
         $(filter).closest('form').find('input.form-submit').trigger('click');
+      }
+
+      function cleanString(string) {
+        string = string.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase().replace(' ', '-');
+
+        while (string.indexOf('--') != -1) {
+          string = string.replace('--', '-');
+        }
+
+        return string;
       }
 
       function cleanArray(actual) {
@@ -70,8 +73,24 @@
           }
           var filter = $(view).find('select');
 
+          setPushState($(this).text());
+
+
           setFilter(tid, filter);
         }).addClass('filterClickProcessed');
+      }
+
+      function setPushState(string) {
+        var current_path = window.location.href;
+        string = cleanString(string);
+        if (current_path.indexOf(string) == -1) {
+          current_path = current_path + '/' + string;
+        }
+        else {
+          current_path = current_path.replace('/' + string, '');
+        }
+
+        history.pushState(null, null, current_path);
       }
 
 
