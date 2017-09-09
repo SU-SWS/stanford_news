@@ -13,8 +13,6 @@
         if ($(filter).attr('multiple')) {
           var existingValues = $(filter).val();
 
-          console.log(existingValues);
-
           if (existingValues) {
             var i = existingValues.indexOf(value);
 
@@ -67,7 +65,11 @@
         $.each(views, function (i, view) {
           var dom_id = view.view_dom_id;
           var selector = '.js-view-dom-id-' + dom_id;
-          settings.views.ajaxViews['views_dom_id:' + dom_id].view_args = $(selector).find('select').val().join('+');
+          var args = [];
+          if ($(selector).find('select').val()) {
+            args = $(selector).find('select').val().join('+');
+          }
+          settings.views.ajaxViews['views_dom_id:' + dom_id].view_args = args;
           $(selector).triggerHandler('RefreshView');
         });
       }
@@ -95,7 +97,7 @@
       }
 
       function setPushState(string) {
-        var current_path = window.location.href;
+        var current_path = window.location.pathname;
         string = cleanString(string);
         if (current_path.indexOf(string) == -1) {
           current_path = current_path + '/' + string;
@@ -104,7 +106,7 @@
           current_path = current_path.replace('/' + string, '');
         }
 
-        history.pushState(null, null, current_path);
+        history.pushState(null, null, current_path + window.location.search + window.location.hash);
       }
 
       $(view).find('.filter-tab a, .masonry-block__tags .tag-item').each(function () {
