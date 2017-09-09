@@ -471,12 +471,12 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: '/earth-matters?topic[]={{ field_earth_matters_topic__target_id }}'
+            path: '/earth-matters/{{ field_earth_matters_topic }} '
             absolute: true
             external: true
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
+            replace_spaces: true
+            path_case: lower
+            trim_whitespace: true
             alt: ''
             rel: '{{ field_earth_matters_topic__target_id }}'
             link_class: tag-item
@@ -490,7 +490,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
