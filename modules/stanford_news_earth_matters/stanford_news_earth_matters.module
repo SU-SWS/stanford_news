@@ -5,6 +5,7 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -84,7 +85,7 @@ function stanford_news_earth_matters_preprocess_views_view_field(&$vars) {
   /** @var  $field */
   $field = $vars['field'];
 
-  if ($field->field == 'field_earth_matters_topic') {
+  if ($field->field == 'field_earth_matters_topic' && !empty($vars['output'])) {
 
     $dom = new \DOMDocument('1.0', 'UTF-8');
     libxml_use_internal_errors(TRUE);
@@ -100,6 +101,17 @@ function stanford_news_earth_matters_preprocess_views_view_field(&$vars) {
     }
 
     $vars['output'] = ['#markup' => $dom->saveHTML()];
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function stanford_news_earth_matters_views_pre_render(ViewExecutable $view) {
+  if ($view->current_display == 'news_list' && $view->id() == 'earth_matters_listing') {
+    // Patterns has an issue when using patterns in ajax views so we force it
+    // to not be a "preview".
+    $view->preview = FALSE;
   }
 }
 
