@@ -16,3 +16,4 @@ dependencies:
   - ui_patterns_views
   - user
   - views
+  - views_infinite_scroll
