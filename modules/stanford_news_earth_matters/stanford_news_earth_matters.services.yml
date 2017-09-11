@@ -1,6 +1,11 @@
 services:
-  earth_matters_term:
+  stanford_news_earth_matters.earth_matters_term:
     class: Drupal\stanford_news_earth_matters\ParamConverter\EarthMattersParamConverter
-    arguments: ['@database', '@entity_type.manager']
+    arguments: ['@entity_type.manager']
     tags:
       - { name: paramconverter }
+  stanford_news_earth_matters.path_processor:
+    class: Drupal\stanford_news_earth_matters\PathProcessor\EarthMattersProcessor
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: path_processor_inbound, priority: 250 }

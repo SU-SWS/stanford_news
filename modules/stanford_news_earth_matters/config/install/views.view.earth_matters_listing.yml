@@ -471,7 +471,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: '/earth-matters/{{ field_earth_matters_topic }} '
+            path: '/earth-matters/{{ field_earth_matters_topic__target_id }} '
             absolute: true
             external: true
             replace_spaces: true

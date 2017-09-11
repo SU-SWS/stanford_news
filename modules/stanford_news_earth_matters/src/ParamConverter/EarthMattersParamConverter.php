@@ -10,11 +10,6 @@ use Symfony\Component\Routing\Route;
 class EarthMattersParamConverter implements ParamConverterInterface {
 
   /**
-   * @var \Drupal\Core\Database\Connection
-   */
-  private $database;
-
-  /**
    * @var \Drupal\Core\Entity\EntityTypeManager
    */
   private $entityTypeManager;
@@ -22,8 +17,7 @@ class EarthMattersParamConverter implements ParamConverterInterface {
   /**
    * {@inheritdoc}
    */
-  public function __construct(Connection $database, EntityTypeManager $entity_type_manager) {
-    $this->database = $database;
+  public function __construct(EntityTypeManager $entity_type_manager) {
     $this->entityTypeManager = $entity_type_manager;
   }
 

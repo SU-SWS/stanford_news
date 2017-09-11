@@ -72,38 +72,6 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
   ];
 }
 
-function stanford_news_earth_matters_preprocess($vars, $hook) {
-
-}
-
-function stanford_news_earth_matters_preprocess_views_view_field(&$vars) {
-  /** @var \Drupal\views\ViewExecutable $view */
-  $view = $vars['view'];
-  if ($view->current_display != 'news_list' || $view->id() != 'earth_matters_listing') {
-    return;
-  }
-  /** @var  $field */
-  $field = $vars['field'];
-
-  if ($field->field == 'field_earth_matters_topic' && !empty($vars['output'])) {
-
-    $dom = new \DOMDocument('1.0', 'UTF-8');
-    libxml_use_internal_errors(TRUE);
-
-    $dom->loadHTML($vars['output']);
-    /** @var \DOMElement $link */
-    foreach ($dom->getElementsByTagName('a') as $link) {
-      $href = $link->getAttribute('href');
-      $href_parts = explode('/', $href);
-      $end = trim(urldecode(array_pop($href_parts)));
-      $href_parts[] = _stanford_news_earth_matters_clean_name($end);
-      $link->setAttribute('href', implode('/', $href_parts));
-    }
-
-    $vars['output'] = ['#markup' => $dom->saveHTML()];
-  }
-}
-
 /**
  * Implements hook_views_pre_render().
  */

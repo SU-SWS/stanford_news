@@ -9,6 +9,9 @@
 
       var view = $('.earth-matters-listing.news-list');
 
+      /**
+       * Set the view filter value in the select.
+       */
       function setFilter(value, filter) {
         if ($(filter).attr('multiple')) {
           var existingValues = $(filter).val();
@@ -39,16 +42,20 @@
         refreshViews();
       }
 
+      /**
+       * Clean the string to make a url friendly string.
+       */
       function cleanString(string) {
         string = string.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase().replace(' ', '-');
-
         while (string.indexOf('--') != -1) {
           string = string.replace('--', '-');
         }
-
         return string;
       }
 
+      /**
+       * Remove empty values in array like array_filter() in PHP.
+       */
       function cleanArray(actual) {
         var newArray = [];
         for (var i = 0; i < actual.length; i++) {
@@ -59,6 +66,9 @@
         return newArray;
       }
 
+      /**
+       * Reload the view contents.
+       */
       function refreshViews() {
         var views = settings.views.ajaxViews;
 
@@ -74,6 +84,9 @@
         });
       }
 
+      /**
+       * Set the filter click listener.
+       */
       function setFilterClick(element, view) {
         if ($(element).hasClass('filterClickProcessed')) {
           return;
@@ -96,6 +109,9 @@
         }).addClass('filterClickProcessed');
       }
 
+      /**
+       * Push the new url with new filters to the browser.
+       */
       function setPushState(string) {
         var current_path = window.location.pathname;
         string = cleanString(string);
@@ -112,22 +128,26 @@
       $(view).find('.filter-tab a, .masonry-block__tags .tag-item').each(function () {
         setFilterClick(this, view);
       });
+    },
+
+    /**
+     * Set active classes based on the arguments from the view.
+     */
+    setActives: function () {
+      $.each(Drupal.views.instances, function (i, view) {
+        if (view.settings.view_args) {
+          $.each(view.settings.view_args.split('+'), function (j, value) {
+            $('a[data-tid="' + value + '"]').addClass('active');
+            $('a[rel="' + value + '"]').addClass('active');
+          })
+        }
+      });
     }
   };
 
-  function setActives() {
-    var view = $('.earth-matters-listing.news-list');
-    $(view).find('.filter-tab a').removeClass('active');
-    var topics = $(view).find('select').val();
 
-    $(topics).each(function (i, value) {
-      $(view).find('a[data-tid="' + value + '"]').addClass('active');
-      $(view).find('a[rel="' + value + '"]').addClass('active');
-    });
-  }
-
-  jQuery(document).ajaxComplete(setActives);
-  setActives();
+  $(document).ajaxComplete(Drupal.behaviors.EarthMatters.setActives);
+  Drupal.behaviors.EarthMatters.setActives();
 
 
 })(jQuery);
