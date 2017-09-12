@@ -68,7 +68,7 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
   $form['topics'] = [
     '#type' => 'pattern',
     '#id' => 'collapsible_menu',
-    '#fields' => ['items' => $topics_links],
+    '#fields' => ['title' => t('Topics'), 'items' => $topics_links],
   ];
 }
 
