@@ -31,18 +31,8 @@ class EarthMattersProcessor implements InboundPathProcessorInterface {
    *   Converted path.
    */
   public function processInbound($path, Request $request) {
-    if (strpos($path, '/earth-matters') !== 0) {
+    if (strpos($path, '/earth-matters/') !== 0) {
       return $path;
-    }
-
-    $parameters = $request->query->all();
-    if (!empty($parameters['topic'])) {
-      foreach ($parameters['topic'] as $tid) {
-        $path .= "/$tid";
-      }
-
-      unset($parameters['topic']);
-      $request->query->remove('topic', '');
     }
 
     $path_tids = array_map('trim', array_unique(explode('/', $path)));

@@ -99,3 +99,13 @@ function _stanford_news_earth_matters_clean_name($name) {
   }
   return strtolower($new_name);
 }
+
+/**
+ * Implements hook_entity_insert().
+ */
+function stanford_news_earth_matters_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'taxonomy_term' && $entity->bundle() == 'earth_matters_topics') {
+    // Rebuild menu routes on term save.
+    \Drupal::service('router.builder')->rebuild();
+  }
+}
