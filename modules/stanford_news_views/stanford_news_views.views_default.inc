@@ -859,6 +859,7 @@ function stanford_news_views_views_default_views() {
   /* Display: Paragraphs News */
   $handler = $view->new_display('block', 'Paragraphs News', 'paragraphs_news_block');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'paragraphs-news-view';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
