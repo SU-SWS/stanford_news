@@ -57,14 +57,14 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
   foreach ($topics as $tid => $term_name) {
     $href = '/earth-matters/' . _stanford_news_earth_matters_clean_name($term_name);
     if ($tid == 'All') {
-      $topics_links[]['#markup'] = '<span class="filter-tab"><a href="" class="nav-item active" data-tid="' . $tid . '">' . $term_name . '</a></span>';
+      $topics_links[]['#markup'] = '<a href="" class="filter-tab nav-item active" data-tid="' . $tid . '">' . $term_name . '</a>';
     }
     else {
-      $topics_links[]['#markup'] = '<span class="filter-tab"><a class="nav-item" href="' . $href . '" data-tid="' . $tid . '">' . $term_name . '</a></span>';
+      $topics_links[]['#markup'] = '<a class="filter-tab nav-item" href="' . $href . '" data-tid="' . $tid . '">' . $term_name . '</a>';
     }
   }
 
-  // Create the item-list the form should render
+  // Create the item-list the form should render.
   $form['topics'] = [
     '#type' => 'pattern',
     '#id' => 'collapsible_menu',

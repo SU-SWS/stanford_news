@@ -125,7 +125,7 @@
         history.pushState(null, null, current_path + window.location.search + window.location.hash);
       }
 
-      $(view).find('.filter-tab a, .masonry-block__tags .tag-item').each(function () {
+      $(view).find('a.filter-tab, .masonry-block__tags .tag-item').each(function () {
         setFilterClick(this, view);
       });
     },
