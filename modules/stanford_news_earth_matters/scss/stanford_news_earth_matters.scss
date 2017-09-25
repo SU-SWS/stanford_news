@@ -1,0 +1,77 @@
+// Hide select form elements to allow js to do the work.
+.earth-matters-listing.news-list {
+
+  .js-form-type-select {
+    display: none;
+  }
+
+  .form-submit {
+    display: none;
+  }
+
+  ul.nav-items {
+    display: table;
+    margin: 0 auto;
+  }
+
+  .nav-item {
+    display: table-cell;
+    vertical-align: middle;
+
+    &.active {
+      background-color: #017c92;
+      color: white;
+    }
+  }
+
+  ul.pager {
+    background: #dad7cb;
+    padding: 0;
+    margin: 0;
+
+    .pager__item {
+      width: 100%;
+    }
+
+    a {
+      display: table;
+      padding: 20px;
+      color: #fff;
+      margin: 0 auto;
+    }
+  }
+}
+
+.section-earth-matters {
+  .main-container {
+    padding: 0;
+  }
+
+  .section-masonry-blocks {
+    padding: 1em calc(50% - (750px - 60px));
+  }
+
+  #hero-banner {
+    margin-top:-122px;
+  }
+
+  .hero-banner__footer {
+    display:none;
+  }
+}
+
+.ajax-progress-fullscreen {
+  // Left the comments in: these are all the original styles in case we want to alter them.
+  left: 0;
+  top: 100px;
+  z-index: 1000;
+  //background-color: #232323;
+  background-image: url(../img/loader.gif);
+  background-size: 60px 60px;
+  //background-position: center center;
+  //background-repeat: no-repeat;
+  border-radius: 0;
+  height: 100%;
+  opacity: 0.5;
+  width: 100%;
+}

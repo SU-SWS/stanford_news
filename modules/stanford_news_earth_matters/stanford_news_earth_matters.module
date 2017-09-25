@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * stanford_news_earth_matters.module
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $storage = $form_state->getStorage();
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $storage['view'];
+  if ($view->current_display != 'news_list' || $view->id() != 'earth_matters_listing') {
+    return;
+  }
+  $form['#attached']['library'][] = 'stanford_news_earth_matters/views';
+  $parameters = \Drupal::routeMatch()->getParameters()->all();
+
+  $tids = [];
+  /** @var \Drupal\taxonomy\Entity\Term $term */
+  foreach ($parameters as $term) {
+    if (is_a($term, '\Drupal\taxonomy\Entity\Term')) {
+      $tids[] = $term->id();
+    }
+  }
+
+
+  if (!$tids) {
+    $storage = $form_state->getStorage();
+    $tids = explode('+', reset($storage['view']->args));
+  }
+
+  if (array_filter($tids)) {
+    $form_state->setUserInput(['topic' => array_filter($tids)]);
+  }
+
+  $topics = &$form['topic']['#options'];
+
+  // Remove terms from the filter that don't have any content.
+  foreach ($topics as $term_id => $term_name) {
+    $count = \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'stanford_news')
+      ->condition('field_earth_matters_topic', $term_id)
+      ->count()->execute();
+
+    if (!$count) {
+      unset($topics[$term_id]);
+    }
+  }
+
+  $topics_links = [];
+  foreach ($topics as $tid => $term_name) {
+    $href = '/earth-matters/' . _stanford_news_earth_matters_clean_name($term_name);
+    if ($tid == 'All') {
+      $topics_links[]['#markup'] = '<a href="" class="filter-tab nav-item active" data-tid="' . $tid . '">' . $term_name . '</a>';
+    }
+    else {
+      $topics_links[]['#markup'] = '<a class="filter-tab nav-item" href="' . $href . '" data-tid="' . $tid . '">' . $term_name . '</a>';
+    }
+  }
+
+  // Create the item-list the form should render.
+  $form['topics'] = [
+    '#type' => 'pattern',
+    '#id' => 'collapsible_menu',
+    '#fields' => ['title' => t('Topics'), 'items' => $topics_links],
+  ];
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function stanford_news_earth_matters_views_pre_render(ViewExecutable $view) {
+  if ($view->current_display == 'news_list' && $view->id() == 'earth_matters_listing') {
+    // Patterns has an issue when using patterns in ajax views so we force it
+    // to not be a "preview".
+    $view->preview = FALSE;
+  }
+}
+
+/**
+ * Clean a string to make it url friendly.
+ *
+ * @param string $name
+ *   Some string to clean.
+ *
+ * @return string
+ *   Clean url friendly string.
+ */
+function _stanford_news_earth_matters_clean_name($name) {
+  $new_name = preg_replace('/[^a-zA-Z0-9]+/', '-', $name);
+  while (strpos($new_name, '--')) {
+    $new_name = str_replace('--', '-', $new_name);
+  }
+  return strtolower($new_name);
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function stanford_news_earth_matters_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'taxonomy_term' && $entity->bundle() == 'earth_matters_topics') {
+    // Rebuild menu routes on term save.
+    \Drupal::service('router.builder')->rebuild();
+  }
+}

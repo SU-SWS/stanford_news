@@ -1,0 +1,10 @@
+views:
+  version: VERSION
+  css:
+   theme:
+     css/stanford_news_earth_matters.css: {}
+  js:
+    js/stanford_news_earth_matters.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

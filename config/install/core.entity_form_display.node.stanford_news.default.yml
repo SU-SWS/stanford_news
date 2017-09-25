@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
+    - field.field.node.stanford_news.field_s_news_masonry_style
     - field.field.node.stanford_news.field_s_news_media_contacts
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
@@ -116,13 +117,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_earth_matters_topic:
-    type: entity_reference_autocomplete
+    type: options_buttons
     weight: 6
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_s_news_author:
     weight: 3
@@ -134,12 +132,9 @@ content:
     region: content
   field_s_news_category:
     weight: 7
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_buttons
     region: content
   field_s_news_date:
     weight: 4
@@ -154,6 +149,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_s_news_masonry_style:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_s_news_media_contacts:
     type: entity_reference_paragraphs

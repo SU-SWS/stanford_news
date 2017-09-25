@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.stanford_news.field_s_news_category
     - field.field.node.stanford_news.field_s_news_date
     - field.field.node.stanford_news.field_s_news_feat_image
+    - field.field.node.stanford_news.field_s_news_masonry_style
     - field.field.node.stanford_news.field_s_news_media_contacts
     - field.field.node.stanford_news.field_s_news_rich_content
     - field.field.node.stanford_news.field_s_news_source
@@ -328,4 +329,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_earth_matters_topic: true
+  field_s_news_masonry_style: true
   panelizer: true

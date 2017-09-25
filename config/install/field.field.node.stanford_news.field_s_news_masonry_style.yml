@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_s_news_masonry_style
+    - node.type.stanford_news
+  module:
+    - options
+id: node.stanford_news.field_s_news_masonry_style
+field_name: field_s_news_masonry_style
+entity_type: node
+bundle: stanford_news
+label: 'Masonry Style'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: simple
+default_value_callback: ''
+settings: {  }
+field_type: list_string
