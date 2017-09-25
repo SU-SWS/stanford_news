@@ -11,6 +11,9 @@ dependencies:
     - image.style.masonry
     - node.type.stanford_news
     - taxonomy.vocabulary.earth_matters_topics
+    - taxonomy.vocabulary.news_categories
+  content:
+    - 'taxonomy_term:news_categories:a18bcab7-2739-4605-82e0-85d091b45696'
   module:
     - datetime
     - image
@@ -713,15 +716,16 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-        field_earth_matters_topic_target_id_1:
-          id: field_earth_matters_topic_target_id_1
-          table: node__field_earth_matters_topic
-          field: field_earth_matters_topic_target_id
+        field_s_news_category_target_id:
+          id: field_s_news_category_target_id
+          table: node__field_s_news_category
+          field: field_s_news_category_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          operator: 'not empty'
-          value: {  }
+          operator: or
+          value:
+            81: 81
           group: 1
           exposed: false
           expose:
@@ -752,7 +756,7 @@ display:
           reduce_duplicates: false
           type: select
           limit: true
-          vid: earth_matters_topics
+          vid: news_categories
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid

@@ -21,7 +21,6 @@ dependencies:
     - entity_reference_revisions
     - image
     - link
-    - options
     - panelizer
     - text
     - user

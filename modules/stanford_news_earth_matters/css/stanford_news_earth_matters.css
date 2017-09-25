@@ -46,11 +46,19 @@
   padding: 1em calc(50% - (750px - 60px));
 }
 
+.section-earth-matters #hero-banner {
+  margin-top: -122px;
+}
+
+.section-earth-matters .hero-banner__footer {
+  display: none;
+}
+
 .ajax-progress-fullscreen {
   left: 0;
   top: 100px;
   z-index: 1000;
-  background-image: url(http://img11.laughinggif.com/pic/HTTP21lZGlhLmdpcGh5LmNvbS9tZWRpYS9KQmV1OXE5TEMxS3ZlL2dpcGh5LmdpZgloglog.gif);
+  background-image: url(../img/loader.gif);
   background-size: 60px 60px;
   border-radius: 0;
   height: 100%;

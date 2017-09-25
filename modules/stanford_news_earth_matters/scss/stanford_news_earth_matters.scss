@@ -50,14 +50,23 @@
   .section-masonry-blocks {
     padding: 1em calc(50% - (750px - 60px));
   }
+
+  #hero-banner {
+    margin-top:-122px;
+  }
+
+  .hero-banner__footer {
+    display:none;
+  }
 }
 
 .ajax-progress-fullscreen {
+  // Left the comments in: these are all the original styles in case we want to alter them.
   left: 0;
   top: 100px;
   z-index: 1000;
   //background-color: #232323;
-  background-image: url(http://img11.laughinggif.com/pic/HTTP21lZGlhLmdpcGh5LmNvbS9tZWRpYS9KQmV1OXE5TEMxS3ZlL2dpcGh5LmdpZgloglog.gif);
+  background-image: url(../img/loader.gif);
   background-size: 60px 60px;
   //background-position: center center;
   //background-repeat: no-repeat;

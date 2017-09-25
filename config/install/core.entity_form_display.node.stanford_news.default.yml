@@ -117,13 +117,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_earth_matters_topic:
-    type: entity_reference_autocomplete
+    type: options_buttons
     weight: 6
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_s_news_author:
     weight: 3
@@ -135,12 +132,9 @@ content:
     region: content
   field_s_news_category:
     weight: 7
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_buttons
     region: content
   field_s_news_date:
     weight: 4
