@@ -5,6 +5,11 @@
   @include responsive-grid-collapse($default-container);
   @include clearfix;
 
+  .views-rows {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .views-row {
     @include grid-column(1 of 2);
 
@@ -26,7 +31,6 @@
     }
   }
 }
-
 // Contextual links adds a div that scurvey knave.
 .role--authenticated {
   .stanford-news-list-view {
