@@ -6,6 +6,8 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -55,13 +57,22 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
 
   $topics_links = [];
   foreach ($topics as $tid => $term_name) {
-    $href = '/earth-matters/' . _stanford_news_earth_matters_clean_name($term_name);
-    if ($tid == 'All') {
-      $topics_links[]['#markup'] = '<a href="" class="filter-tab nav-item active" data-tid="' . $tid . '">' . $term_name . '</a>';
+
+    $path_params = ['term1' => _stanford_news_earth_matters_clean_name($term_name)];
+    $options = [
+      'attributes' => ['class' => ['filter-tab'], 'data-tid' => $tid],
+    ];
+
+    if (in_array($tid, $tids)) {
+      $options['attributes']['class'][] = 'active';
     }
-    else {
-      $topics_links[]['#markup'] = '<a class="filter-tab nav-item" href="' . $href . '" data-tid="' . $tid . '">' . $term_name . '</a>';
-    }
+
+    $url = Url::fromRoute('stanford_news_earth_matters.1_terms', $path_params, $options);
+
+    $topics_links[] = [
+      'name' => $term_name,
+      'link' => Link::fromTextAndUrl(t($term_name), $url)->toString(),
+    ];
   }
 
   // Create the item-list the form should render.
@@ -70,6 +81,7 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
     '#id' => 'collapsible_menu',
     '#fields' => ['title' => t('Topics'), 'items' => $topics_links],
   ];
+
 }
 
 /**

@@ -1,37 +1,45 @@
-.earth-matters-listing.news-list .js-form-type-select {
+.section-earth-matters .js-form-type-select {
   display: none;
 }
 
-.earth-matters-listing.news-list .form-submit {
+.section-earth-matters .form-submit {
   display: none;
 }
 
-.earth-matters-listing.news-list ul.nav-items {
+.section-earth-matters ul.nav-items {
   display: table;
   margin: 0 auto;
 }
 
-.earth-matters-listing.news-list .nav-item {
+.section-earth-matters ul.nav-items li {
   display: table-cell;
   vertical-align: middle;
 }
 
-.earth-matters-listing.news-list .nav-item.active {
+.section-earth-matters ul.nav-items li.active {
+  background-color: #017c92;
+}
+
+.section-earth-matters ul.nav-items li.active a {
+  color: white;
+}
+
+.section-earth-matters .nav-item.active {
   background-color: #017c92;
   color: white;
 }
 
-.earth-matters-listing.news-list ul.pager {
+.section-earth-matters ul.pager {
   background: #dad7cb;
   padding: 0;
   margin: 0;
 }
 
-.earth-matters-listing.news-list ul.pager .pager__item {
+.section-earth-matters ul.pager .pager__item {
   width: 100%;
 }
 
-.earth-matters-listing.news-list ul.pager a {
+.section-earth-matters ul.pager a {
   display: table;
   padding: 20px;
   color: #fff;

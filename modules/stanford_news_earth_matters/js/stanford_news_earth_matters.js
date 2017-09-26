@@ -94,7 +94,7 @@
 
         $(element).on('click', function (e) {
           e.preventDefault();
-          $(this).toggleClass('active');
+          $(this).parent().toggleClass('active');
 
           var tid = $(this).attr('data-tid');
           if (!tid) {
@@ -137,7 +137,7 @@
       $.each(Drupal.views.instances, function (i, view) {
         if (view.settings.view_args) {
           $.each(view.settings.view_args.split('+'), function (j, value) {
-            $('a[data-tid="' + value + '"]').addClass('active');
+            $('a[data-tid="' + value + '"]').parent().addClass('active');
             $('a[rel="' + value + '"]').addClass('active');
           })
         }

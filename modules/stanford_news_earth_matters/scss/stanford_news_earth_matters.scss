@@ -1,5 +1,4 @@
-// Hide select form elements to allow js to do the work.
-.earth-matters-listing.news-list {
+.section-earth-matters {
 
   .js-form-type-select {
     display: none;
@@ -12,16 +11,25 @@
   ul.nav-items {
     display: table;
     margin: 0 auto;
+
+    li {
+      display: table-cell;
+      vertical-align: middle;
+
+      &.active {
+        background-color: #017c92;
+
+        a {
+          color: white;
+        }
+      }
+    }
   }
 
-  .nav-item {
-    display: table-cell;
-    vertical-align: middle;
-
-    &.active {
-      background-color: #017c92;
-      color: white;
-    }
+  // No JS backup.
+  .nav-item.active {
+    background-color: #017c92;
+    color: white;
   }
 
   ul.pager {
@@ -40,9 +48,7 @@
       margin: 0 auto;
     }
   }
-}
 
-.section-earth-matters {
   .main-container {
     padding: 0;
   }
@@ -52,11 +58,11 @@
   }
 
   #hero-banner {
-    margin-top:-122px;
+    margin-top: -122px;
   }
 
   .hero-banner__footer {
-    display:none;
+    display: none;
   }
 }
 
