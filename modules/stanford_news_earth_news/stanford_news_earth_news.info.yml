@@ -1,0 +1,14 @@
+name: 'Stanford News Earth News'
+type: module
+core: 8.x
+dependencies:
+  - datetime
+  - image
+  - link
+  - node
+  - stanford_news_views
+  - taxonomy
+  - text
+  - ui_patterns_views
+  - user
+  - views
