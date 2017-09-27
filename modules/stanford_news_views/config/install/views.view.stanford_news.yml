@@ -226,7 +226,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: component_film_card
+            image_style: stanford_paragraph_film_card_440x290
             image_link: ''
           group_column: ''
           group_columns: {  }
