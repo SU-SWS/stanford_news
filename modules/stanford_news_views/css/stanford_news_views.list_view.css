@@ -52,6 +52,11 @@
   display: block;
 }
 
+.stanford-news-list-view .views-rows {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .stanford-news-list-view .views-row {
   width: calc(50% - 30px);
   float: left;

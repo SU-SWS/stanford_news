@@ -8,12 +8,10 @@
 use Drupal\views\ViewExecutable;
 
 /**
- * Implements hook_views_pre_render().
+ * Implements hook_preprocess_views_view().
  */
-function stanford_news_views_views_pre_render(ViewExecutable $view) {
-
-  if ($view->current_display == 'stanford_news_list_view') {
-    // Can we improve this condition and keep cloned views working?
-    $view->element['#attached']['library'][] = 'stanford_news_views/stanford_news_list_view';
+function stanford_news_views_preprocess_views_view(&$variables) {
+  if (isset($variables['css_class']) && strpos($variables['css_class'], 'stanford-news-list-view') !== FALSE) {
+    $variables['view']->element['#attached']['library'][] = 'stanford_news_views/stanford_news_list_view';
   }
 }
