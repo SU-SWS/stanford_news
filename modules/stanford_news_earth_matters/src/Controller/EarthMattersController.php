@@ -52,7 +52,8 @@ class EarthMattersController extends ControllerBase implements ContainerInjectio
     foreach ($this->routeMatch->getParameters()->all() as $term) {
       $terms[] = $term->id();
     }
-    return $this->getView(implode('+', $terms));
+    $view = $this->getView(implode('+', $terms));
+    return $view ? $view : [];
   }
 
   /**

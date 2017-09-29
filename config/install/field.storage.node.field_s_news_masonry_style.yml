@@ -15,19 +15,22 @@ settings:
       label: Random
     -
       value: simple
-      label: Simple
+      label: Default
     -
       value: columns
-      label: Columns
+      label: 'Skinny Summary'
     -
       value: full
-      label: 'Full Width'
+      label: Feature
     -
       value: tall
-      label: Tall
+      label: 'Skinny Overlay'
     -
       value: large
-      label: Large
+      label: 'Fat Overlay'
+    -
+      value: wide
+      label: 'Jumbo Summary'
   allowed_values_function: ''
 module: options
 locked: false
