@@ -7,6 +7,11 @@ use Drupal\Core\Entity\EntityTypeManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Routing\Route;
 
+/**
+ * Class EarthMattersRoutes.
+ *
+ * @package Drupal\stanford_news_earth_matters\Routing
+ */
 class EarthMattersRoutes implements ContainerInjectionInterface {
 
   protected $entityTypeManager;
@@ -57,7 +62,6 @@ class EarthMattersRoutes implements ContainerInjectionInterface {
           ['_permission' => 'access content'],
           ['parameters' => $parameters]
         );
-
 
       }
     }

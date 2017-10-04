@@ -1,3 +1,18 @@
+@charset 'UTF-8';
+
+// Grab our settings.
+@import 'decanter/core/utilities/decanter-utilities';
+
+/// Header MD Min
+$header-md-min: 860px;
+
+/// Component Header
+$header-md: (
+ columns: 12,
+ gutter: 30px,
+ media: $header-md-min,
+);
+
 .section-earth-matters {
 
   .js-form-type-select {
@@ -20,7 +35,7 @@
         background-color: #017c92;
 
         a {
-          color: white;
+          color: #fff;
         }
       }
     }
@@ -29,7 +44,7 @@
   // No JS backup.
   .nav-item.active {
     background-color: #017c92;
-    color: white;
+    color: #fff;
   }
 
   ul.pager {
@@ -58,7 +73,13 @@
   }
 
   #hero-banner {
-    margin-top: -122px;
+    margin-top: -120px;
+  }
+
+  @include grid-media($header-md) {
+    #hero-banner {
+      margin-top: -126px;
+    }
   }
 
   .hero-banner__footer {
@@ -72,7 +93,7 @@
   top: 100px;
   z-index: 1000;
   //background-color: #232323;
-  background-image: url(../img/loader.gif);
+  background-image: url('../img/loader.gif');
   background-size: 60px 60px;
   //background-position: center center;
   //background-repeat: no-repeat;

@@ -21,12 +21,12 @@
 }
 
 .section-earth-matters ul.nav-items li.active a {
-  color: white;
+  color: #fff;
 }
 
 .section-earth-matters .nav-item.active {
   background-color: #017c92;
-  color: white;
+  color: #fff;
 }
 
 .section-earth-matters ul.pager {
@@ -55,7 +55,13 @@
 }
 
 .section-earth-matters #hero-banner {
-  margin-top: -122px;
+  margin-top: -120px;
+}
+
+@media only screen and (min-width: 860px) {
+  .section-earth-matters #hero-banner {
+    margin-top: -126px;
+  }
 }
 
 .section-earth-matters .hero-banner__footer {
@@ -66,7 +72,7 @@
   left: 0;
   top: 100px;
   z-index: 1000;
-  background-image: url(../img/loader.gif);
+  background-image: url("../img/loader.gif");
   background-size: 60px 60px;
   border-radius: 0;
   height: 100%;

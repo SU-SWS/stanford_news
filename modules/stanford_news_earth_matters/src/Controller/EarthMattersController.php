@@ -3,7 +3,6 @@
 namespace Drupal\stanford_news_earth_matters\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Database\Connection;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Routing\CurrentRouteMatch;
@@ -11,6 +10,11 @@ use Drupal\block_content\Entity\BlockContent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
+/**
+ * Class EarthMattersController.
+ *
+ * @package Drupal\stanford_news_earth_matters\Controller
+ */
 class EarthMattersController extends ControllerBase implements ContainerInjectionInterface {
 
   /**
@@ -21,7 +25,7 @@ class EarthMattersController extends ControllerBase implements ContainerInjectio
   private $routeMatch;
 
   /**
-   * Helps to check any $_GET marameters.
+   * Helps to check any $_GET parameters.
    *
    * @var \Symfony\Component\HttpFoundation\Request
    */
