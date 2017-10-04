@@ -5,6 +5,7 @@ namespace Drupal\stanford_news_earth_matters\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Routing\CurrentRouteMatch;
 use Drupal\block_content\Entity\BlockContent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -12,29 +13,45 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class EarthMattersController extends ControllerBase implements ContainerInjectionInterface {
 
-  /** @var \Drupal\Core\Routing\CurrentRouteMatch */
+  /**
+   * Helps with getting the current route parameters.
+   *
+   * @var \Drupal\Core\Routing\CurrentRouteMatch
+   */
   private $routeMatch;
 
-  /** @var \Drupal\Core\Database\Connection */
-  private $database;
-
-  /** @var \Symfony\Component\HttpFoundation\Request */
+  /**
+   * Helps to check any $_GET marameters.
+   *
+   * @var \Symfony\Component\HttpFoundation\Request
+   */
   private $currentRequest;
+
+  /**
+   * Helps to load a block.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $entityTypeManager;
 
   /**
    * {@inheritdoc}
    */
-  public function __construct(CurrentRouteMatch $route_match, Connection $database, RequestStack $request) {
+  public function __construct(CurrentRouteMatch $route_match, RequestStack $request, EntityTypeManager $entity_type_manager) {
     $this->routeMatch = $route_match;
-    $this->database = $database;
     $this->currentRequest = $request->getCurrentRequest();
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get('current_route_match'), $container->get('database'), $container->get('request_stack'));
+    return new static(
+      $container->get('current_route_match'),
+      $container->get('request_stack'),
+      $container->get('entity_type.manager')
+    );
   }
 
   /**
@@ -55,10 +72,8 @@ class EarthMattersController extends ControllerBase implements ContainerInjectio
 
     // If we are able to load the block let's get the content into a render [].
     if (!empty($block)) {
-
       // Render the block with view mode 'full'.
-      $block_content = \Drupal::entityTypeManager()
-        ->getViewBuilder('block_content')
+      $block_content = $this->entityTypeManager->getViewBuilder('block_content')
         ->view($block);
 
       // Force a few variant settings as the block isn't fully flushed out.
