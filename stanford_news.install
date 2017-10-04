@@ -41,6 +41,6 @@ function stanford_news_update_8103() {
   foreach ($components as $component) {
     $config_to_create[$component] = '';
   }
-  $config_imported = $manager->createConfiguration($config_to_create);
+  $manager->createConfiguration($config_to_create);
   drupal_flush_all_caches();
 }

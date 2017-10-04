@@ -20,7 +20,7 @@
         background-color: #017c92;
 
         a {
-          color: white;
+          color: #fff;
         }
       }
     }
@@ -29,7 +29,7 @@
   // No JS backup.
   .nav-item.active {
     background-color: #017c92;
-    color: white;
+    color: #fff;
   }
 
   ul.pager {
@@ -72,7 +72,7 @@
   top: 100px;
   z-index: 1000;
   //background-color: #232323;
-  background-image: url(../img/loader.gif);
+  background-image: url('../img/loader.gif');
   background-size: 60px 60px;
   //background-position: center center;
   //background-repeat: no-repeat;

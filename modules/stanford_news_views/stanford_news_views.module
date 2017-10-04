@@ -5,8 +5,6 @@
  * stanford_news_views.module
  */
 
-use Drupal\views\ViewExecutable;
-
 /**
  * Implements hook_preprocess_views_view().
  */
