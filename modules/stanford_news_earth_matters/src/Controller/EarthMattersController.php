@@ -6,6 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Routing\CurrentRouteMatch;
+use Drupal\block_content\Entity\BlockContent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -43,8 +44,31 @@ class EarthMattersController extends ControllerBase implements ContainerInjectio
    *   Render array for the page or redirect.
    */
   public function page() {
+    $content = [];
+
     if ($redirect = $this->checkParameters()) {
       return $redirect;
+    }
+
+    // Hero Block. Has already been created on production.
+    $block = BlockContent::load(26);
+
+    // If we are able to load the block let's get the content into a render [].
+    if (!empty($block)) {
+
+      // Render the block with view mode 'full'.
+      $block_content = \Drupal::entityTypeManager()
+        ->getViewBuilder('block_content')
+        ->view($block);
+
+      // Force a few variant settings as the block isn't fully flushed out.
+      $variant_settings = &$block_content['#ds_configuration']['layout']['settings']['pattern']['variants'];
+      $variant_settings['is_tall']['constant_value'] = 'is-short';
+      $variant_settings['is_page_title']['constant_value'] = 0;
+      $variant_settings['header_position']['constant_value'] = 'not-centered';
+
+      // Add it all to the render array.
+      $content['hero'] = $block_content;
     }
 
     $terms = [];
@@ -53,7 +77,12 @@ class EarthMattersController extends ControllerBase implements ContainerInjectio
       $terms[] = $term->id();
     }
     $view = $this->getView(implode('+', $terms));
-    return $view ? $view : [];
+
+    if (!empty($view)) {
+      $content['view'] = $view;
+    }
+
+    return $content;
   }
 
   /**
