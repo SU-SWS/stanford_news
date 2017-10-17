@@ -1,3 +1,7 @@
+@charset 'UTF-8';
+
+@import 'decanter/core/utilities/decanter-utilities';
+
 .section-earth-matters {
 
   .js-form-type-select {
@@ -9,12 +13,17 @@
   }
 
   ul.nav-items {
-    display: table;
     margin: 0 auto;
 
+    @include grid-media($media-md) {
+      display: table;
+    }
+
     li {
-      display: table-cell;
-      vertical-align: middle;
+      @include grid-media($media-md) {
+        display: table-cell;
+        vertical-align: middle;
+      }
 
       &.active {
         background-color: #017c92;

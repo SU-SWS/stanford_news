@@ -7,13 +7,20 @@
 }
 
 .section-earth-matters ul.nav-items {
-  display: table;
   margin: 0 auto;
 }
 
-.section-earth-matters ul.nav-items li {
-  display: table-cell;
-  vertical-align: middle;
+@media only screen and (min-width: 768px) {
+  .section-earth-matters ul.nav-items {
+    display: table;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .section-earth-matters ul.nav-items li {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
 
 .section-earth-matters ul.nav-items li.active {
