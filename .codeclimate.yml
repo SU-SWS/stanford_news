@@ -31,6 +31,12 @@ engines:
         enabled: false
       LeadingZero:
         enabled: false
+      NestingDepth:
+        enabled: false
+      PropertySortOrder:
+        enabled: false
+      NameFormat:
+        enabled: false
   phpcodesniffer:
     enabled: true
     checks:
@@ -131,3 +137,5 @@ exclude_paths:
 - "**/vendor/"
 - "**.api.php"
 - "*.twig"
+- "**/node_modules/**/*"
+- "**/*.css"

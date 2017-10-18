@@ -3,37 +3,59 @@
 namespace Drupal\stanford_news_earth_matters\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Database\Connection;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Routing\CurrentRouteMatch;
+use Drupal\block_content\Entity\BlockContent;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
+/**
+ * Class EarthMattersController.
+ *
+ * @package Drupal\stanford_news_earth_matters\Controller
+ */
 class EarthMattersController extends ControllerBase implements ContainerInjectionInterface {
 
-  /** @var \Drupal\Core\Routing\CurrentRouteMatch */
+  /**
+   * Helps with getting the current route parameters.
+   *
+   * @var \Drupal\Core\Routing\CurrentRouteMatch
+   */
   private $routeMatch;
 
-  /** @var \Drupal\Core\Database\Connection */
-  private $database;
-
-  /** @var \Symfony\Component\HttpFoundation\Request */
+  /**
+   * Helps to check any $_GET parameters.
+   *
+   * @var \Symfony\Component\HttpFoundation\Request
+   */
   private $currentRequest;
+
+  /**
+   * Helps to load a block.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $entityTypeManager;
 
   /**
    * {@inheritdoc}
    */
-  public function __construct(CurrentRouteMatch $route_match, Connection $database, RequestStack $request) {
+  public function __construct(CurrentRouteMatch $route_match, RequestStack $request, EntityTypeManager $entity_type_manager) {
     $this->routeMatch = $route_match;
-    $this->database = $database;
     $this->currentRequest = $request->getCurrentRequest();
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get('current_route_match'), $container->get('database'), $container->get('request_stack'));
+    return new static(
+      $container->get('current_route_match'),
+      $container->get('request_stack'),
+      $container->get('entity_type.manager')
+    );
   }
 
   /**
@@ -43,8 +65,29 @@ class EarthMattersController extends ControllerBase implements ContainerInjectio
    *   Render array for the page or redirect.
    */
   public function page() {
+    $content = [];
+
     if ($redirect = $this->checkParameters()) {
       return $redirect;
+    }
+
+    // Hero Block. Has already been created on production.
+    $block = BlockContent::load(26);
+
+    // If we are able to load the block let's get the content into a render [].
+    if (!empty($block)) {
+      // Render the block with view mode 'full'.
+      $block_content = $this->entityTypeManager->getViewBuilder('block_content')
+        ->view($block);
+
+      // Force a few variant settings as the block isn't fully flushed out.
+      $variant_settings = &$block_content['#ds_configuration']['layout']['settings']['pattern']['variants'];
+      $variant_settings['is_tall']['constant_value'] = 'is-short';
+      $variant_settings['is_page_title']['constant_value'] = 0;
+      $variant_settings['header_position']['constant_value'] = 'not-centered';
+
+      // Add it all to the render array.
+      $content['hero'] = $block_content;
     }
 
     $terms = [];
@@ -53,7 +96,12 @@ class EarthMattersController extends ControllerBase implements ContainerInjectio
       $terms[] = $term->id();
     }
     $view = $this->getView(implode('+', $terms));
-    return $view ? $view : [];
+
+    if (!empty($view)) {
+      $content['view'] = $view;
+    }
+
+    return $content;
   }
 
   /**

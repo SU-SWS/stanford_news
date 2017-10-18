@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @file
  * stanford_news_earth_matters.module
  */
 
@@ -8,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -30,12 +32,13 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
     }
   }
 
-
+  // If no terms from the route parameter, use the view arguments.
   if (!$tids) {
     $storage = $form_state->getStorage();
     $tids = explode('+', reset($storage['view']->args));
   }
 
+  // If terms are selected, set those as the selected items in the form.
   if (array_filter($tids)) {
     $form_state->setUserInput(['topic' => array_filter($tids)]);
   }
@@ -43,7 +46,7 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
   $topics = &$form['topic']['#options'];
 
   // Remove terms from the filter that don't have any content.
-  foreach ($topics as $term_id => $term_name) {
+  foreach (array_keys($topics) as $term_id) {
     $count = \Drupal::entityQuery('node')
       ->condition('status', 1)
       ->condition('type', 'stanford_news')
@@ -55,8 +58,32 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
     }
   }
 
-  $topics_links = [];
-  foreach ($topics as $tid => $term_name) {
+  // Create the item-list the form should render.
+  $form['topics'] = [
+    '#type' => 'pattern',
+    '#id' => 'collapsible_menu',
+    '#fields' => [
+      'title' => t('Topics'),
+      'items' => _stanford_news_earth_matters_build_menu($topics, $tids),
+    ],
+  ];
+
+}
+
+/**
+ * Build collapsible menu nav items.
+ *
+ * @param array $terms
+ *   The terms from the exposed filter.
+ * @param array $tids
+ *   Any existing filters to add active class.
+ *
+ * @return array
+ *   Array of each link with name and link fields for the pattern.
+ */
+function _stanford_news_earth_matters_build_menu(array $terms, array $tids = []) {
+  $term_links = [];
+  foreach ($terms as $tid => $term_name) {
 
     $path_params = ['term1' => _stanford_news_earth_matters_clean_name($term_name)];
     $options = [
@@ -69,19 +96,12 @@ function stanford_news_earth_matters_form_views_exposed_form_alter(&$form, FormS
 
     $url = Url::fromRoute('stanford_news_earth_matters.1_terms', $path_params, $options);
 
-    $topics_links[] = [
+    $term_links[] = [
       'name' => $term_name,
-      'link' => Link::fromTextAndUrl(t($term_name), $url)->toString(),
+      'link' => Link::fromTextAndUrl($term_name, $url)->toString(),
     ];
   }
-
-  // Create the item-list the form should render.
-  $form['topics'] = [
-    '#type' => 'pattern',
-    '#id' => 'collapsible_menu',
-    '#fields' => ['title' => t('Topics'), 'items' => $topics_links],
-  ];
-
+  return $term_links;
 }
 
 /**
@@ -115,7 +135,7 @@ function _stanford_news_earth_matters_clean_name($name) {
 /**
  * Implements hook_entity_insert().
  */
-function stanford_news_earth_matters_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+function stanford_news_earth_matters_entity_insert(EntityInterface $entity) {
   if ($entity->getEntityTypeId() == 'taxonomy_term' && $entity->bundle() == 'earth_matters_topics') {
     // Rebuild menu routes on term save.
     \Drupal::service('router.builder')->rebuild();

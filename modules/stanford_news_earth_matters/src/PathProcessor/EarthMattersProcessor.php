@@ -6,14 +6,25 @@ use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\PathProcessor\InboundPathProcessorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class EarthMattersProcessor.
+ *
+ * @package Drupal\stanford_news_earth_matters\PathProcessor
+ */
 class EarthMattersProcessor implements InboundPathProcessorInterface {
 
+  /**
+   * Helps to load taxonomy terms.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManager
+   */
   protected $entityTypeManager;
 
   /**
    * EarthMattersProcessor constructor.
    *
    * @param \Drupal\Core\Entity\EntityTypeManager $entity_manager
+   *   Entity manager to load taxonomy terms.
    */
   public function __construct(EntityTypeManager $entity_manager) {
     $this->entityTypeManager = $entity_manager;

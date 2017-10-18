@@ -2,14 +2,20 @@
 
 namespace Drupal\stanford_news_earth_matters\ParamConverter;
 
-use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\ParamConverter\ParamConverterInterface;
 use Symfony\Component\Routing\Route;
 
+/**
+ * Class EarthMattersParamConverter.
+ *
+ * @package Drupal\stanford_news_earth_matters\ParamConverter
+ */
 class EarthMattersParamConverter implements ParamConverterInterface {
 
   /**
+   * Helps to load specific taxonomy terms.
+   *
    * @var \Drupal\Core\Entity\EntityTypeManager
    */
   private $entityTypeManager;
@@ -20,7 +26,6 @@ class EarthMattersParamConverter implements ParamConverterInterface {
   public function __construct(EntityTypeManager $entity_type_manager) {
     $this->entityTypeManager = $entity_type_manager;
   }
-
 
   /**
    * {@inheritdoc}
