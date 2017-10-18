@@ -24,12 +24,17 @@ $header-md: (
   }
 
   ul.nav-items {
-    display: table;
     margin: 0 auto;
 
+    @include grid-media($media-md) {
+      display: table;
+    }
+
     li {
-      display: table-cell;
-      vertical-align: middle;
+      @include grid-media($media-md) {
+        display: table-cell;
+        vertical-align: middle;
+      }
 
       &.active {
         background-color: #017c92;
