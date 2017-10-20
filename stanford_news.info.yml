@@ -14,6 +14,7 @@ dependencies:
   - link
   - menu_ui
   - node
+  - options
   - panelizer
   - paragraphs
   - path
@@ -24,10 +25,13 @@ dependencies:
   - stanford_paragraph_hero_banner
   - stanford_paragraph_responsive_image
   - stanford_paragraph_section_highlight_cards
+  - stanford_paragraph_slide
   - stanford_paragraph_video
   - stanford_research_area
   - taxonomy
   - text
+  - ui_patterns_views
   - user
+  - views
 version: 8.x-1.0-dev
 package: Stanford
