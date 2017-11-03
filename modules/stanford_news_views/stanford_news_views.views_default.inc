@@ -808,6 +808,7 @@ function stanford_news_views_views_default_views() {
   $handler->display->display_options['fields']['path']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['path']['alter']['path'] = '[field_s_news_source]';
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Field: Content: Source */
   $handler->display->display_options['fields']['field_s_news_source']['id'] = 'field_s_news_source';
   $handler->display->display_options['fields']['field_s_news_source']['table'] = 'field_data_field_s_news_source';
