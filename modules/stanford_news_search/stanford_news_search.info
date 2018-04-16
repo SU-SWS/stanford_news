@@ -1,7 +1,7 @@
 name = Stanford News Search
 core = 7.x
 package = Stanford
-version = 7.x-3.x
+version = 7.x-3.7-alpha4
 dependencies[] = ctools
 dependencies[] = feeds
 dependencies[] = feeds_xpathparser
