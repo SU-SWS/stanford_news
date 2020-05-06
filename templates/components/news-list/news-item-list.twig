@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * News Banner.
+ *
+ * Basic Page Banner for news.
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - news_list_image: The list image.
+ * - news_list_publishing_date: This is the published date.
+ * - news_list_headline: This is the headline.
+ * - news_list_dek: This is the dek specific to news items.
+ * - news_list_topics: Associated terms from the topics taxonomy.
+ * - news_source: The source field.
+ * - news_url: A url to wrap the image and heading with
+ */
+#}
+{%- set attributes = attributes.addClass(['su-news-list', modifier_class]) -%}
+
+{# If the news source url is set go there instead of the default. #}
+{%- if news_source|render|striptags("<drupal-render-placeholder>")|trim is not empty -%}
+  {%- set news_url = news_source -%}
+  {%- set attributes = attributes.addClass('su-news-external') -%}
+{%- endif %}
+
+{% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
+
+<ul {{ attributes }}>
+  {# News List Image #}
+  {%- block block_news_list_image %}
+    {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>') is not empty -%}
+      <li class="su-news-list-item__media">
+        {%- if news_url is not empty -%}
+          <a {{ news_url_attributes }} href="{{ news_url }}">
+            {{- news_list_image -}}
+          </a>
+        {%- else -%}
+          {{- news_list_image -}}
+        {%- endif -%}
+      </li>
+    {%- endif -%}
+  {% endblock -%}
+
+  {# News List Date #}
+  {%- block block_news_list_date %}
+    {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>') is not empty %}
+      <li class="su-news-list__item-date">{{ news_list_publishing_date }}</li>
+    {% endif -%}
+  {% endblock -%}
+
+  {# News List Headline #}
+  {%- block block_news_list_headline  %}
+    {%- if news_list_headline|render|striptags('<drupal-render-placeholder>') is not empty %}
+      <li class="su-news-list__item">
+        <h2>
+          {%- if news_url is not empty -%}
+            <a {{ news_url_attributes }} href="{{ news_url }}">
+              {{- news_list_headline -}}
+            </a>
+          {%- else -%}
+            {{- news_list_headline -}}
+          {%- endif -%}
+        </h2>
+      </li>
+    {% endif -%}
+  {% endblock -%}
+
+  {# News List Dek  #}
+  {% if news_list_dek|render|striptags('<drupal-render-placeholder>') is not empty %}
+    <li class="su-news-list-item__dek">{{ news_list_dek }}</li>
+  {% endif %}
+
+  {# News List Topics #}
+  {%- block block_news_list_topics  %}
+    {%- if news_list_topics|render|striptags('<drupal-render-placeholder>') is not empty %}
+      <li class="su-news-list__item">
+        <span>
+          {{- news_list_topics -}}
+        </span>
+      </li>
+    {% endif -%}
+  {% endblock -%}
+</ul>

@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * stanford_news.module
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\views\ViewExecutable;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Component\Utility\UrlHelper;
+
+/**
+ * Implements hook_theme().
+ */
+function stanford_news_theme() {
+  return [
+    'field__node__su_news_topics' => [
+      'template' => 'field/field--node--su-news-topics',
+      'base hook' => 'field'
+    ],
+    'field__node__su_news_dek' => [
+      'template' => 'field/field--node--su-news-dek--stanford-news',
+      'base hook' => 'field'
+    ],
+    'signup_block' => [
+      'variables' => [
+        'configuration' => [],
+      ],
+      'template' => 'block/signup-block',
+    ],
+    'block__menu_block__news_topics' => [
+      'template' => 'block/block--menu-block--news-topics',
+      'base hook' => 'block'
+    ]
+  ];
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function stanford_news_preprocess_block(&$variables) {
+
+  // Attach Library to the signup block wherever it goes.
+  if (!empty($variables['elements']['#id'])) {
+    if ($variables['elements']['#id'] == 'newslettersignup') {
+      $variables['#attached']['library'][] = 'stanford_news/newsletter_signup';
+    }
+  }
+
+  // Attach the css to the topics menu.
+  if ($variables['base_plugin_id'] == "menu_block" && $variables['derivative_plugin_id'] == "news-topics") {
+    $variables['#attached']['library'][] = "stanford_news/news_list";
+  }
+
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function stanford_news_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'stanford_news')) {
+    $view->element['#attached']['library'][] = 'stanford_news/news_list';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function stanford_news_page_attachments(array &$attachments) {
+  // Get the node from the route.
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  // Not a node.. Then just continue.
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  // Check for our type and add library if a match.
+  if ($node->getType() == "stanford_news") {
+    $attachments['#attached']['library'][] = 'stanford_news/news_node';
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function stanford_news_node_presave(EntityInterface $entity) {
+  $rabbit_hole = \Drupal::config('rabbit_hole.behavior_settings.node_type_' . $entity->bundle());
+  $token_service = \Drupal::service('token');
+
+  // When the source field is filled out on a news item we want to set the
+  // redirect options so it doesn't get indexed.
+  if ($rabbit_hole && $entity->bundle() == "stanford_news") {
+    /** @var \Drupal\Core\Utility\Token $token_service */
+    $target = $token_service->replace("[node:su_news_source:uri]", ['node' => $entity]);
+
+    // Check if the token that was provided is actually a url. If it is, then we
+    // can set the rabbit hole action to redirect to that url.
+    if (is_string($target) && UrlHelper::isValid($target, TRUE)) {
+      $entity->set('rh_action', 'page_redirect');
+      $entity->set('rh_redirect', $target);
+      $entity->set('rh_redirect_response', 301);
+    }
+  }
+}

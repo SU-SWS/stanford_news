@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+// For all templates.
+.views-view-grid {
+  .flex-container {
+    .more-news-view {
+      @include grid-media-max('md') {
+        display: block;
+
+        .flex-4-of-12 {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// News Cards added in page as a paragraph.
+.more-news-view {
+  > div:nth-child(-n+3) {
+    max-width: 980px;
+    flex: none;
+  }
+
+  // Two items
+  > div:first-child:nth-last-child(2),
+  > div:first-child:nth-last-child(2) ~ div {
+    width: 45%;
+
+    @include grid-media-max('md') {
+      width: 100%;
+    }
+  }
+
+  // Three items
+  > div:first-child:nth-last-child(3),
+  > div:first-child:nth-last-child(3) ~ div {
+    width: 30%;
+
+    @include grid-media-max('md') {
+      width: 100%;
+    }
+  }
+
+  // One item
+  > div:only-of-type {
+    @include margin(0 auto);
+
+    flex: none;
+    max-width: 980px;
+    width: 100%;
+  }
+}
+
+
+// Special case for single one on news article.
+.stanford-news-vertical-teaser-term {
+  &.block-views {
+    .more-news-view {
+      > div:only-of-type {
+        @include margin(unset);
+
+        max-width: 25%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+// Minor edits to the card for News module.
+.su-news-vertical-teaser {
+  &.su-card {
+    @include modular-spacing('margin-bottom', 2);
+    @include margin(0 auto);
+    overflow: auto;
+    max-width: 980px;
+
+    .su-media__wrapper {
+      @include modular-spacing('margin-bottom', 0);
+
+      img,
+      picture,
+      iframe {
+        min-width: 100%;
+        width: 100%;
+      }
+
+      iframe {
+        @include grid-media('lg') {
+          min-height: 489px;
+        }
+      }
+    }
+
+    .su-card__contents {
+      &:not(.su-card--icon) {
+        padding-top: 0;
+      }
+
+      // Action title link.
+      .su-link {
+        @include type-c;
+        @include modular-spacing('margin-bottom', 1);
+        display: inline-block;
+
+        &::after {
+          @include type-c;
+          @include modular-spacing('margin-left', -1);
+          background-color: $su-color-bright-red;
+        }
+
+        a {
+          color: $su-color-black;
+        }
+      }
+
+      .su-link--external {
+        &::after {
+          height: 1.2rem;
+          width: 1.2rem;
+        }
+      }
+
+      // Topics list.
+      .news-vertical-teaser__topics {
+        @include small-paragraph;
+
+        a {
+          color: $su-color-bright-red;
+          font-weight: $su-font-regular;
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

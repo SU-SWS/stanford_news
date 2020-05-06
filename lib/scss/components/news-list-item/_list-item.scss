@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+// Top Title Banner Section in Page Manager.
+.news-title-banner {
+  @include modular-spacing('margin-bottom', 4);
+
+  .su-hero,
+  .su-hero__media {
+    @include grid-media("md") {
+      min-height: auto;
+      max-height: 300px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .su-hero__card {
+      h2 {
+        @include type-a;
+      }
+    }
+  }
+}
+
+
+// List Items.
+.su-news-list {
+  @include margin(0);
+  @include modular-spacing('padding', 4 null);
+
+  list-style: none;
+  overflow: auto;
+  border-bottom: 1px solid $su-color-cool-grey-25;
+
+  .su-news-list-item__date {
+    @include small-paragraph;
+  }
+
+  .su-news-list-item__media {
+    @include modular-spacing('margin-left', 3);
+
+    float: right;
+  }
+
+  a {
+    @include link;
+
+    color: $su-color-bright-red;
+    text-decoration: none;
+  }
+
+  h2 {
+    @include modular-spacing('margin-bottom', 1);
+
+    display: inline;
+  }
+
+  .su-news-list-item__dek {
+    @include big-paragraph;
+    @include modular-spacing('margin-bottom', 2);
+  }
+}
+
+.views-infinite-scroll-content-wrapper {
+  &,
+  + .js-pager__items {
+    @include modular-spacing('margin-bottom', 8);
+  }
+}
+
+// Load more button.
+.js-pager__items {
+  text-align: center;
+
+  .pager__item {
+    display: inline-block;
+
+    .button {
+      @include button-big;
+    }
+  }
+}
+
+.su-news-external {
+  .su-news-list__item {
+    h2 {
+      a {
+        @include link-icon(arrow-up-right, 10px, topright);
+
+        &::after {
+          background-color: $su-color-bright-red;
+          height: 1.8rem;
+          width: 1.8rem;
+        }
+      }
+    }
+  }
+}

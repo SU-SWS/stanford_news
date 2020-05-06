@@ -1,0 +1,22 @@
+defaults: &defaults
+  label: "Stanford News Section"
+  category: "Stanford News - Sections"
+  path: templates/sections
+  default_region: content
+  hidden: true
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+stanford_news_byline:
+  <<: *defaults
+  label: "Byline and Social Media"
+  template: news-byline-social
+  default_region: su_news_publishing_date
+  regions:
+    su_news_byline:
+      label: "Byline"
+    su_news_publishing_date:
+      label: "Publishing Date"
