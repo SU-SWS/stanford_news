@@ -1,8 +1,8 @@
 {
-  "name": "su-soe/stanford_news",
+  "name": "su-sws/stanford_news",
   "description": "Stanford News",
   "type": "drupal-custom-module",
-  "homepage": "https://github.com/SU-SOE/stanford_news",
+  "homepage": "https://github.com/SU-SWS/stanford_news",
   "authors": [],
   "license": "GPL-2.0+",
   "minimum-stability": "dev",
