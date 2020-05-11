@@ -23,6 +23,7 @@ code_coverage: &code_coverage
     - run:
         name: Run PHP Unit Coverage Tests
         command: |
+          composer config --global github-oauth.github.com $GITHUB_TOKEN
           composer global require SU-SWS/stanford-caravan:dev-8.x-1.x
           ~/.composer/vendor/bin/sws-caravan phpunit /var/www/html --extension-dir=/var/www/test --with-coverage
     - save_cache:
@@ -45,6 +46,7 @@ behat: &behat
     - run:
         name: Run Behat Tests
         command: |
+          composer config --global github-oauth.github.com $GITHUB_TOKEN
           composer global require SU-SWS/stanford-caravan:dev-8.x-1.x
           ~/.composer/vendor/bin/sws-caravan behat /var/www/html --extension-dir=/var/www/test
     - save_cache:
@@ -63,6 +65,7 @@ back_to_dev: &back_to_dev
     - run:
         name: Back to dev
         command: |
+          composer config --global github-oauth.github.com $GITHUB_TOKEN
           composer global require SU-SWS/stanford-caravan:dev-8.x-1.x
           ~/.composer/vendor/bin/sws-caravan back-to-dev ${CIRCLE_TAG} ${CIRCLE_WORKING_DIRECTORY}
 
@@ -74,7 +77,7 @@ codeception: &codeception
     - run:
         name: Run Behat Tests
         command: |
-          composer config -g github-oauth.github.com db32eb7eb700bba03cc8350bfee77617f959c7e2
+          composer config --global github-oauth.github.com $GITHUB_TOKEN
           composer global require SU-SWS/stanford-caravan:dev-8.x-1.x
           ~/.composer/vendor/bin/sws-caravan codeception /var/www/html --extension-dir=/var/www/test
     - store_test_results:
