@@ -1,4 +1,3 @@
-uuid: c7aec497-a609-4e72-a764-3d964d87ff9c
 langcode: en
 status: true
 dependencies:
@@ -20,8 +19,6 @@ dependencies:
     - ui_patterns_views
     - user
     - views_infinite_scroll
-_core:
-  default_config_hash: FEXjlri4zccqJIyLqmxC0UZ2wwdm2bBlL5seg6l2ATY
 id: stanford_news
 label: News
 module: views

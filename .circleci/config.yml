@@ -74,6 +74,7 @@ codeception: &codeception
     - run:
         name: Run Behat Tests
         command: |
+          composer config -g github-oauth.github.com db32eb7eb700bba03cc8350bfee77617f959c7e2
           composer global require SU-SWS/stanford-caravan:dev-8.x-1.x
           ~/.composer/vendor/bin/sws-caravan codeception /var/www/html --extension-dir=/var/www/test
     - store_test_results:

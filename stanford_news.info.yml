@@ -13,6 +13,7 @@ dependencies:
   - drupal:datetime
   - drupal:file
   - drupal:image
+  - drupal:layout_builder
   - drupal:link
   - drupal:menu_ui
   - drupal:node
@@ -21,7 +22,11 @@ dependencies:
   - drupal:text
   - drupal:user
   - entity_reference_revisions:entity_reference_revisions
+  - field_formatter_class:field_formatter_class
+  - field_group:field_group
   - jumpstart_ui:jumpstart_ui
+  - layout_builder_restrictions:layout_builder_restrictions
+  - layout_library:layout_library
   - page_manager:page_manager
   - page_manager:page_manager_ui
   - paragraphs:paragraphs
