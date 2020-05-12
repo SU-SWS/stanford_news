@@ -120,8 +120,8 @@ function stanford_news_node_view(array &$build, EntityInterface $entity, EntityV
     return;
   }
 
-  $rh_action = $entity->get('rh_action')->getValue()[0]['value'] ?? FALSE;
-  $rh_redirect = $entity->get('rh_redirect')->getValue()[0]['value'] ?? FALSE;
+  $rh_action = $entity->get('rh_action')->getString();
+  $rh_redirect = $entity->get('rh_redirect')->getString();
 
   // Display a message to the user that this page would redirect to another
   // location for other users.
