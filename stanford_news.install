@@ -2,12 +2,11 @@
 
 /**
  * @file
- *
  * Install Tasks.
  */
 
 /**
- * {@inheritdoc}
+ * implments hook_install().
  */
 function stanford_news_install() {
   // Disable the core taxonomy_term view if it is enabled.

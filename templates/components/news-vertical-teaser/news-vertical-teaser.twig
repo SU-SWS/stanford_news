@@ -32,33 +32,31 @@
   {%- set news_url_link_type = "su-link--external" -%}
 {%- endif %}
 
+{%- if news_url_attributes is empty -%}
+  {% set news_url_attributes = create_attribute() -%}
+{%- endif -%}
+
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
 <article{{ attributes.addClass(classes) }}>
+  {%- if news_url is not empty -%}
+    <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}">
+  {%- endif -%}
   <figure class="su-media su-media--image su-card__media">
-      <div class="su-media__wrapper">
-        {%- if news_url is not empty -%}
-          <a {{ news_url_attributes }} href="{{ news_url }}">
-            {{- news_vertical_teaser_image -}}
-          </a>
-        {%- else -%}
-          {{- news_vertical_teaser_image -}}
-        {%- endif -%}
-      </div>
+    <div class="su-media__wrapper">
+      {{- news_vertical_teaser_image -}}
+    </div>
   </figure>
-  <section class="su-card__contents">
-    <h2 class="su-link su-card__link {{ news_url_link_type }}">
-      {%- if news_url is not empty -%}
-        <a {{ news_url_attributes }} href="{{ news_url }}">
-          {{- news_vertical_teaser_headline -}}
-        </a>
-      {%- else -%}
-        {{- news_vertical_teaser_headline -}}
-      {%- endif -%}
-    </h2>
+  <h2 class="su-link su-card__link {{ news_url_link_type }}">
+    {{- news_vertical_teaser_headline -}}
+  </h2>
+  {%- if news_url is not empty -%}
+    </a>
+  {%- endif -%}
+  <div class="su-card__contents">
     <div class="news-vertical-teaser__topics">{{ news_topics }}</div>
-    {%- if news_footer is not empty -%}
-      <div class="news-vertical-teaser__footer">{{ news_footer }}</div>
-    {%- endif -%}
-  </section>
+  </div>
+  {%- if news_footer is not empty -%}
+    <div class="news-vertical-teaser__footer">{{ news_footer }}</div>
+  {%- endif -%}
 </article>

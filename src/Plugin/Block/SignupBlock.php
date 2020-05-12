@@ -22,7 +22,6 @@ class SignupBlock extends BlockBase implements BlockPluginInterface {
    */
   public function blockForm($form, FormStateInterface $form_state) {
     $form = parent::blockForm($form, $form_state);
-
     $config = $this->getConfiguration();
 
     $form['form_action'] = [
@@ -49,15 +48,15 @@ class SignupBlock extends BlockBase implements BlockPluginInterface {
    */
   public function build() {
     $config = $this->getConfiguration();
-    if (isset($config['form_action']) && $config['form_action'] != '') {
+    if (isset($config['form_action']) && !empty($config['form_action'])) {
       return [
         '#theme' => 'signup_block',
-        '#configuration' => $config,
+        '#configuration' => [
+          'form_action' => $config['form_action'],
+        ],
       ];
-    } 
-    else {
-      return [];
     }
+    return [];
   }
 
 }

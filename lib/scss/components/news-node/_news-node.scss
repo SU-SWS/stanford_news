@@ -74,6 +74,13 @@
   }
 }
 
+// More news topics.
+.centered-container {
+  &.section-more-topics {
+    @include modular-spacing('margin-bottom', 2);
+  }
+}
+
 // Node View - More news 3 across cards.
 .stanford-news-vertical-teaser-term {
   > h2 {
