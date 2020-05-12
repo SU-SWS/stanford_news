@@ -59,15 +59,6 @@ function stanford_news_preprocess_block(&$variables) {
 }
 
 /**
- * Implements hook_views_pre_render().
- */
-function stanford_news_views_pre_render(ViewExecutable $view) {
-  if (isset($view) && ($view->storage->id() == 'stanford_news')) {
-    $view->element['#attached']['library'][] = 'stanford_news/news_list';
-  }
-}
-
-/**
  * Implements hook_preprocess_node().
  */
 function stanford_news_page_attachments(array &$attachments) {
@@ -131,6 +122,8 @@ function stanford_news_views_post_render(ViewExecutable $view, &$output, CachePl
 
   // Node Base Table Views.
   if ($view->storage->id() == 'stanford_news') {
+    $output['#attached']['library'][] = 'stanford_news/news_list';
+
     $node_list_position = array_search('node_list', $output['#cache']['tags']);
     unset($output['#cache']['tags'][$node_list_position]);
     foreach ($view->filter['type']->value as $node_type) {
