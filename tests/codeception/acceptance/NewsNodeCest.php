@@ -35,7 +35,7 @@ class NewsNodeCest {
     $I->canSee('This is a headline', 'h2');
     $I->canSee(date('F j, Y'));
 
-    $I->click('Foo', '.menu-block');
+    $I->click('Foo');
     $I->canSee('This is a headline', 'h2');
     $I->canSee(date('F j, Y'));
 
