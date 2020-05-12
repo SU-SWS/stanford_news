@@ -10,6 +10,8 @@ use Drupal\views\ViewExecutable;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Cache\Cache;
+use Drupal\views\Plugin\views\cache\CachePluginBase;
 
 /**
  * Implements hook_theme().

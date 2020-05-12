@@ -27,21 +27,6 @@
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
 <ul{{ attributes }}>
-  {# News List Image #}
-  {%- block block_news_list_image %}
-    {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>') is not empty -%}
-      <li class="su-news-list-item__media">
-        {%- if news_url is not empty -%}
-          <a {{ news_url_attributes }} href="{{ news_url }}">
-            {{- news_list_image -}}
-          </a>
-        {%- else -%}
-          {{- news_list_image -}}
-        {%- endif -%}
-      </li>
-    {%- endif -%}
-  {% endblock -%}
-
   {# News List Date #}
   {%- block block_news_list_date %}
     {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>') is not empty %}
@@ -49,26 +34,27 @@
     {% endif -%}
   {% endblock -%}
 
-  {# News List Headline #}
+  {# News List Headline & Media #}
   {%- block block_news_list_headline  %}
-    {%- if news_list_headline|render|striptags('<drupal-render-placeholder>') is not empty %}
-      <li class="su-news-list__item">
-        <h2>
-          {%- if news_url is not empty -%}
-            <a {{ news_url_attributes }} href="{{ news_url }}">
-              {{- news_list_headline -}}
-            </a>
-          {%- else -%}
-            {{- news_list_headline -}}
-          {%- endif -%}
-        </h2>
-      </li>
-    {% endif -%}
+    <li class="su-news-list__item">
+      {%- if news_url is not empty -%}
+        <a {{ news_url_attributes }} href="{{ news_url }}">
+      {%- endif -%}
+      {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>') is not empty -%}
+        {{- news_list_image -}}
+      {%- endif -%}
+      <h2>
+        {{- news_list_headline -}}
+      </h2>
+      {%- if news_url is not empty -%}
+        </a>
+      {%- endif -%}
+    </li>
   {% endblock -%}
 
   {# News List Dek  #}
   {% if news_list_dek|render|striptags('<drupal-render-placeholder>') is not empty %}
-    <li class="su-news-list-item__dek">{{ news_list_dek }}</li>
+    <li class="su-news-list__dek">{{ news_list_dek }}</li>
   {% endif %}
 
   {# News List Topics #}
