@@ -5,15 +5,14 @@
  * stanford_news.module
  */
 
-use Drupal\Component\Utility\Html;
-use Drupal\views\ViewExecutable;
-use Drupal\node\NodeInterface;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Cache\Cache;
-use Drupal\views\Plugin\views\cache\CachePluginBase;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+use Drupal\views\Plugin\views\cache\CachePluginBase;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_theme().
