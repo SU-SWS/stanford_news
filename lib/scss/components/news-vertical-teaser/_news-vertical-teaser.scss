@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 // For all templates.
-.views-view-grid {
+.stanford-news--cards {
   .flex-container {
     .more-news-view {
       @include grid-media-max('md') {
