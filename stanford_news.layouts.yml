@@ -8,7 +8,7 @@ stanford_news_byline:
   icon_map:
     - [content]
   regions:
-  su_news_byline:
-    label: "Byline"
-  su_news_publishing_date:
-    label: "Publishing Date"
+    su_news_byline:
+      label: "Byline"
+    su_news_publishing_date:
+      label: "Publishing Date"

@@ -12,6 +12,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Cache\Cache;
 use Drupal\views\Plugin\views\cache\CachePluginBase;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
 /**
  * Implements hook_theme().
@@ -96,12 +97,38 @@ function stanford_news_node_presave(EntityInterface $entity) {
       $entity->set('rh_redirect', $target);
       $entity->set('rh_redirect_response', 301);
     }
+    else {
+      $entity->set('rh_action', 'bundle_default');
+      $entity->set('rh_redirect', '');
+    }
   }
 
   // If a news item is being edited or saved, clear out some cache tags.
   if ($entity->bundle() == "stanford_news") {
     Cache::invalidateTags(["node_list:{$entity->bundle()}"]);
   }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function stanford_news_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  // Only run on stanford news items.
+  if ($entity->bundle() !== "stanford_news" || !node_is_page($entity)) {
+    return;
+  }
+
+  $rh_action = $entity->get('rh_action')->getValue()[0]['value'] ?? FALSE;
+  $rh_redirect = $entity->get('rh_redirect')->getValue()[0]['value'] ?? FALSE;
+
+  // Display a message to the user that this page would redirect to another
+  // location for other users.
+  if ($rh_action == "page_redirect" && !empty($rh_redirect)) {
+    \Drupal::messenger()
+      ->addWarning(t('This page will redirect to @url for other visitors.', ['@url' => $rh_redirect]));
+  }
+
 }
 
 /**
