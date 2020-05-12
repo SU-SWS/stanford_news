@@ -37,6 +37,11 @@ news-list:
       label: "URL for item"
       description: "URL for image and heading"
       preview: "http://www.stanford.edu/"
+    news_list_footer:
+      type: text
+      label: "Footer"
+      description: "An open footer area."
+      preview: ""
   use: "@news/news-list/news-item-list.twig"
   libraries:
     - newslist:

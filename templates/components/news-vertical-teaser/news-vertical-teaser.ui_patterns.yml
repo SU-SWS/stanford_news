@@ -27,6 +27,11 @@ news-vertical-teaser:
       label: "URL for item"
       description: "URL for image and heading"
       preview: "http://www.stanford.edu/"
+    news_footer:
+      type: text
+      label: "Footer"
+      description: "The footer area."
+      preview: ""
   use: "@news/news-vertical-teaser/news-vertical-teaser.twig"
   libraries:
     - newsverteaser:

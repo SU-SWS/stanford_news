@@ -20,7 +20,7 @@ class NewsNodeCest {
       'su_news_featured_media_caption' => 'Featured media caption',
     ]);
     $I->amOnPage($node->toUrl()->toString());
-    $I->canSee('News Story', 'h1');
+    $I->canSee('This is a headline', 'h1');
   }
 
 }

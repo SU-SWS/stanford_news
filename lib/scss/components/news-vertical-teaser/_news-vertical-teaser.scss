@@ -139,3 +139,10 @@
     }
   }
 }
+
+.news-vertical-teaser__footer {
+  text-align: right;
+  a {
+    @include button-secondary;
+  }
+}

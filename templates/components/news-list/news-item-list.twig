@@ -26,7 +26,7 @@
 
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
-<ul {{ attributes }}>
+<ul{{ attributes }}>
   {# News List Image #}
   {%- block block_news_list_image %}
     {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>') is not empty -%}
@@ -74,11 +74,15 @@
   {# News List Topics #}
   {%- block block_news_list_topics  %}
     {%- if news_list_topics|render|striptags('<drupal-render-placeholder>') is not empty %}
-      <li class="su-news-list__item">
+      <li class="su-news-list__topics">
         <span>
           {{- news_list_topics -}}
         </span>
       </li>
     {% endif -%}
   {% endblock -%}
+
+  {%- if news_list_footer|render|striptags('<drupal-render-placeholder>') is not empty -%}
+    <li class="su-news-list__footer">{{ news_list_footer }}</li>
+  {%- endif -%}
 </ul>

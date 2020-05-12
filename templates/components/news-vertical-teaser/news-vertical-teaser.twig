@@ -57,5 +57,8 @@
       {%- endif -%}
     </h2>
     <div class="news-vertical-teaser__topics">{{ news_topics }}</div>
+    {%- if news_footer is not empty -%}
+      <div class="news-vertical-teaser__footer">{{ news_footer }}</div>
+    {%- endif -%}
   </section>
 </article>

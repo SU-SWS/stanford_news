@@ -95,3 +95,10 @@
     }
   }
 }
+
+.su-news-list__footer {
+  a {
+    @include button-secondary;
+    text-align: right;
+  }
+}
