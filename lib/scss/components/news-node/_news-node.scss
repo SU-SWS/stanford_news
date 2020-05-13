@@ -131,6 +131,11 @@
   }
 }
 
+// Node - top banner image on article
+.section-banner-media {
+  @include modular-spacing('margin-bottom', 4);
+}
+
 // Node field - Featured Image Caption.
 .su-news-banner-media-caption {
   @include caption;
@@ -163,6 +168,10 @@
 
   i {
     font-size: 2.5rem;
+
+    @include grid-media-max('sm') {
+      font-size: 2rem;
+    }
 
     // FA is included as a vendor dependency but the class styles are not
     // included so we have to use the mixins and font declarations here.
