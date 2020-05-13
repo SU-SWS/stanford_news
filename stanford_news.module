@@ -31,7 +31,7 @@ function stanford_news_theme() {
     ],
     'signup_block' => [
       'variables' => [
-        'configuration' => [],
+        'form_action' => NULL,
       ],
       'template' => 'block/signup-block',
     ],
