@@ -26,7 +26,6 @@ dependencies:
   - field_group:field_group
   - jumpstart_ui:jumpstart_ui
   - layout_builder_restrictions:layout_builder_restrictions
-  - layout_library:layout_library
   - menu_block:menu_block
   - page_manager:page_manager
   - page_manager:page_manager_ui
