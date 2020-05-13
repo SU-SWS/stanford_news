@@ -1,23 +1,15 @@
 @charset "UTF-8";
 
-// Top Title Banner Section in Page Manager.
-.news-title-banner {
-  @include modular-spacing('margin-bottom', 4);
+.section-stanford-news-views-header {
 
-  .su-hero,
-  .su-hero__media {
-    @include grid-media("md") {
-      min-height: auto;
-      max-height: 300px;
-      height: 300px;
-      overflow: hidden;
-    }
+  h1 {
+    @include modular-spacing('margin', 5 null);
+  }
+}
 
-    .su-hero__card {
-      h2 {
-        @include type-a;
-      }
-    }
+.section-news-views-views {
+  .main-region {
+    @include modular-spacing('padding-left', 2);
   }
 }
 
@@ -39,7 +31,10 @@
 
 .su-news-list {
   @include margin(0);
+  @include padding(0);
   @include modular-spacing('padding', 4 null);
+  @include modular-spacing('margin', null null 5 null);
+
 
   list-style: none;
   overflow: auto;
@@ -111,5 +106,14 @@
   a {
     @include button-secondary;
     text-align: right;
+  }
+}
+
+.stanford-news-terms--results-for {
+  @include modular-spacing('margin-bottom', 3);
+
+  span,
+  a {
+    @include small-paragraph;
   }
 }

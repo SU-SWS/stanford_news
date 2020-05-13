@@ -162,3 +162,7 @@
     @include button-secondary;
   }
 }
+
+.stanford-news-terms--results-for {
+  @include modular-spacing('margin-bottom', 3);
+}
