@@ -32,7 +32,9 @@
 .views-infinite-scroll-content-wrapper {
   div:first-child {
     .su-news-list {
-      padding-top: 0;
+      @include grid-media-min('xl') {
+        padding-top: 0;
+      }
     }
   }
 }
@@ -52,7 +54,12 @@
   .media {
     @include modular-spacing('margin-left', 3);
     float: right;
+
+    @include grid-media-max('lg') {
+      display: none;
+    }
   }
+
 
   a {
     @include link;
