@@ -67,8 +67,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: Banner
-_core:
-  default_config_hash: Ha8-KY6Ar2k3Xsr7VxxOP0zMEWt0vqy7ASzohjGPSeM
 id: node.stanford_news.default
 targetEntityType: node
 bundle: stanford_news

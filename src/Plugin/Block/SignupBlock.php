@@ -2,9 +2,11 @@
 
 namespace Drupal\stanford_news\Plugin\Block;
 
+use Drupal\Core\Access\AccessResultForbidden;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Provides a 'Newsletter Signup' Block.
@@ -16,6 +18,17 @@ use Drupal\Core\Form\FormStateInterface;
  * )
  */
 class SignupBlock extends BlockBase implements BlockPluginInterface {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function access(AccountInterface $account, $return_as_object = FALSE) {
+    if (empty($this->configuration['form_action'])) {
+      $access = new AccessResultForbidden();
+      return $return_as_object ? $access : $access->isAllowed();
+    }
+    return parent::access($account, $return_as_object);
+  }
 
   /**
    * {@inheritdoc}
@@ -48,15 +61,10 @@ class SignupBlock extends BlockBase implements BlockPluginInterface {
    */
   public function build() {
     $config = $this->getConfiguration();
-    if (isset($config['form_action']) && !empty($config['form_action'])) {
-      return [
-        '#theme' => 'signup_block',
-        '#configuration' => [
-          'form_action' => $config['form_action'],
-        ],
-      ];
-    }
-    return [];
+    return [
+      '#theme' => 'signup_block',
+      '#form_action' => $config['form_action'],
+    ];
   }
 
 }

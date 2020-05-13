@@ -5,8 +5,6 @@ dependencies:
     - page_manager.page.stanford_news_list_terms
   module:
     - ctools
-_core:
-  default_config_hash: cpicbIqhHDGugl4CjdatbL06wGdkc-dfElx_aBsKt-U
 id: stanford_news_list_terms-layout_builder-0
 label: 'News - Layout Builder'
 variant: layout_builder

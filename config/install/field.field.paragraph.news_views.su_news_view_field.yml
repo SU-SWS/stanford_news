@@ -7,8 +7,6 @@ dependencies:
     - views.view.stanford_news
   module:
     - viewfield
-_core:
-  default_config_hash: 0A6HSxgBO1PL3ZSQx0zZGJ8g4nDXrSfEWrs17LnM-6Y
 id: paragraph.news_views.su_news_view_field
 field_name: su_news_view_field
 entity_type: paragraph

@@ -5,18 +5,14 @@
  * Install Tasks.
  */
 
-use Drupal\views\Views;
+use Drupal\views\Entity\View;
 
 /**
  * implments hook_install().
  */
 function stanford_news_install() {
   // Disable the core taxonomy_term view if it is enabled.
-  $tax_view = Views::getView('taxonomy_term');
-  if (isset($tax_view->storage)) {
-    if ($tax_view->storage->status()) {
-      $tax_view->storage->set('status', FALSE);
-      $tax_view->save();
-    }
+  if ($tax_view = View::load('taxonomy_term')) {
+    $tax_view->disable()->save();
   }
 }

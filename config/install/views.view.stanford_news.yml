@@ -19,8 +19,6 @@ dependencies:
     - ui_patterns_views
     - user
     - views_infinite_scroll
-_core:
-  default_config_hash: aaYmdINCeT9XCySjN_DXW2O_2AQFayQFPxfYmjAZgd8
 id: stanford_news
 label: News
 module: views
