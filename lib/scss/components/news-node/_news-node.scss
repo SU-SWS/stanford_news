@@ -3,7 +3,7 @@
 .byline-social-media-wrapper {
   > div {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
   }
 }
 
@@ -19,16 +19,16 @@
 
 .news-date-pipe-byline {
   @include small-paragraph;
-  @include modular-spacing('margin-right', 2);
-
-  @include grid-media('lg') {
-    @include modular-spacing('margin-right', 2);
-  }
+  @include margin(0);
 
   display: inline-block;
 
   div {
     display: inline-block;
+  }
+
+  span:last-child {
+    @include modular-spacing('margin-right', 2);
   }
 }
 
@@ -144,16 +144,12 @@
   @include small-paragraph;
   @include grid-media-max('md') {
     @include modular-spacing('margin-bottom', 2);
-    @include padding(20px 0 0);
 
     div {
       &:first-of-type {
         padding-left: 0;
       }
     }
-  }
-  @include grid-media-max('lg') {
-    @include padding(20px 0 0);
   }
 
   a {
