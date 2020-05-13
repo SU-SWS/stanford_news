@@ -5,15 +5,18 @@
  * Install Tasks.
  */
 
+use Drupal\views\Views;
+
 /**
  * implments hook_install().
  */
 function stanford_news_install() {
   // Disable the core taxonomy_term view if it is enabled.
-  $core_taxonomy_view = \Drupal::configFactory()->get('views.view.taxonomy_term');
-  if ($core_taxonomy_view->get('status') == TRUE) {
-    $editable = \Drupal::configFactory()->getEditable('views.view.taxonomy_term');
-    $editable->set('status', FALSE);
-    $editable->save();
+  $tax_view = Views::getView('taxonomy_term');
+  if (isset($tax_view->storage)) {
+    if ($tax_view->storage->status()) {
+      $tax_view->storage->set('status', FALSE);
+      $tax_view->save();
+    }
   }
 }

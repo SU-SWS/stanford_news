@@ -3,27 +3,32 @@
 .byline-social-media-wrapper {
   > div {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.byline-social-media-wrapper {
+  &.centered-container {
+    @include modular-spacing('margin-bottom', 7);
+
+    @include grid-media-between('xs', 'md') {
+      @include modular-spacing('margin-bottom', 2);
+    }
   }
 }
 
 .news-date-pipe-byline {
   @include small-paragraph;
-  @include modular-spacing('margin-bottom', 7);
-  @include modular-spacing('margin-right', 2);
-
-  @include grid-media('lg') {
-    @include modular-spacing('margin-right', 2);
-  }
-
-  @include grid-media-between ('xs','md'){
-    @include modular-spacing('margin-bottom', 2);
-  }
+  @include margin(0);
 
   display: inline-block;
 
   div {
     display: inline-block;
+  }
+
+  span:last-child {
+    @include modular-spacing('margin-right', 2);
   }
 }
 
@@ -126,6 +131,11 @@
   }
 }
 
+// Node - top banner image on article
+.section-banner-media {
+  @include modular-spacing('margin-bottom', 4);
+}
+
 // Node field - Featured Image Caption.
 .su-news-banner-media-caption {
   @include caption;
@@ -158,6 +168,10 @@
 
   i {
     font-size: 2.5rem;
+
+    @include grid-media-max('sm') {
+      font-size: 2rem;
+    }
 
     // FA is included as a vendor dependency but the class styles are not
     // included so we have to use the mixins and font declarations here.

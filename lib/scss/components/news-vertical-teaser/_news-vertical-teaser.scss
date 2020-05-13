@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 // For all templates.
-.views-view-grid {
+.stanford-news--cards {
   .flex-container {
     .more-news-view {
       @include grid-media-max('md') {
@@ -72,8 +72,8 @@
   &.su-card {
     @include modular-spacing('margin-bottom', 2);
     @include margin(0 auto);
-    overflow: auto;
     max-width: 980px;
+    overflow: auto;
 
     .su-media__wrapper {
       @include modular-spacing('margin-bottom', 0);
@@ -114,8 +114,9 @@
       @include modular-spacing('margin-left', 2);
       @include modular-spacing('margin-right', 2);
 
-      display: inline-block;
       color: $su-color-black;
+      display: inline-block;
+      font-weight: $su-font-bold;
 
       &::after {
         @include type-c;
