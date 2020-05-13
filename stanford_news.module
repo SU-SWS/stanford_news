@@ -80,12 +80,15 @@ function stanford_news_page_attachments(array &$attachments) {
  * Implements hook_ENTITY_TYPE_presave().
  */
 function stanford_news_node_presave(EntityInterface $entity) {
+  if ($entity->bundle() != "stanford_news") {
+    return;
+  }
   $rabbit_hole = \Drupal::config('rabbit_hole.behavior_settings.node_type_' . $entity->bundle());
   $token_service = \Drupal::service('token');
 
   // When the source field is filled out on a news item we want to set the
   // redirect options so it doesn't get indexed.
-  if ($rabbit_hole && $entity->bundle() == "stanford_news") {
+  if ($rabbit_hole) {
     /** @var \Drupal\Core\Utility\Token $token_service */
     $target = $token_service->replace("[node:su_news_source:uri]", ['node' => $entity]);
 
@@ -103,9 +106,7 @@ function stanford_news_node_presave(EntityInterface $entity) {
   }
 
   // If a news item is being edited or saved, clear out some cache tags.
-  if ($entity->bundle() == "stanford_news") {
-    Cache::invalidateTags(["node_list:{$entity->bundle()}"]);
-  }
+  Cache::invalidateTags(["node_list:{$entity->bundle()}"]);
 }
 
 /**
