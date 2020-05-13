@@ -28,6 +28,15 @@
 }
 
 // List Items.
+// Removes the padding top for the first item.
+.views-infinite-scroll-content-wrapper {
+  div:first-child {
+    .su-news-list {
+      padding-top: 0;
+    }
+  }
+}
+
 .su-news-list {
   @include margin(0);
   @include modular-spacing('padding', 4 null);

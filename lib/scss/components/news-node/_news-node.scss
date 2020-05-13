@@ -131,6 +131,11 @@
   }
 }
 
+// Node - top banner image on article
+.section-banner-media {
+  @include modular-spacing('margin-bottom', 4);
+}
+
 // Node field - Featured Image Caption.
 .su-news-banner-media-caption {
   @include caption;
