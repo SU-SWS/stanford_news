@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
-.section-stanford-news-views-header {
+// When the view is placed via a view field center it and max it out.
+.field--name-su-news-view-field {
+  .stanford-news--list-any,
+  .stanford-news--cards-any {
+    @include margin(null auto);
+    max-width: 1100px;
+  }
+}
 
+.section-stanford-news-views-header {
   h1 {
     @include modular-spacing('margin', 5 null);
   }
