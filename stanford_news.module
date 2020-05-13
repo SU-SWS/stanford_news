@@ -167,6 +167,11 @@ function stanford_news_field_widget_form_alter(&$element, FormStateInterface $fo
   if ($field instanceof FieldConfigInterface && $field->id() == "node.stanford_news.su_news_topics") {
     $element['#stanford_news_topics_add_more'] = 'Add another term';
   }
+
+  // Remove unwanted view displays from view field options.
+  if ($element['#entity_type'] == "paragraph" && $element['#bundle'] == "news_views") {
+    unset($element['display_id']['#options']['topics_list']);
+  }
 }
 
 /**
