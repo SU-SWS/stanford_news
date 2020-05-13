@@ -11,11 +11,11 @@
     {% if content.su_news_publishing_date or content.su_news_byline %}
       <div {{ region_attributes.su_news_byline.addClass('news-date-pipe-byline') }}>
         {%- if content.su_news_publishing_date|render|striptags("<drupal-render-placeholder>")|trim is not empty %}
-          <span class="su_news_publishing_date-region">{{ content.su_news_publishing_date }}</span>
+          <span class="su_news_publishing_date-region not-empty">{{ content.su_news_publishing_date }}</span>
         {% endif %}
         {% if content.su_news_publishing_date|render|striptags("<drupal-render-placeholder>")|trim and content.su_news_byline|render|striptags("<drupal-render-placeholder>")|trim  %} | {% endif %}
         {%- if content.su_news_byline|render|striptags("<drupal-render-placeholder>")|trim is not empty %}
-          <span class="su_news_byline-region">{{ content.su_news_byline }}</span>
+          <span class="su_news_byline-region not-empty">{{ content.su_news_byline }}</span>
         {% endif %}
       </div>
     {% endif %}
