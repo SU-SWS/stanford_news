@@ -180,20 +180,23 @@ function stanford_news_field_widget_form_alter(&$element, FormStateInterface $fo
  * Implements hook_react_paragraphs_getfieldinfo_post_alter().
  */
 function stanford_news_react_paragraphs_getfieldinfo_post_alter($field_element, $field_config,  &$info) {
+  // Only alter data for the news_views view field.
   if ($field_config->get('field_name') !== "su_news_view_field") {
     return;
   }
 
+  // We want to remove a few displays from the options.
+  // See stanford_news_field_widget_form_alter for the same appraoch.
   $deny_list = ['topics_list', 'term_block', 'vertical_teaser_term_list'];
   $vals = array_column($info['displays']['stanford_news'], 'value');
 
+  // Loop through the options and trim some.
   foreach ($deny_list as $display_name) {
     $index = array_search($display_name, $vals);
     if (is_int($index)) {
       unset($info['displays']['stanford_news'][$index]);
     }
   }
-
 }
 
 /**
