@@ -1,9 +1,9 @@
-# [Stanford News](https://github.com/SU-SWS/stanford_news)
+# [Stanford News](https://github.com/SU-SOE/stanford_news)
 ##### Version: 8.x-1.x
 
-Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)  
+Maintainers: [boznik](https://github.com/boznik)
 
-Changelog: [Changelog.txt](CHANGELOG.txt)
+Changelog: [Changelog.md](CHANGELOG.md)
 
 Description
 ---
@@ -13,7 +13,7 @@ Stanford News feature provides an out of the box solution for displaying news co
 Accessibility
 ---
 [![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)
-Evaluation Date: 2017-07-12  
+Evaluation Date: N/A
 This module conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).
 
 Installation
@@ -24,7 +24,17 @@ Install this module like any other module. [See Drupal Documentation](https://dr
 Configuration
 ---
 
-Nothing special needed.
+- Pull in this branch.
+- Build.
+- Add terms to the Topics taxonomy. They have a generated path.
+- Create a menu with your taxonomy terms.
+- Go to /admin/structure/types/manage/stanford_page/display and allow Topics Menus block to be added via the Layout Builder.
+- Create articles and tag them with a term from the taxonomy.
+- Create term list pages.
+- They need paths like this: /news/term-1 (term name) or /news/all
+- On this page, use the layout builder to add your menu.
+- On this page, add the News Terms block.
+- On this page, add the Newsletter Sign up block.
 
 
 Troubleshooting
@@ -38,10 +48,9 @@ Developer
 If you wish to develop on this module you will most likely need to compile some new css. Please use the sass structure provided and compile with the sass compiler packaged in this module. To install:
 
 ```
+nvm use
 npm install
-grunt watch
- or
-grunt devmode
+npm run publish
 ```
 
 Contribution / Collaboration
