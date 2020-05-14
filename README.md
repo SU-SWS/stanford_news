@@ -1,5 +1,5 @@
 # [Stanford News](https://github.com/SU-SOE/stanford_news)
-##### Version: 8.x-1.x
+##### Version: 8.x-2.x
 
 Maintainers: [boznik](https://github.com/boznik)
 
