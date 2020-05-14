@@ -177,6 +177,26 @@ function stanford_news_field_widget_form_alter(&$element, FormStateInterface $fo
 }
 
 /**
+ * Implements hook_react_paragraphs_getfieldinfo_post_alter().
+ */
+function stanford_news_react_paragraphs_getfieldinfo_post_alter($field_element, $field_config,  &$info) {
+  if ($field_config->get('field_name') !== "su_news_view_field") {
+    return;
+  }
+
+  $deny_list = ['topics_list', 'term_block', 'vertical_teaser_term_list'];
+  $vals = array_column($info['displays']['stanford_news'], 'value');
+
+  foreach ($deny_list as $display_name) {
+    $index = array_search($display_name, $vals);
+    if (is_int($index)) {
+      unset($info['displays']['stanford_news'][$index]);
+    }
+  }
+
+}
+
+/**
  * Implements hook_preprocess_field_multiple_value_form().
  *
  * We look for a value that was placed there earlier by
