@@ -64,7 +64,7 @@
     }
 
     @include grid-media-max('lg') {
-      &:before {
+      &::before {
         @include small-paragraph;
         @include padding(null 15px null null);
 
@@ -105,7 +105,7 @@
     }
 
     .menu-item--active-trail {
-      &:before {
+      &::before {
         @include small-paragraph;
 
         color: $su-color-bright-blue;
@@ -115,6 +115,7 @@
         left: 35px;
         position: absolute;
       }
+
       .is-active {
         color: $su-color-bright-blue;
       }
@@ -126,6 +127,7 @@
     .menu {
       display: none;
     }
+
     .news-topics__collapsable-menu {
       &.show {
         & + .menu {

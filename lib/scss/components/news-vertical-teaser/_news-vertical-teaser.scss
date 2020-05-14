@@ -97,14 +97,13 @@
         @include modular-spacing('margin-top', 1);
       }
 
+      display: block;
+
       &:hover {
         h2 {
           text-decoration: underline;
         }
       }
-
-      display: block;
-
     }
 
     // Action title link.
@@ -158,6 +157,7 @@
 
 .news-vertical-teaser__footer {
   @include modular-spacing('margin', 1);
+
   a {
     @include button-secondary;
   }

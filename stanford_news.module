@@ -23,11 +23,11 @@ function stanford_news_theme() {
   return [
     'field__node__su_news_topics' => [
       'template' => 'field/field--node--su-news-topics',
-      'base hook' => 'field'
+      'base hook' => 'field',
     ],
     'field__node__su_news_dek' => [
       'template' => 'field/field--node--su-news-dek--stanford-news',
-      'base hook' => 'field'
+      'base hook' => 'field',
     ],
     'signup_block' => [
       'variables' => [
@@ -37,8 +37,8 @@ function stanford_news_theme() {
     ],
     'block__menu_block__news_topics' => [
       'template' => 'block/block--menu-block--news-topics',
-      'base hook' => 'block'
-    ]
+      'base hook' => 'block',
+    ],
   ];
 }
 
@@ -165,7 +165,7 @@ function stanford_news_views_post_render(ViewExecutable $view, &$output, CachePl
 function stanford_news_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
   $field = $context['items']->getFieldDefinition();
   if ($field instanceof FieldConfigInterface && $field->id() == "node.stanford_news.su_news_topics") {
-    $element['#stanford_news_topics_add_more'] = 'Add another term';
+    $element['#stanford_news_topics_add_more'] = t('Add another term');
   }
 
   // Remove unwanted view displays from view field options.
@@ -189,11 +189,11 @@ function stanford_news_preprocess_field_multiple_value_form(&$variables) {
     if (isset($child_element['#stanford_news_topics_add_more'])) {
 
       if (isset($child_element['#stanford_news_topics_add_more']) && isset($variables['element']['add_more']['#value']) && $variables['element']['add_more']['#value'] != t($child_element['#stanford_news_topics_add_more'])) {
-        $variables['element']['add_more']['#value'] = t($child_element['#stanford_news_topics_add_more']);
+        $variables['element']['add_more']['#value'] = $child_element['#stanford_news_topics_add_more'];
       }
 
-      if (isset($child_element['#stanford_news_topics_add_more']) && isset($variables['button']['#value']) && $variables['button']['#value'] != t($child_element['#stanford_news_topics_add_more'])) {
-        $variables['button']['#value'] = t($child_element['#stanford_news_topics_add_more']);
+      if (isset($child_element['#stanford_news_topics_add_more']) && isset($variables['button']['#value']) && $variables['button']['#value'] != $child_element['#stanford_news_topics_add_more']) {
+        $variables['button']['#value'] = $child_element['#stanford_news_topics_add_more'];
       }
     }
   }
