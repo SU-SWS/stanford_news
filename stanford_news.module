@@ -183,7 +183,7 @@ function stanford_news_react_paragraphs_getfieldinfo_post_alter(array &$info, ar
 
   // Only alter data for the news_views view field.
   if ($field_config->getName() !== "su_news_view_field") {
-    return $info;
+    return;
   }
 
   // We want to remove a few displays from the options.
@@ -199,7 +199,6 @@ function stanford_news_react_paragraphs_getfieldinfo_post_alter(array &$info, ar
     }
   }
   sort($info['displays']['stanford_news']);
-  return $info;
 }
 
 /**
