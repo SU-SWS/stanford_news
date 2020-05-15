@@ -1,7 +1,8 @@
 # Stanford News
 
-8.x-1.0
+8.x-2.0
 --------------------------------------------------------------------------------  
-_Release Date: YYYY-MM-DD_
+_Release Date: 2020-05-15_
 
-- Initial Release
+- Initial Release.
+- See https://userguide.sites.stanford.edu/tour/news for more information.
