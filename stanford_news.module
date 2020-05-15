@@ -179,7 +179,7 @@ function stanford_news_field_widget_form_alter(&$element, FormStateInterface $fo
 /**
  * Implements hook_react_paragraphs_form_field_data_alter().
  */
-function stanford_news_react_paragraphs_form_field_data_alter(array &$info, array $field_element, FieldConfig $field_config) {
+function stanford_news_react_paragraphs_form_field_data_alter(array &$info, array $field_element, FieldConfigInterface $field_config) {
 
   // Only alter data for the news_views view field.
   if ($field_config->getName() !== "su_news_view_field") {
