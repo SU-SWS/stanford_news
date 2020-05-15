@@ -1,6 +1,10 @@
 # [Stanford News](https://github.com/SU-SOE/stanford_news)
 ##### Version: 8.x-2.x
 
+[![CircleCI](https://circleci.com/gh/SU-SWS/stanford_news.svg?style=shield)](https://circleci.com/gh/SU-SWS/stanford_news)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d22dd5e41d0a5c9198fd/test_coverage)](https://codeclimate.com/github/SU-SWS/stanford_news/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d22dd5e41d0a5c9198fd/maintainability)](https://codeclimate.com/github/SU-SWS/stanford_news/maintainability)
+
 Maintainers: [boznik](https://github.com/boznik)
 
 Changelog: [Changelog.md](CHANGELOG.md)
