@@ -1,50 +1,47 @@
 name: 'Stanford News'
 type: module
 description: 'Stanford news items and views.'
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: '^8.8 || ^9'
 package: Stanford
-version: 8.x-2.1-dev
+version: 8.x-2.1
 dependencies:
-  - allowed_formats:allowed_formats
-  - auto_entitylabel:auto_entitylabel
-  - components:components
-  - drual:field
-  - drupal:breakpoint
-  - drupal:datetime
-  - drupal:file
-  - drupal:image
-  - drupal:layout_builder
-  - drupal:link
-  - drupal:menu_ui
-  - drupal:node
-  - drupal:path
-  - drupal:taxonomy
-  - drupal:text
-  - drupal:user
-  - entity_reference_revisions:entity_reference_revisions
-  - field_formatter_class:field_formatter_class
-  - field_group:field_group
-  - jumpstart_ui:jumpstart_ui
-  - layout_builder_restrictions:layout_builder_restrictions
-  - menu_block:menu_block
-  - page_manager:page_manager
-  - page_manager:page_manager_ui
-  - paragraphs:paragraphs
-  - pathauto:pathauto
-  - rabbit_hole:rabbit_hole
-  - rabbit_home:rh_node
-  - stanford_media:stanford_media
-  - stanford_text_editor:stanford_text_editor
-  - taxonomy_menu:taxonomy_menu
-  - ui_patterns:ui_patterns
-  - ui_patterns:ui_patterns_layouts
-  - ui_patterns:ui_patterns_library
-  - ui_patterns:ui_patterns_views
-  - views_block_filter_block:views_block_filter_block
-  - views_infinite_scroll:views_infinite_scroll
-  - views_taxonomy_term_name_depth:views_taxonomy_term_name_depth
-
+    - 'allowed_formats:allowed_formats'
+    - 'auto_entitylabel:auto_entitylabel'
+    - 'components:components'
+    - 'drual:field'
+    - 'drupal:breakpoint'
+    - 'drupal:datetime'
+    - 'drupal:file'
+    - 'drupal:image'
+    - 'drupal:layout_builder'
+    - 'drupal:link'
+    - 'drupal:menu_ui'
+    - 'drupal:node'
+    - 'drupal:path'
+    - 'drupal:taxonomy'
+    - 'drupal:text'
+    - 'drupal:user'
+    - 'entity_reference_revisions:entity_reference_revisions'
+    - 'field_formatter_class:field_formatter_class'
+    - 'field_group:field_group'
+    - 'jumpstart_ui:jumpstart_ui'
+    - 'layout_builder_restrictions:layout_builder_restrictions'
+    - 'menu_block:menu_block'
+    - 'page_manager:page_manager'
+    - 'page_manager:page_manager_ui'
+    - 'paragraphs:paragraphs'
+    - 'pathauto:pathauto'
+    - 'rabbit_hole:rabbit_hole'
+    - 'rabbit_home:rh_node'
+    - 'stanford_media:stanford_media'
+    - 'stanford_text_editor:stanford_text_editor'
+    - 'taxonomy_menu:taxonomy_menu'
+    - 'ui_patterns:ui_patterns'
+    - 'ui_patterns:ui_patterns_layouts'
+    - 'ui_patterns:ui_patterns_library'
+    - 'ui_patterns:ui_patterns_views'
+    - 'views_block_filter_block:views_block_filter_block'
+    - 'views_infinite_scroll:views_infinite_scroll'
+    - 'views_taxonomy_term_name_depth:views_taxonomy_term_name_depth'
 component-libraries:
-  news:
-    paths:
-      - templates/components
+    news: { paths: [templates/components] }
