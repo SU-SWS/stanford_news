@@ -46,4 +46,4 @@ dependencies:
 component-libraries:
   news:
     paths:
-      -templates/components
+      - templates/components
