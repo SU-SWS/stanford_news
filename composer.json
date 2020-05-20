@@ -89,13 +89,12 @@
         "drupal/paragraphs": "^1.11",
         "drupal/pathauto": "^1.8",
         "drupal/rabbit_hole": "^1.0-beta6",
-        "drupal/taxonomy_menu": "dev-3.x",
-        "drupal/viewfield": "^3.0-beta5",
+        "drupal/taxonomy_menu": "dev-3.x#c0892fa9b428ceb784876554c9b80f49d72a246f",
         "drupal/views_block_filter_block": "^1.0",
         "drupal/views_infinite_scroll": "^1.6",
         "drupal/views_taxonomy_term_name_depth": "^6.0",
-        "su-sws/jumpstart_ui": "^8.1.5",
-        "su-sws/stanford_text_editor": "^8.1.6"
+        "su-sws/jumpstart_ui": "~8.1.0",
+        "su-sws/stanford_text_editor": "~8.1.0"
     },
     "extra": {
         "enable-patching": true,
