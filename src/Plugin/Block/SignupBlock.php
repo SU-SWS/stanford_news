@@ -14,7 +14,7 @@ use Drupal\Core\Session\AccountInterface;
  * @Block(
  *   id = "signup_block",
  *   admin_label = @Translation("Newsletter Signup"),
- *   category = @Translation("Newsletter Signup"),
+ *   category = @Translation("Stanford News"),
  * )
  */
 class SignupBlock extends BlockBase implements BlockPluginInterface {
