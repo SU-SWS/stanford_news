@@ -32,7 +32,7 @@ dependencies:
   - paragraphs:paragraphs
   - pathauto:pathauto
   - rabbit_hole:rabbit_hole
-  - rabbit_home:rh_node
+  - rabbit_hole:rh_node
   - stanford_media:stanford_media
   - stanford_text_editor:stanford_text_editor
   - taxonomy_menu:taxonomy_menu
