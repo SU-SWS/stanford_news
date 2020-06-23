@@ -13,6 +13,16 @@
       }
     }
   }
+
+  //Back to all news link
+  > .more-link {
+    @include modular-spacing('margin', 3 null 9 null);
+    text-align: center;
+
+    a {
+      @include button-primary;
+    }
+  }
 }
 
 // News Cards added in page as a paragraph.
