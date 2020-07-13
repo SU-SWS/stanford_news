@@ -1,5 +1,14 @@
 # Stanford News
 
+8.x-2.3
+--------------------------------------------------------------------------------
+_Release Date: 2020-07-13_
+
+- D8CORE-2178, D8CORE-2180, D8CORE-2181: Event & news updates (#89) (c015fc3)
+- D8CORE-2228: adding the nav tag so we get a landmarks menu in voiceover. (#86) (6f4f978)
+- D8CORE-2070: changing the MS on the header for accelerants. (#88) (d76e913)
+- D8CORE-2292: Added in the More news button (#87) (90b78ab)
+
 8.x-2.2
 --------------------------------------------------------------------------------
 _Release Date: 2020-06-17_
