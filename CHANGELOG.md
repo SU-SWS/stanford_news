@@ -1,5 +1,15 @@
 # Stanford News
 
+8.x-2.4
+--------------------------------------------------------------------------------
+_Release Date: 2020-08-07_
+
+- D8CORE-2432: changed the font size for the load more button (#94) (02656d3)
+- D8CORE-2132: adding a wrapper div to address issue with SOE subtheme (#93) (0d1eae9)
+- Merge pull request #92 from SU-SWS/D8CORE-1938-focus (dbda2bf)
+- D8CORE-1938: on vertical cards, move focus indicator from link/image to entire card (cf9f32a)
+- Removed views_taxonomy_term_name_depth thats not used (#91) (6a1373d)
+
 8.x-2.3
 --------------------------------------------------------------------------------
 _Release Date: 2020-07-13_
