@@ -3,7 +3,7 @@ type: module
 description: 'Stanford news items and views.'
 core_version_requirement: ^8.8 || ^9
 package: Stanford
-version: 8.x-2.3
+version: 8.x-2.4
 dependencies:
   - allowed_formats:allowed_formats
   - auto_entitylabel:auto_entitylabel
@@ -42,7 +42,6 @@ dependencies:
   - ui_patterns:ui_patterns_views
   - views_block_filter_block:views_block_filter_block
   - views_infinite_scroll:views_infinite_scroll
-  - views_taxonomy_term_name_depth:views_taxonomy_term_name_depth
 
 component-libraries:
     news: { paths: [templates/components] }

@@ -47,9 +47,11 @@
       {{- news_vertical_teaser_image -}}
     </div>
   </figure>
-  <h2 class="su-link su-card__link {{ news_url_link_type }}">
-    {{- news_vertical_teaser_headline -}}
-  </h2>
+  <div class="su-news-header">
+    <h2 class="su-link su-card__link {{ news_url_link_type }}">
+      {{- news_vertical_teaser_headline -}}
+    </h2>
+  </div>
   {%- if news_url is not empty -%}
     </a>
   {%- endif -%}

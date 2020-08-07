@@ -16,11 +16,11 @@ class NewsNodeCest {
 
     $I->amOnPage('/news');
     $I->canSee('This is a headline', 'h2');
-    $I->canSee(date('F j, Y'));
+    $I->canSee(date('F d, Y'));
 
     $I->click('Foo');
     $I->canSee('This is a headline', 'h2');
-    $I->canSee(date('F j, Y'));
+    $I->canSee(date('F d, Y'));
 
     $I->logInWithRole('authenticated');
     $I->amOnPage('/news');

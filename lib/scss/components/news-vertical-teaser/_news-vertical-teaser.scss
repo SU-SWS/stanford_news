@@ -114,6 +114,10 @@
           text-decoration: underline;
         }
       }
+
+      &:focus {
+        outline: none;
+      }
     }
 
     // Action title link.
@@ -161,6 +165,11 @@
           }
         }
       }
+    }
+
+    // Put the focus on the whole card
+    &:focus-within {
+      outline: -webkit-focus-ring-color auto 1px;
     }
   }
 }
