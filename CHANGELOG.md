@@ -1,5 +1,12 @@
 # Stanford News
 
+8.x-2.5
+--------------------------------------------------------------------------------
+_Release Date: 2020-09-11_
+
+- D8CORE-2675: removing the external link arrow from social media icons (#98) (a715eed)
+- D8CORE-2499 Updated composer license (#96) (5da2871)
+
 8.x-2.4
 --------------------------------------------------------------------------------
 _Release Date: 2020-08-07_
