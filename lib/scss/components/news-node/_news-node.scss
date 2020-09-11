@@ -170,8 +170,11 @@
         @include hide-visually;
       }
     }
-    & svg.mailto {
-      @include hide-visually;
+
+    & svg {
+      &.mailto {
+        @include hide-visually;
+      }
     }
   }
 
