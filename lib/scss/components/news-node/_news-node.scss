@@ -164,6 +164,18 @@
     span {
       @include sr-only;
     }
+
+    &.su-link--external {
+      &::after {
+        @include hide-visually;
+      }
+    }
+
+    svg {
+      &.mailto {
+        @include hide-visually;
+      }
+    }
   }
 
   i {
