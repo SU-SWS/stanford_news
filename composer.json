@@ -4,7 +4,7 @@
     "type": "drupal-custom-module",
     "homepage": "https://github.com/SU-SWS/stanford_news",
     "authors": [],
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "repositories": [
