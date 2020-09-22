@@ -21,6 +21,8 @@
 
     a {
       @include button-primary;
+      @include box-shadow('shallow');
+
     }
   }
 }
