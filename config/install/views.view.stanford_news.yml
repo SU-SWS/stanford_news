@@ -61,7 +61,7 @@ display:
       pager:
         type: infinite_scroll
         options:
-          items_per_page: 10
+          items_per_page: 20
           offset: 0
           id: 0
           total_pages: null
@@ -2022,4 +2022,3 @@ display:
         - 'config:field.storage.node.su_news_publishing_date'
         - 'config:field.storage.node.su_news_source'
         - 'config:field.storage.node.su_news_topics'
-
