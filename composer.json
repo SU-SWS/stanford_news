@@ -92,6 +92,7 @@
         "drupal/taxonomy_menu": "dev-3.x#c0892fa9b428ceb784876554c9b80f49d72a246f",
         "drupal/views_block_filter_block": "^1.0",
         "drupal/views_infinite_scroll": "^1.6",
+        "drupal/views_taxonomy_term_name_depth": "^7.0",
         "su-sws/jumpstart_ui": "dev-8.x-1.x",
         "su-sws/stanford_text_editor": "dev-8.x-1.x"
     },
@@ -106,6 +107,9 @@
             },
             "drupal/default_content": {
                 "https://www.drupal.org/project/default_content/issues/2698425": "https://www.drupal.org/files/issues/2020-02-05/2698425--accept-content-updates--122.patch"
+            },
+            "drupal/views_taxonomy_term_name_depth": {
+                "https://www.drupal.org/project/views_taxonomy_term_name_depth/issues/2877249": "https://www.drupal.org/files/issues/2020-05-01/2877249_21.patch"
             }
         }
     }
