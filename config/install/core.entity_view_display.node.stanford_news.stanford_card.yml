@@ -17,6 +17,7 @@ dependencies:
     - node.type.stanford_news
   module:
     - ds
+    - element_class_formatter
     - link
     - stanford_media
     - user
