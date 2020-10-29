@@ -167,8 +167,8 @@
 
         ul {
           list-style: none;
-          margin: 0;
-          padding: 0;
+          @include margin(0);
+          @include padding(0);
         }
 
         li {
