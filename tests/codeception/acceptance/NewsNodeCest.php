@@ -57,6 +57,15 @@ class NewsNodeCest {
     $I->canSee('Cache Buster', 'h2');
   }
 
+  /**
+   * The card display mode should be available.
+   */
+  public function testCardDisplayMode(AcceptanceTester $I){
+    $I->logInWithRole('administrator');
+    $I->amOnPage('/admin/structure/types/manage/stanford_news/display/stanford_card');
+    $I->canSeeOptionIsSelected('Select a layout', 'News Vertical Teaser');
+  }
+
   protected function createNewsNode(AcceptanceTester $I, $node_title = NULL) {
     $term = $I->createEntity([
       'name' => 'Foo',

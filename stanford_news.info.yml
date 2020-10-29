@@ -21,6 +21,7 @@ dependencies:
   - drupal:taxonomy
   - drupal:text
   - drupal:user
+  - element_class_formatter:element_class_formatter
   - entity_reference_revisions:entity_reference_revisions
   - field_formatter_class:field_formatter_class
   - field_group:field_group
@@ -42,6 +43,7 @@ dependencies:
   - ui_patterns:ui_patterns_views
   - views_block_filter_block:views_block_filter_block
   - views_infinite_scroll:views_infinite_scroll
+  - views_taxonomy_term_name_depth:views_taxonomy_term_name_depth
 
 component-libraries:
     news: { paths: [templates/components] }
