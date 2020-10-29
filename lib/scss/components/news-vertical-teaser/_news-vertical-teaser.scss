@@ -176,7 +176,7 @@
 
           &::after {
             content: ',';
-            margin-right: 5px;
+            @include margin(null 5px null null);
           }
 
           &:last-child::after {
