@@ -181,7 +181,7 @@
 
           &:last-child::after {
             content: '';
-            margin-right: 0;
+            @include margin(null 0 null null);
           }
         }
       }
