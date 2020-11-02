@@ -42,6 +42,13 @@ function stanford_news_extras_update_7301(&$sandbox) {
 }
 
 /**
+ * Implements hook_update_N().
+ */
+function stanford_news_extras_update_7302(&$sandbox) {
+  stanford_news_extras_set_banner_image();
+}
+
+/**
  * Set the banner image fid.
  */
 function stanford_news_extras_set_banner_image() {
