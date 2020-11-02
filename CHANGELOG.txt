@@ -1,5 +1,9 @@
 Stanford News x.x-x.x, xxxx-xx-xx
 ---------------------------------
+7.x-3.7-alpha5               2020-11-02
+---------------------------------------
+- SOEOP-366: swapped stanford_news_extras background image -- from black to transparent
+
 7.x-3.7-alpha4               2018-04-16
 ---------------------------------------
 - Changed the class on a view to make it more re-useable when a view is cloned
