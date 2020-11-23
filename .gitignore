@@ -33,3 +33,7 @@ node_modules
 
 # Configuration
 package-lock.json
+
+content/**/*.jpg
+content/**/*.png
+content/**/*.gif
