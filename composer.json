@@ -75,7 +75,7 @@
     ],
     "require": {
         "drupal/allowed_formats": "^1.2",
-        "drupal/auto_entitylabel": "3.x-dev#1dd28579f4559cc03d09ab20143b1feb48644fac",
+        "drupal/auto_entitylabel": "^3.0",
         "drupal/ctools": "^3.4",
         "drupal/default_content": "^2.0",
         "drupal/ds": "^3.5",
@@ -86,7 +86,7 @@
         "drupal/field_group": "^3.0",
         "drupal/layout_builder_restrictions": "^2.7",
         "drupal/menu_block": "^1.6",
-        "drupal/page_manager": "dev-4.x#78b492786c841c5d2eb07f6d977275a76b79e46f",
+        "drupal/page_manager": "^4.0",
         "drupal/paragraphs": "^1.11",
         "drupal/pathauto": "^1.8",
         "drupal/rabbit_hole": "^1.0-beta6",
