@@ -16,5 +16,5 @@ function stanford_news_install() {
     $tax_view->disable()->save();
   }
 
-  \Drupal::service('theme.installer')->install(['stable']);
+  \Drupal::service('theme_installer')->install(['stable']);
 }
