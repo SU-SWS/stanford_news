@@ -41,7 +41,7 @@ function stanford_news_theme() {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function stanford_news_preprocess_field__su_news_dek(&$variables){
+function stanford_news_preprocess_field__su_news_dek(&$variables) {
   $variables['attributes']['class'][] = 'flex-12-of-12';
   $variables['attributes']['class'][] = 'flex-md-10-of-12';
   $variables['attributes']['class'][] = 'flex-xl-7-of-12';
