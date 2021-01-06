@@ -15,6 +15,4 @@ function stanford_news_install() {
   if ($tax_view = View::load('taxonomy_term')) {
     $tax_view->disable()->save();
   }
-
-  \Drupal::service('theme_installer')->install(['stable']);
 }
