@@ -71,6 +71,10 @@
 
     color: $su-color-bright-red;
     text-decoration: none;
+
+    &:focus {
+      display:inline-block;
+    }
   }
 
   h2 {
