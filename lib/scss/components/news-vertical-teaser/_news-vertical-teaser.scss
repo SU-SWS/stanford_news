@@ -194,6 +194,20 @@
   }
 }
 
+article {
+  > .su-news-vertical-teaser__link {
+    &.su-link {
+      &.su-link--external {
+        font-size: 1em;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 .news-vertical-teaser__footer {
   @include modular-spacing('margin', 1);
 
