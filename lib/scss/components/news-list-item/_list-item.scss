@@ -27,7 +27,7 @@
 
 .su-news-list__item-date + .su-news-list__item {
   .media {
-    @include margin(-29px null null null);
+    @include margin(-29px null -40px null);
   }
 }
 
@@ -68,19 +68,24 @@
 
   a {
     @include link;
+    display: inline-flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    width: 100%;
 
     color: $su-color-bright-red;
     text-decoration: none;
 
-    &:focus {
-      display: inline-block;
-    }
+    // &:focus {
+    //   display: inline-block;
+    // }
   }
 
   h2 {
     @include modular-spacing('margin-bottom', 1);
 
     display: inline;
+    width: 72%;
   }
 
   .su-news-list__dek {
