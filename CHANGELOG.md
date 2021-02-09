@@ -1,5 +1,13 @@
 # Stanford News
 
+8.x-2.9
+--------------------------------------------------------------------------------
+_Release Date: 2021-02-08_
+
+- D8CORE-3105: fixing for the no image and external link on a news (#114) (ec516a0)
+- Updated circleci testing (#111) (9ebc773)
+- D8CORE-2750: fixing the heading spacing (#112) (265d0cc)
+
 8.x-2.8
 --------------------------------------------------------------------------------
 _Release Date: 2020-12-04_
