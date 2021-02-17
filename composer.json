@@ -79,6 +79,7 @@
     "require": {
         "drupal/allowed_formats": "^1.2",
         "drupal/auto_entitylabel": "^3.0",
+        "drupal/components": "^2.0",
         "drupal/ctools": "^3.4",
         "drupal/default_content": "^2.0",
         "drupal/ds": "^3.5",
