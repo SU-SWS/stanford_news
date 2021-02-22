@@ -45,10 +45,9 @@ dependencies:
   - views_infinite_scroll:views_infinite_scroll
   - views_taxonomy_term_name_depth:views_taxonomy_term_name_depth
 
-component-libraries:
-  news:
-    paths:
-      - templates/components
+components:
+  namespaces:
+    news: templates/components
 
 default_content:
   file:
