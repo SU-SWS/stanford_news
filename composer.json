@@ -99,7 +99,7 @@
         "drupal/views_infinite_scroll": "^1.6",
         "drupal/views_taxonomy_term_name_depth": "^7.0",
         "su-sws/drupal-patches": "^8.0",
-        "su-sws/jumpstart_ui": "^8.1.0",
-        "su-sws/stanford_text_editor": "^8.1.0"
+        "su-sws/jumpstart_ui": "dev-8.x-1.x",
+        "su-sws/stanford_text_editor": "dev-8.x-1.x"
     }
 }
