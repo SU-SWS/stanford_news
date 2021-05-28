@@ -33,14 +33,18 @@
     {%- if news_url is not empty -%}
       <a {{ news_url_attributes }} href="{{ news_url }}">
     {%- endif -%}
-        <h2>
-          {{- news_list_headline -}}
-        </h2>
 
-        {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is not empty -%}
-        {{- news_list_image -}}
-        </a>
-      {%- endif -%}
+    <h2>
+      {{- news_list_headline -}}
+    </h2>
+
+    {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is not empty -%}
+      {{- news_list_image -}}
+    {%- endif -%}
+
+    {%- if news_url is not empty -%}
+      </a>
+    {%- endif -%}
 
     {# News List Dek  #}
     {% if news_list_dek|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
