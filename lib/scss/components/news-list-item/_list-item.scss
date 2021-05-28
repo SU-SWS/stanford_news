@@ -106,6 +106,7 @@
 
   h2 {
     @include modular-spacing('margin-bottom', 1);
+    @include modular-typography(2);
 
     display: inline;
     float: left;
