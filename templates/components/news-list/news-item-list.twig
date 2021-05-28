@@ -37,36 +37,36 @@
           {{- news_list_headline -}}
         </h2>
 
-        {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>') is not empty -%}
+        {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is not empty -%}
         {{- news_list_image -}}
         </a>
       {%- endif -%}
 
     {# News List Dek  #}
-    {% if news_list_dek|render|striptags('<drupal-render-placeholder>') is not empty %}
-    <p class="su-news-list__dek">{{ news_list_dek }}</p>
+    {% if news_list_dek|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    <p class="su-news-list__dek">{{ news_list_dek|render_clean }}</p>
     {% endif %}
     </div>
   {% endblock -%}
 
   {# News List Date #}
   {%- block block_news_list_date %}
-    {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>') is not empty %}
-      <p class="su-news-list__item-date">{{ news_list_publishing_date }}</p>
+    {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+      <p class="su-news-list__item-date">{{ news_list_publishing_date|render_clean }}</p>
     {% endif -%}
   {% endblock -%}
 
 
   {# News List Topics #}
   {%- block block_news_list_topics  %}
-    {%- if news_list_topics|render|striptags('<drupal-render-placeholder>') is not empty %}
+    {%- if news_list_topics|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
       <span class="su-news-list__topics">
       {{- news_list_topics -}}
     </span>
     {% endif -%}
   {% endblock -%}
 
-  {%- if news_list_footer|render|striptags('<drupal-render-placeholder>') is not empty -%}
+  {%- if news_list_footer|render|striptags('<drupal-render-placeholder>')|trim is not empty -%}
     {{ news_list_footer }}
   {%- endif -%}
 </article>
