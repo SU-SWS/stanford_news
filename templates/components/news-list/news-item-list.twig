@@ -27,9 +27,10 @@
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
 <article{{ attributes }}>
+  <div class="su-news-list__link-wrapper">
   {# News List Headline & Media #}
   {%- block block_news_list_headline  %}
-    <div class="news-list-header">
+    <div class="su-news-list__header">
     {%- if news_url is not empty -%}
       <a {{ news_url_attributes }} href="{{ news_url }}">
     {%- endif -%}
@@ -38,13 +39,21 @@
       {{- news_list_headline -}}
     </h2>
 
+        {%- if news_url is not empty -%}
+      </a>
+      {%- endif -%}
+
     {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is not empty -%}
       {{- news_list_image -}}
     {%- endif -%}
 
-    {%- if news_url is not empty -%}
-      </a>
-    {%- endif -%}
+
+      {# News List Date #}
+      {%- block block_news_list_date %}
+        {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+          <p class="su-news-list__item-date">{{ news_list_publishing_date|render_clean }}</p>
+        {% endif -%}
+      {% endblock -%}
 
     {# News List Dek  #}
     {% if news_list_dek|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
@@ -53,12 +62,7 @@
     </div>
   {% endblock -%}
 
-  {# News List Date #}
-  {%- block block_news_list_date %}
-    {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-      <p class="su-news-list__item-date">{{ news_list_publishing_date|render_clean }}</p>
-    {% endif -%}
-  {% endblock -%}
+  </div>
 
 
   {# News List Topics #}
