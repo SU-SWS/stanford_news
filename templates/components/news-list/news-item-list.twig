@@ -24,6 +24,16 @@
   {%- set attributes = attributes.addClass('su-news-external') -%}
 {%- endif %}
 
+{# If the news image is empty, create a class. #}
+{%- if news_list_image|render|striptags("<drupal-render-placeholder>")|trim is empty -%}
+  {%- set attributes = attributes.addClass('su-news-image__empty')  -%}
+{%- endif %}
+{#{% for user in users %}#}
+{#  <li>{{ user.username|e }}</li>#}
+{#{% endfor %}#}
+
+
+
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
 <article{{ attributes }}>
