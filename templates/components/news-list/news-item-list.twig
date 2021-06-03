@@ -24,63 +24,66 @@
   {%- set attributes = attributes.addClass('su-news-external') -%}
 {%- endif %}
 
-{# If the news image is empty, create a class. #}
-{%- if news_list_image|render|striptags("<drupal-render-placeholder>")|trim is empty -%}
-  {%- set attributes = attributes.addClass('su-news-image__empty')  -%}
-{%- endif %}
-{#{% for user in users %}#}
-{#  <li>{{ user.username|e }}</li>#}
-{#{% endfor %}#}
-
-
-
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
+{# If the news image is empty, create a class. #}
+{%- if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is empty -%}
+  {%- set attributes = attributes.addClass('su-news-list-image__empty')  -%}
+{%- endif %}
+
 <article{{ attributes }}>
-  <div class="su-news-list__link-wrapper">
   {# News List Headline & Media #}
   {%- block block_news_list_headline  %}
-    <div class="su-news-list__header">
-    {%- if news_url is not empty -%}
-      <a {{ news_url_attributes }} href="{{ news_url }}">
-    {%- endif -%}
 
-    <h2>
-      {{- news_list_headline -}}
-    </h2>
+    {# Wrapper for the top grid layout #}
+    <div class="su-news-list__header">
+      <div class="su-news-list__headline-dek">
+        {# Link for headline h2 #}
+        {%- if news_url is not empty -%}
+          <a {{ news_url_attributes }} href="{{ news_url }}">
+        {%- endif -%}
+
+          <h2>
+            {{- news_list_headline -}}
+          </h2>
 
         {%- if news_url is not empty -%}
-      </a>
-      {%- endif -%}
+        </a>
+        {%- endif -%}
 
+        {# News List Dek #}
+        {% if news_list_dek|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+          <p class="su-news-list__dek">{{ news_list_dek|render_clean }}</p>
+        {% endif %}
+      </div>
+
+    {# Add the image and link only if they both exist. #}
     {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is not empty -%}
-      {{- news_list_image -}}
+      {%- if news_url is not empty -%}
+        <a {{ news_url_attributes }} href="{{ news_url }}" aria-hidden="true">
+      {%- endif -%}
+        {{- news_list_image -}}
+      {%- if news_url is not empty -%}
+        </a>
+      {%- endif -%}
     {%- endif -%}
 
+    {# News List Date #}
+    {%- block block_news_list_date %}
+      {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+        <p class="su-news-list__item-date">{{ news_list_publishing_date|render_clean }}</p>
+      {% endif -%}
+    {% endblock -%}
 
-      {# News List Date #}
-      {%- block block_news_list_date %}
-        {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-          <p class="su-news-list__item-date">{{ news_list_publishing_date|render_clean }}</p>
-        {% endif -%}
-      {% endblock -%}
-
-    {# News List Dek  #}
-    {% if news_list_dek|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-    <p class="su-news-list__dek">{{ news_list_dek|render_clean }}</p>
-    {% endif %}
     </div>
   {% endblock -%}
-
-  </div>
-
 
   {# News List Topics #}
   {%- block block_news_list_topics  %}
     {%- if news_list_topics|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
       <span class="su-news-list__topics">
-      {{- news_list_topics -}}
-    </span>
+        {{- news_list_topics -}}
+      </span>
     {% endif -%}
   {% endblock -%}
 
