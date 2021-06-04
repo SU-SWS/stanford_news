@@ -89,9 +89,9 @@
   {# News List Topics #}
   {%- block block_news_list_topics  %}
     {%- if news_list_topics|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-      <span class="su-news-list__topics">
+      <div class="su-news-list__topics">
         {{- news_list_topics -}}
-      </span>
+      </div>
     {% endif -%}
   {% endblock -%}
 
