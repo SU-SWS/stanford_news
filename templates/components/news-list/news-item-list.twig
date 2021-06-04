@@ -27,16 +27,17 @@
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
 {# Unique id for the title for A11y labels #}
-{% set heading_id = news_list_headline|render|striptags("<drupal-render-placeholder>")|trim %}
-
-{%- set myid = "su-id-" ~ heading_id|render|striptags("<drupal-render-placeholder>")|replace({' ':'-'})  -%}
+{% set headline = news_list_headline|render_clean %}
+{% if headline is not empty %}
+  {% set headingID = getUniqueId(headline|render) %}
+{% endif %}
 
 {# If the news image is empty, create a class. #}
 {%- if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is empty -%}
   {%- set attributes = attributes.addClass('su-news-list-image__empty')  -%}
 {%- endif %}
 
-<article{{ attributes }} aria-labelledby="{{ myid }}">
+<article{{ attributes }} {% if headingId %}aria-labelledby="{{ headingID }}"{% endif %}>
 
   {# News List Headline & Media #}
   {%- block block_news_list_headline  %}
@@ -48,9 +49,11 @@
           <a {{ news_url_attributes }} href="{{ news_url }}">
         {%- endif -%}
 
-          <h2 id="{{ myid }}">
+        {% if news_list_headline|render_clean %}
+          <h2 id="{{ headingID }}">
             {{- news_list_headline -}}
           </h2>
+        {% endif %}
 
         {%- if news_url is not empty -%}
         </a>
