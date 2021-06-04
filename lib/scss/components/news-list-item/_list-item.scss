@@ -124,6 +124,13 @@
 
     color: $su-color-bright-red;
     text-decoration: none;
+
+    &:focus,
+    &:visited,
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   h2 {
@@ -135,7 +142,14 @@
     &:focus {
       outline: none;
     }
+  }
 
+  .su-link--external {
+    &::after {
+      background-color: $su-color-bright-red;
+      height: 1.8rem;
+      width: 1.8rem;
+    }
   }
 
   .su-news-list__dek {

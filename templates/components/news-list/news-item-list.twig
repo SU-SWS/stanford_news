@@ -26,24 +26,29 @@
 
 {% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
 
+{# Unique id for the title for A11y labels #}
+{% set heading_id = news_list_headline|render|striptags("<drupal-render-placeholder>")|trim %}
+
+{%- set myid = "su-id-" ~ heading_id|render|striptags("<drupal-render-placeholder>")|replace({' ':'-'})  -%}
+
 {# If the news image is empty, create a class. #}
 {%- if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is empty -%}
   {%- set attributes = attributes.addClass('su-news-list-image__empty')  -%}
 {%- endif %}
 
-<article{{ attributes }}>
+<article{{ attributes }} aria-labelledby="{{ myid }}">
+
   {# News List Headline & Media #}
   {%- block block_news_list_headline  %}
-
     {# Wrapper for the top grid layout #}
-    <div class="su-news-list__header">
+    <header class="su-news-list__header">
       <div class="su-news-list__headline-dek">
         {# Link for headline h2 #}
         {%- if news_url is not empty -%}
           <a {{ news_url_attributes }} href="{{ news_url }}">
         {%- endif -%}
 
-          <h2>
+          <h2 id="{{ myid }}">
             {{- news_list_headline -}}
           </h2>
 
@@ -75,7 +80,7 @@
       {% endif -%}
     {% endblock -%}
 
-    </div>
+    </header>
   {% endblock -%}
 
   {# News List Topics #}
