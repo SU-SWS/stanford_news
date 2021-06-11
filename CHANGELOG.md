@@ -1,5 +1,12 @@
 # Stanford News
 
+8.x-2.13
+--------------------------------------------------------------------------------
+_Release Date: 2021-06-11_
+
+- D8CORE-4090 D8CORE-2888 D8CORE-4126: Accessibility fixes to the news (#124) (732b7eb)
+- D8CORE-3162: change the title of the news article in lists and cards (#123) (9b4f1cd)
+
 8.x-2.12
 --------------------------------------------------------------------------------
 _Release Date: 2021-05-07_
