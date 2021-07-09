@@ -1,5 +1,13 @@
 # Stanford News
 
+8.x-2.14
+--------------------------------------------------------------------------------
+_Release Date: 2021-07-09_
+
+- D8CORE-4396: changes to remove focus for accessibility reason (#129) (1cb360d)
+- D8CORE-4508: adding skip to main on the topic menu (#128) (9aad0b9)
+- D8CORE-4378: adding the skip to secondary link (#127) (64297c2)
+
 8.x-2.13
 --------------------------------------------------------------------------------
 _Release Date: 2021-06-11_
