@@ -68,7 +68,7 @@
     {# Add the image and link only if they both exist. #}
     {% if news_list_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is not empty -%}
       {%- if news_url is not empty -%}
-        <a {{ news_url_attributes }} href="{{ news_url }}" aria-hidden="true">
+        <a {{ news_url_attributes }} href="{{ news_url }}" aria-hidden="true" tabindex="-1">
       {%- endif -%}
         {{- news_list_image -}}
       {%- if news_url is not empty -%}
