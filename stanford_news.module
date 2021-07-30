@@ -31,10 +31,6 @@ function stanford_news_theme() {
       ],
       'template' => 'block/signup-block',
     ],
-    'block__menu_block__news_topics' => [
-      'template' => 'block/block--menu-block--news-topics',
-      'base hook' => 'block',
-    ],
   ];
 }
 
