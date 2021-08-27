@@ -55,11 +55,6 @@ function stanford_news_preprocess_block(&$variables) {
     }
   }
 
-  // Attach the css to the topics menu.
-  if ($variables['base_plugin_id'] == "menu_block" && $variables['derivative_plugin_id'] == "news-topics") {
-    $variables['#attached']['library'][] = "stanford_news/news_list";
-  }
-
 }
 
 /**
