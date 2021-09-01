@@ -31,10 +31,6 @@ function stanford_news_theme() {
       ],
       'template' => 'block/signup-block',
     ],
-    'block__menu_block__news_topics' => [
-      'template' => 'block/block--menu-block--news-topics',
-      'base hook' => 'block',
-    ],
   ];
 }
 
@@ -57,11 +53,6 @@ function stanford_news_preprocess_block(&$variables) {
     if ($variables['elements']['#id'] == 'newslettersignup') {
       $variables['#attached']['library'][] = 'stanford_news/newsletter_signup';
     }
-  }
-
-  // Attach the css to the topics menu.
-  if ($variables['base_plugin_id'] == "menu_block" && $variables['derivative_plugin_id'] == "news-topics") {
-    $variables['#attached']['library'][] = "stanford_news/news_list";
   }
 
 }
