@@ -203,30 +203,6 @@
   }
 }
 
-// Load more button.
-.js-pager__items {
-  text-align: center;
-
-  .pager__item {
-    display: inline-block;
-
-    .button {
-      @include button-big;
-    }
-  }
-}
-
-.stanford-news--list {
-  .js-pager__items {
-    .pager__item {
-
-      .button {
-        font-size: 2.8rem;
-      }
-    }
-  }
-}
-
 .su-news-external {
   .su-news-list__item {
     a {
