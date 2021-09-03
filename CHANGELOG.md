@@ -1,5 +1,13 @@
 # Stanford News
 
+
+8.x-2.15
+--------------------------------------------------------------------------------
+_Release Date: 2021-09-03
+
+- D8CORE-3161: Changed the load more button size (#132)
+- D8CORE-4643: moving the filter menu to Stanford Basic (#131)
+
 8.x-2.14
 --------------------------------------------------------------------------------
 _Release Date: 2021-07-09_
