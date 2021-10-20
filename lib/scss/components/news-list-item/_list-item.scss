@@ -235,10 +235,12 @@
 
 // Changing the layout for the news filtered page.
 @include grid-media-max('lg') {
-  .left-region {
-    &.flex-lg-3-of-12 {
-      flex: auto;
-      max-width: 100%;
+  .section-news-views-views {
+    .left-region {
+      &.flex-lg-3-of-12 {
+        flex: auto;
+        max-width: 100%;
+      }
     }
   }
 }
