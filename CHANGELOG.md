@@ -1,6 +1,15 @@
 # Stanford News
 
 
+8.x-2.18
+--------------------------------------------------------------------------------
+_Release Date: 2021-11-19_
+
+- D8CORE-4864: making the selector more specific to only get the /news list  page and not the paragraph lists (#137)
+- D8CORE-4342: removing the extra size classes to the dek (#139)
+- D8CORE-3496: fixing spacing around the related 3 across cards (#138)
+
+
 8.x-2.17
 --------------------------------------------------------------------------------
 _Release Date: 2021-10-08_
