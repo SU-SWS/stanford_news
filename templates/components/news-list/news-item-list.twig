@@ -78,9 +78,12 @@
 
     {# News List Date #}
     {%- block block_news_list_date %}
-      {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-        <p class="su-news-list__item-date">{{ news_list_publishing_date|render_clean }}</p>
-      {% endif -%}
+      {# Since CSS Grid is used, always render an element even if it's empty. #}
+      <div class="su-news-list__item-date">
+        {% if news_list_publishing_date|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+          <p>{{ news_list_publishing_date|render_clean }}</p>
+        {% endif -%}
+      </div>
     {% endblock -%}
 
     </header>
