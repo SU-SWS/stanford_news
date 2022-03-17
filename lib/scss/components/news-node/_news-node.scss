@@ -133,14 +133,16 @@
 
 // Node - top banner image on article
 .section-banner-media {
-  @include modular-spacing('margin-bottom', 4);
+  .main-region {
+    @include modular-spacing('margin-bottom', 4);
+  }
 }
 
 // Node field - Featured Image Caption.
 .su-news-banner-media-caption {
   @include caption;
   @include modular-spacing('padding', null 0);
-  @include modular-spacing('margin', 1 null 2);
+  @include modular-spacing('margin-top', 1);
   text-align: center;
 }
 
