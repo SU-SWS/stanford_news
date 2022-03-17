@@ -1,6 +1,16 @@
 # Stanford News
 
 
+8.x-2.19
+--------------------------------------------------------------------------------
+_Release Date: 2022-03-17_
+
+- Updated views_infinite_scroll module (#144)
+- D8CORE-5568 Fix news list template when no date is available (#143)
+- D8CORE-4362: fixing the padding after a banner image on the news page. (#142)
+- Removed D8 Tests
+
+
 8.x-2.18
 --------------------------------------------------------------------------------
 _Release Date: 2021-11-19_
