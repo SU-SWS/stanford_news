@@ -111,10 +111,6 @@
     }
 
     .su-news-vertical-teaser__link {
-      @include grid-media-max('sm') {
-        @include modular-spacing('margin-top', 1);
-      }
-
       display: block;
 
       &:hover {
